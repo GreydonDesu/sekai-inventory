@@ -1,0 +1,44 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build artifacts
+*.out
+*.o
+
+# Go build cache
+/go-build/
+
+# Dependency directories (for vendored dependencies)
+vendor/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# IDE and editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Test coverage files
+*.cover
+coverage.out
+
+# Generated files
+*.json
+*.yaml
+*.yml
+*.lock
