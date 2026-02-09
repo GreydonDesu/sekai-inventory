@@ -55,26 +55,76 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
    ./sekai-inventory
    ```
 
-### Running Tests
+## Commands
 
-1. **Run All Tests**:
+### 1. Initialize Inventory
 
-   ```shell
-   go test ./...
-   ```
+Initialize a new inventory file.
 
-2. **Run Tests with Coverage**:
+```shell
+# Windows
+.\sekai-inventory.exe init
+# Linux/macOS
+./sekai-inventory init
+```
 
-   ```shell
-   # Generate coverage report
-   go test -coverprofile=coverage.out ./...
+### 2. Add Cards
 
-   # View coverage in browser
-   go tool cover -html=coverage.out
+Add one or more cards to the inventory by their IDs.
 
-   # View coverage in terminal
-   go tool cover -func=coverage.out
-   ```
+```shell
+# Windows
+.\sekai-inventory.exe add <cardID1> [<cardID2> ...]
+# Linux/macOS
+./sekai-inventory add <cardID1> [<cardID2> ...]
+```
+
+### 3. Remove Cards
+
+Remove one or more cards from the inventory by their IDs.
+
+```shell
+# Windows
+.\sekai-inventory.exe remove <cardID1> [<cardID2> ...]
+# Linux/macOS
+./sekai-inventory remove <cardID1> [<cardID2> ...]
+```
+
+### 4. Search Inventory
+
+Search for cards in the inventory by various fields.
+
+```shell
+# Windows
+.\sekai-inventory.exe search --<field> <value>
+# Linux/macOS
+./sekai-inventory search --<field> <value>
+```
+
+**Valid Fields**:
+
+- `--character`: Search by character's name.
+- `--rarity`: Card rarity (1, 2, 3, 4, bd).
+- `--group`: Unit name (L/N, MMJ, VBS, WxS, N25, VS).
+
+### 5. Change Card Details
+
+Update the details of a card in the inventory.
+
+```shell
+# Windows
+.\sekai-inventory.exe change <cardID> --<field> <value>
+# Linux/macOS
+./sekai-inventory change <cardID> --<field> <value>
+```
+
+***Valid Fields**:
+
+- `--level`: Card level (1-60).
+- `--skillLevel`: Skill level (1-5).
+- `--masterRank`: Master rank (0-5).
+- `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
+- `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
 
 ## Program Structure and Flow
 
@@ -171,77 +221,6 @@ classDiagram
    - A success message is displayed to the user:
 
         `Added card with IDs [1010]`
-
-## Commands
-
-### 1. Initialize Inventory
-
-Initialize a new inventory file.
-
-```shell
-# Windows
-.\sekai-inventory.exe init
-# Linux/macOS
-./sekai-inventory init
-```
-
-### 2. Add Cards
-
-Add one or more cards to the inventory by their IDs.
-
-```shell
-# Windows
-.\sekai-inventory.exe add <cardID1> [<cardID2> ...]
-# Linux/macOS
-./sekai-inventory add <cardID1> [<cardID2> ...]
-```
-
-### 3. Remove Cards
-
-Remove one or more cards from the inventory by their IDs.
-
-```shell
-# Windows
-.\sekai-inventory.exe remove <cardID1> [<cardID2> ...]
-# Linux/macOS
-./sekai-inventory remove <cardID1> [<cardID2> ...]
-```
-
-### 4. Search Inventory
-
-Search for cards in the inventory by various fields.
-
-```shell
-# Windows
-.\sekai-inventory.exe search --<field> <value>
-# Linux/macOS
-./sekai-inventory search --<field> <value>
-```
-
-**Valid Fields**:
-
-- `--character`: Search by character's name.
-- `--rarity`: Card rarity (1, 2, 3, 4, bd).
-- `--group`: Unit name (L/N, MMJ, VBS, WxS, N25, VS).
-
-### 5. Change Card Details
-
-Update the details of a card in the inventory.
-
-```shell
-# Windows
-.\sekai-inventory.exe change <cardID> --<field> <value>
-# Linux/macOS
-./sekai-inventory change <cardID> --<field> <value>
-```
-
-***Valid Fields**:
-
-- `--level`: Card level (1-60).
-- `--skillLevel`: Skill level (1-5).
-- `--masterRank`: Master rank (0-5).
-- `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
-- `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
 
 ## References
 
