@@ -122,7 +122,31 @@ func List(filters map[string]string) {
 		return
 	}
 
-	tools.PrintSuccessMessage("Inventory:")
+	// ---- Inventory stats header ----
+
+	// Count rarities in the filtered result
+	rarityCounts := map[string]int{
+		"rarity_1":        0,
+		"rarity_2":        0,
+		"rarity_3":        0,
+		"rarity_4":        0,
+		"rarity_birthday": 0,
+	}
+
+	for _, card := range filteredCards {
+		rarityCounts[card.CardRarityType]++
+	}
+
+	tools.PrintSuccessMessage(fmt.Sprintf("Inventory Stats (Total: %d):", len(filteredCards)))
+	// Order chosen to highlight higher rarities first; adjust if you prefer another order.
+	fmt.Printf("  %s	%d\n", tools.FormatRarity("rarity_4"), rarityCounts["rarity_4"])
+	fmt.Printf("  %s	%d\n", tools.FormatRarity("rarity_birthday"), rarityCounts["rarity_birthday"])
+	fmt.Printf("  %s	%d\n", tools.FormatRarity("rarity_3"), rarityCounts["rarity_3"])
+	fmt.Printf("  %s	%d\n", tools.FormatRarity("rarity_2"), rarityCounts["rarity_2"])
+	fmt.Printf("  %s	%d\n", tools.FormatRarity("rarity_1"), rarityCounts["rarity_1"])
+
+	// ---- Inventory list ----
+	tools.PrintSuccessMessage("--- Inventory List ---")
 	for _, card := range filteredCards {
 		// Use the utility function to format the card details
 		cardDetails := tools.FormatCardDetails(card, characterMap)
