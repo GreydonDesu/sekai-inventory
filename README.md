@@ -4,23 +4,31 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 ## Features
 
-- **Initialization**: Create a new empty inventory file (`init`)
-- **Data Management**:
-  - Add cards to inventory (`add`)
+- **Initialization**  
+  - Create a new empty inventory file (`init`)
+
+- **Data Management**  
+  - Add cards to inventory with sensible defaults (`add`)
   - Remove cards from inventory (`remove`)
-  - Update card details (`change`)
-- **Search and List**:
-  - Search available cards (`search`)
-  - List inventory contents (`list`)
-  - Filter by character, rarity, or unit
-- **Data Synchronization**:
-  - Fetch latest card data (`update`)
-  - Track data versions
-  - Automatic timestamp management
-- **User Interface**:
+  - Update card details, including painting status (`change`)
+  - Convert old inventory files to the latest schema (`convert`)
+
+- **Search and List**  
+  - Search available cards that are **not yet in the inventory** (`search`)
+  - List inventory contents with detailed information (`list`)
+  - Filter by character, rarity, unit, and painting status (for `list`)
+  - Inventory statistics summary by rarity at the top of `list` output
+
+- **Data Synchronization**  
+  - Fetch latest card and character data (`update`)
+  - Track data versions in resource files
+  - Automatic timestamp management for inventory changes
+
+- **User Interface**  
   - Progress indicators for long operations
   - Color-coded output for better readability
-  - Detailed help system
+  - Human-friendly summaries for add, remove, and change operations
+  - Detailed help system (`help`)
 
 ## Getting Started
 
@@ -32,7 +40,7 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 1. **Build the Project**:
 
-   ```shell
+   ```sh
    # Build for your current platform
    go build
 
@@ -47,7 +55,7 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 2. **Run the Program**:
 
-   ```shell
+   ```sh
    # Windows
    .\sekai-inventory.exe
 
@@ -61,7 +69,7 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 Initialize a new inventory file.
 
-```shell
+```sh
 # Windows
 .\sekai-inventory.exe init
 # Linux/macOS
@@ -72,7 +80,7 @@ Initialize a new inventory file.
 
 Add one or more cards to the inventory by their IDs.
 
-```shell
+```sh
 # Windows
 .\sekai-inventory.exe add <cardID1> [<cardID2> ...]
 # Linux/macOS
@@ -83,18 +91,18 @@ Add one or more cards to the inventory by their IDs.
 
 Remove one or more cards from the inventory by their IDs.
 
-```shell
+```sh
 # Windows
 .\sekai-inventory.exe remove <cardID1> [<cardID2> ...]
 # Linux/macOS
 ./sekai-inventory remove <cardID1> [<cardID2> ...]
 ```
 
-### 4. Search Inventory
+### 4. Search Available Cards
 
-Search for cards in the inventory by various fields.
+Search for **available cards that are not yet in your inventory** by various fields.
 
-```shell
+```sh
 # Windows
 .\sekai-inventory.exe search --<field> <value>
 # Linux/macOS
@@ -104,14 +112,32 @@ Search for cards in the inventory by various fields.
 **Valid Fields**:
 
 - `--character`: Search by character's name.
-- `--rarity`: Card rarity (1, 2, 3, 4, bd).
-- `--group`: Unit name (L/N, MMJ, VBS, WxS, N25, VS).
+- `--rarity`: Card rarity (`1, 2, 3, 4, bd`).
+- `--group`: Unit name (`L/N, MMJ, VBS, WxS, N25, VS`).
 
-### 5. Change Card Details
+### 5. List Inventory
 
-Update the details of a card in the inventory.
+List cards in your inventory, optionally filtered by various fields.
 
-```shell
+```sh
+# Windows
+.\sekai-inventory.exe list [--<field> <value>]
+# Linux/macOS
+./sekai-inventory list [--<field> <value>]
+```
+
+**Valid Fields**:
+
+- `--character`: Search by character's name.
+- `--rarity`: Card rarity (`1, 2, 3, 4, bd`).
+- `--group`: Unit name (`L/N, MMJ, VBS, WxS, N25, VS`).
+- `--painting`: Filter by painting status (`true`/`false`).
+
+### 6. Change Card Details
+
+Change the details of a card in the inventory.
+
+```sh
 # Windows
 .\sekai-inventory.exe change <cardID> --<field> <value>
 # Linux/macOS
@@ -120,9 +146,9 @@ Update the details of a card in the inventory.
 
 ***Valid Fields**:
 
-- `--level`: Card level (1-60).
-- `--skillLevel`: Skill level (1-5).
-- `--masterRank`: Master rank (0-5).
+- `--level`: Card level (`1-60`).
+- `--skillLevel`: Skill level (`1-5`).
+- `--masterRank`: Master rank (`0-5`).
 - `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
 - `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
 
@@ -133,21 +159,25 @@ Update the details of a card in the inventory.
 The program is structured into three main components:
 
 1. **main.go**:
-    - The entry point of the application.
-    - Routes commands to the appropriate functions.
+    - Entry point of the application.
+    - Parses CLI arguments and routes commands to the appropriate functions.
 
 2. **function/**:
-   - Contains the core logic for each command (e.g., add, remove, search, change, convert).
+   - Core logic for each command (e.g., `add`, `remove`, `search`, `list`, `change`, `convert`, `update`, `help`).
 
 3. **model/**:
-   - Defines the data models for the inventory and cards.
+   - Data models for inventory, cards, and characters.
 
 4. **tools/**:
-   - Contains utility functions for file handling, timestamp updates, and other helper methods.
+   - Utility functions for:
+     - File handling (`LoadInventory`, `SaveInventory`, `LoadCards`, `LoadCharacters`)
+     - Timestamp updates (`UpdateTimeSet`)
+     - Formatting and printing (`FormatCardDetails`, `FormatRarity`, etc.)
+     - Helper methods (parsing, filters, color helpers)
 
 ### Class Diagram
 
-Below is a class diagram representing the structure of the program (built with Mermaid):
+Below is a class diagram representing the structure of the program (built with Mermaid). It’s a conceptual overview rather than a 1:1 mapping of every struct:
 
 ```mermaid
 classDiagram
@@ -161,11 +191,11 @@ classDiagram
         +MasterRank int
         +SideStory1 bool
         +SideStory2 bool
+        +Painting bool
     }
 
     class Inventory {
         +Cards []Card
-        +Version string
         +UpdatedAt time.Time
         +Save()
         +Load()
@@ -194,33 +224,38 @@ classDiagram
 #### Example: Adding a Card (`add`)
 
 1. **User Input**:
-   - The user runs the command:
 
-    ```bash
+   The user runs the command:
+
+    ```sh
     sekai-inventory add 1010
     ```
 
 2. **Command Routing**:
 
-   - `main.go` routes the add command to the `AddCards` function in `function/add.go`.
+   `main.go` routes the `add` command to the `Add` function in `function/add.go`.
 
 3. **Card Validation**:
 
-   - The `AddCards` function checks if the card exists in the external `cards.json` file.
+   `Add` checks if the card exists in the external `cards.json` file and whether it is already in the inventory.
 
 4. **Inventory Update**:
 
-   - The card is added to the inventory, and the `UpdatedAt` timestamp is updated.
+   - If the card is valid and not already owned, it is added to the inventory with default values.
+   - The `UpdatedAt` timestamp is refreshed.
 
 5. **Save Inventory**:
 
-   - The updated inventory is saved to `inventory.json`.
+   The updated inventory is saved to `res/inventory.json`.
 
 6. **Success Message**:
 
-   - A success message is displayed to the user:
+   A detailed, human-friendly summary is displayed, for example:
 
-        `Added card with IDs [1010]`
+   ```sh
+   Added 1 card(s):
+     [1010] ୨୧     Kiritani Haruka (MMJ) "Happy Birthday! 2025"
+   ```
 
 ## References
 
