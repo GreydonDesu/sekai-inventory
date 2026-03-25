@@ -57,10 +57,10 @@ func Update() {
 		fmt.Println()
 		tools.PrintSuccessMessage("Update completed successfully!")
 		fmt.Printf("\nUpdate Summary:\n")
-		fmt.Printf("- Cards database updated:      %s\n", formatTime(metadata.CardsLastUpdate))
-		fmt.Printf("- Characters database updated: %s\n", formatTime(metadata.CharsLastUpdate))
-		fmt.Printf("- Data version:               %s\n", metadata.GitCommitID[:8])
+		fmt.Printf("  Cards database updated:      %s\n", formatTime(metadata.CardsLastUpdate))
+		fmt.Printf("  Characters database updated: %s\n", formatTime(metadata.CharsLastUpdate))
+		fmt.Printf("  Data version:                %s\n", metadata.GitCommitID[:7])
 	} else {
-		tools.PrintSuccessMessage("\nUpdate completed successfully.")
+		tools.PrintSuccessMessage("\nUpdate completed successfully!")
 	}
 }
