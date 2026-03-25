@@ -112,8 +112,8 @@ Search for **available cards that are not yet in your inventory** by various fie
 **Valid Fields**:
 
 - `--character`: Search by character's name.
-- `--rarity`: Card rarity (`1, 2, 3, 4, bd`).
-- `--group`: Unit name (`L/N, MMJ, VBS, WxS, N25, VS`).
+- `--rarity`: Card rarity (`1`, `2`, `3`, `4`, `bd`).
+- `--group`: Unit name (`L/N`, `MMJ`, `VBS`, `WxS`, `N25`, `VS`).
 
 ### 5. List Inventory
 
@@ -129,8 +129,8 @@ List cards in your inventory, optionally filtered by various fields.
 **Valid Fields**:
 
 - `--character`: Search by character's name.
-- `--rarity`: Card rarity (`1, 2, 3, 4, bd`).
-- `--group`: Unit name (`L/N, MMJ, VBS, WxS, N25, VS`).
+- `--rarity`: Card rarity (`1`, `2`, `3`, `4`, `bd`).
+- `--group`: Unit name (`L/N`, `MMJ`, `VBS`, `WxS`, `N25`, `VS`).
 - `--painting`: Filter by painting status (`true`/`false`).
 
 ### 6. Change Card Details
