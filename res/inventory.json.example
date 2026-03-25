@@ -11,7 +11,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 2,
@@ -24,7 +25,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 4,
@@ -33,11 +35,12 @@
       "attr": "cute",
       "supportUnit": "none",
       "prefix": "Words Before Dawn",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 5,
@@ -50,7 +53,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 6,
@@ -63,7 +67,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 7,
@@ -76,7 +81,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 9,
@@ -89,7 +95,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 10,
@@ -102,7 +109,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 11,
@@ -115,7 +123,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 13,
@@ -128,7 +137,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 14,
@@ -141,7 +151,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 15,
@@ -154,7 +165,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 17,
@@ -167,7 +179,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 18,
@@ -180,7 +193,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 19,
@@ -193,7 +207,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 21,
@@ -206,7 +221,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 22,
@@ -219,7 +235,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 23,
@@ -232,7 +249,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 25,
@@ -245,7 +263,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 26,
@@ -258,7 +277,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 27,
@@ -271,7 +291,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 29,
@@ -284,7 +305,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 30,
@@ -297,7 +319,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 31,
@@ -310,7 +333,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 33,
@@ -323,7 +347,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 34,
@@ -336,7 +361,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 35,
@@ -349,7 +375,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 37,
@@ -362,7 +389,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 38,
@@ -375,7 +403,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 39,
@@ -388,7 +417,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 41,
@@ -401,7 +431,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 42,
@@ -414,7 +445,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 43,
@@ -427,7 +459,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 45,
@@ -440,7 +473,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 46,
@@ -453,7 +487,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 47,
@@ -466,7 +501,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 49,
@@ -479,7 +515,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 50,
@@ -492,7 +529,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 51,
@@ -505,7 +543,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 53,
@@ -518,7 +557,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 54,
@@ -531,7 +571,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 55,
@@ -544,7 +585,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 57,
@@ -557,7 +599,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 58,
@@ -570,7 +613,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 59,
@@ -583,7 +627,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 61,
@@ -596,7 +641,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 62,
@@ -609,7 +655,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 63,
@@ -622,7 +669,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 65,
@@ -635,7 +683,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 66,
@@ -648,7 +697,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 67,
@@ -661,7 +711,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 69,
@@ -674,7 +725,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 70,
@@ -687,7 +739,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 71,
@@ -700,7 +753,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 73,
@@ -713,7 +767,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 74,
@@ -726,7 +781,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 75,
@@ -739,7 +795,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 77,
@@ -752,7 +809,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 78,
@@ -765,7 +823,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 79,
@@ -778,7 +837,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 81,
@@ -791,7 +851,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 82,
@@ -804,7 +865,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 83,
@@ -817,7 +879,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 84,
@@ -830,7 +893,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 85,
@@ -843,7 +907,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 86,
@@ -856,7 +921,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 87,
@@ -869,7 +935,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 88,
@@ -878,11 +945,12 @@
       "attr": "cute",
       "supportUnit": "idol",
       "prefix": "The Big Debut",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 89,
@@ -895,7 +963,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 90,
@@ -908,7 +977,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 91,
+      "characterId": 22,
+      "cardRarityType": "rarity_3",
+      "attr": "mysterious",
+      "supportUnit": "idol",
+      "prefix": "Sparkling Performance",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 92,
@@ -921,7 +1005,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 93,
@@ -934,7 +1019,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 94,
@@ -947,7 +1033,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 95,
@@ -960,7 +1047,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 97,
@@ -973,7 +1061,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 98,
@@ -986,7 +1075,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 99,
@@ -999,7 +1089,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 101,
@@ -1012,7 +1103,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 102,
@@ -1025,7 +1117,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 103,
@@ -1038,7 +1131,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 105,
@@ -1051,7 +1145,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 106,
@@ -1064,7 +1159,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 107,
@@ -1077,7 +1173,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 112,
@@ -1090,7 +1187,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 113,
@@ -1103,7 +1201,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 117,
@@ -1116,7 +1215,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 118,
@@ -1129,7 +1229,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 120,
@@ -1142,7 +1243,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 122,
@@ -1155,7 +1257,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 123,
@@ -1168,7 +1271,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 125,
@@ -1181,7 +1285,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 127,
@@ -1194,7 +1299,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 128,
@@ -1207,7 +1313,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 132,
@@ -1220,7 +1327,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 133,
@@ -1233,7 +1341,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 135,
@@ -1246,7 +1355,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 136,
@@ -1259,7 +1369,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 137,
@@ -1272,7 +1383,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 138,
@@ -1285,7 +1397,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 142,
+      "characterId": 15,
+      "cardRarityType": "rarity_3",
+      "attr": "mysterious",
+      "supportUnit": "none",
+      "prefix": "Animal Cotton Candy♪",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 143,
@@ -1298,7 +1425,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 147,
@@ -1311,7 +1439,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 148,
@@ -1324,7 +1453,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 150,
@@ -1337,7 +1467,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 151,
@@ -1350,7 +1481,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 152,
@@ -1363,7 +1495,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 153,
@@ -1376,7 +1509,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 154,
@@ -1389,7 +1523,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 158,
@@ -1402,7 +1537,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 159,
@@ -1415,7 +1551,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 163,
@@ -1428,7 +1565,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 164,
@@ -1441,7 +1579,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 168,
@@ -1454,7 +1593,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 169,
@@ -1467,7 +1607,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 170,
@@ -1480,7 +1621,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 173,
@@ -1493,7 +1635,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 174,
@@ -1506,7 +1649,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 175,
@@ -1519,7 +1663,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 178,
@@ -1532,7 +1677,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 179,
@@ -1545,7 +1691,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 182,
@@ -1558,7 +1705,22 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 183,
+      "characterId": 23,
+      "cardRarityType": "rarity_3",
+      "attr": "happy",
+      "supportUnit": "theme_park",
+      "prefix": "In The Best Way Possible!",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 184,
@@ -1571,7 +1733,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 187,
@@ -1584,7 +1747,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 188,
@@ -1597,7 +1761,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 189,
@@ -1610,7 +1775,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 193,
@@ -1623,7 +1789,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 194,
@@ -1636,7 +1803,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 198,
@@ -1649,7 +1817,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 200,
@@ -1662,7 +1831,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 201,
@@ -1675,7 +1845,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 202,
+      "characterId": 20,
+      "cardRarityType": "rarity_4",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "Feelings That I've Realized",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 205,
@@ -1688,7 +1873,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 206,
@@ -1701,7 +1887,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 209,
@@ -1710,11 +1897,12 @@
       "attr": "cool",
       "supportUnit": "none",
       "prefix": "Chatting By The Window",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 210,
@@ -1727,7 +1915,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 211,
@@ -1740,7 +1929,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 215,
@@ -1753,7 +1943,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 216,
@@ -1766,7 +1957,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 220,
@@ -1779,7 +1971,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 221,
@@ -1792,7 +1985,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 225,
@@ -1805,7 +1999,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 226,
@@ -1818,7 +2013,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 229,
@@ -1831,7 +2027,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 230,
@@ -1844,7 +2041,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 231,
@@ -1857,7 +2055,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 235,
@@ -1870,7 +2069,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 236,
@@ -1883,7 +2083,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 237,
@@ -1896,7 +2097,8 @@
       "masterRank": 1,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 240,
@@ -1909,7 +2111,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 241,
@@ -1922,7 +2125,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 246,
@@ -1935,7 +2139,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 247,
@@ -1948,7 +2153,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 248,
@@ -1961,7 +2167,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 251,
@@ -1974,7 +2181,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 252,
@@ -1987,7 +2195,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 253,
@@ -2000,7 +2209,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 255,
@@ -2009,11 +2219,12 @@
       "attr": "cool",
       "supportUnit": "none",
       "prefix": "Distant Summer Festival",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 256,
@@ -2026,7 +2237,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 257,
@@ -2039,7 +2251,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 258,
@@ -2052,7 +2265,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 261,
@@ -2065,7 +2279,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 262,
@@ -2078,7 +2293,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 263,
@@ -2091,7 +2307,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 264,
@@ -2104,7 +2321,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 267,
@@ -2117,7 +2335,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 268,
@@ -2130,7 +2349,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 269,
@@ -2143,7 +2363,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 271,
@@ -2152,11 +2373,12 @@
       "attr": "pure",
       "supportUnit": "theme_park",
       "prefix": "Longing For The Sea",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 272,
@@ -2169,7 +2391,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 273,
@@ -2182,7 +2405,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 277,
@@ -2195,7 +2419,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 278,
@@ -2208,7 +2433,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 282,
@@ -2221,7 +2447,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 283,
@@ -2234,7 +2461,36 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 286,
+      "characterId": 22,
+      "cardRarityType": "rarity_4",
+      "attr": "happy",
+      "supportUnit": "school_refusal",
+      "prefix": "The Girl From The Album",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 287,
+      "characterId": 19,
+      "cardRarityType": "rarity_3",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "A Cancelled Message",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 288,
@@ -2247,7 +2503,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 294,
@@ -2260,7 +2517,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 295,
@@ -2273,7 +2531,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 297,
@@ -2286,7 +2545,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 299,
@@ -2299,7 +2559,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 300,
@@ -2312,7 +2573,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 309,
@@ -2325,7 +2587,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 310,
@@ -2338,7 +2601,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 311,
@@ -2351,7 +2615,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 315,
@@ -2364,7 +2629,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 316,
@@ -2377,7 +2643,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 317,
@@ -2390,7 +2657,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 319,
@@ -2403,7 +2671,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 321,
@@ -2416,7 +2685,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 322,
@@ -2429,7 +2699,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 323,
@@ -2442,7 +2713,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 327,
@@ -2455,7 +2727,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 328,
@@ -2468,7 +2741,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 330,
@@ -2481,7 +2755,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 331,
@@ -2494,7 +2769,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 333,
@@ -2507,7 +2783,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 334,
@@ -2520,7 +2797,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 340,
+      "characterId": 21,
+      "cardRarityType": "rarity_2",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "The Slothful, Sleepless Widow",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 342,
@@ -2529,11 +2821,12 @@
       "attr": "pure",
       "supportUnit": "none",
       "prefix": "A Winter Evening Chat",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 344,
@@ -2546,7 +2839,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 345,
@@ -2559,7 +2853,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 349,
@@ -2572,7 +2867,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 353,
@@ -2585,7 +2881,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 354,
@@ -2598,7 +2895,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 359,
@@ -2611,7 +2909,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 360,
@@ -2624,7 +2923,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 361,
@@ -2637,7 +2937,8 @@
       "masterRank": 3,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 364,
@@ -2650,7 +2951,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 365,
@@ -2663,7 +2965,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 371,
@@ -2676,7 +2979,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 372,
@@ -2689,7 +2993,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 376,
@@ -2702,7 +3007,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 377,
@@ -2715,7 +3021,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 379,
@@ -2728,7 +3035,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 380,
@@ -2741,7 +3049,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 383,
@@ -2754,7 +3063,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 384,
@@ -2767,7 +3077,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 388,
@@ -2780,7 +3091,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 389,
@@ -2793,7 +3105,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 391,
@@ -2806,7 +3119,22 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 392,
+      "characterId": 5,
+      "cardRarityType": "rarity_4",
+      "attr": "pure",
+      "supportUnit": "none",
+      "prefix": "Passionate Talk!",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 394,
@@ -2819,7 +3147,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 395,
@@ -2832,7 +3161,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 397,
@@ -2845,7 +3175,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 401,
@@ -2858,7 +3189,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 408,
@@ -2871,7 +3203,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 409,
@@ -2884,7 +3217,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 411,
@@ -2897,7 +3231,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 413,
@@ -2910,7 +3245,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 414,
@@ -2923,7 +3259,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 416,
@@ -2936,7 +3273,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 417,
@@ -2949,7 +3287,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 419,
@@ -2962,7 +3301,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 420,
@@ -2975,7 +3315,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 423,
@@ -2988,7 +3329,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 424,
@@ -2998,10 +3340,11 @@
       "supportUnit": "idol",
       "prefix": "You Can Rely On Me More♪",
       "level": 60,
-      "masterRank": 2,
+      "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 425,
@@ -3014,7 +3357,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 426,
@@ -3027,7 +3371,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 431,
@@ -3040,7 +3385,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 432,
@@ -3053,7 +3399,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 434,
@@ -3066,7 +3413,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 435,
@@ -3079,7 +3427,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 436,
@@ -3092,7 +3441,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 437,
@@ -3105,7 +3455,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 438,
@@ -3118,7 +3469,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 443,
@@ -3131,7 +3483,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 444,
@@ -3144,7 +3497,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 445,
@@ -3157,7 +3511,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 446,
@@ -3170,7 +3525,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 448,
@@ -3183,7 +3539,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 449,
@@ -3196,7 +3553,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 453,
@@ -3209,7 +3567,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 454,
@@ -3222,7 +3581,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 457,
@@ -3231,11 +3591,12 @@
       "attr": "mysterious",
       "supportUnit": "none",
       "prefix": "The Right Path For Me",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 461,
@@ -3248,7 +3609,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 462,
@@ -3261,7 +3623,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 466,
@@ -3274,7 +3637,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 467,
@@ -3287,7 +3651,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 469,
@@ -3300,7 +3665,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 472,
@@ -3313,7 +3679,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 473,
@@ -3326,7 +3693,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 478,
@@ -3339,7 +3707,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 479,
@@ -3352,7 +3721,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 484,
@@ -3365,7 +3735,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 485,
@@ -3378,7 +3749,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 488,
+      "characterId": 18,
+      "cardRarityType": "rarity_4",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "Distant Warmth",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 489,
@@ -3391,7 +3777,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 490,
@@ -3404,7 +3791,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 496,
@@ -3417,7 +3805,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 497,
@@ -3430,7 +3819,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 501,
@@ -3443,7 +3833,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 503,
@@ -3456,7 +3847,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 505,
+      "characterId": 9,
+      "cardRarityType": "rarity_4",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Midnight Making",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 507,
@@ -3469,7 +3875,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 508,
@@ -3482,7 +3889,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 515,
@@ -3495,7 +3903,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 516,
@@ -3508,7 +3917,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 519,
@@ -3521,7 +3931,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 520,
@@ -3534,7 +3945,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 521,
@@ -3547,7 +3959,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 522,
@@ -3560,7 +3973,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 525,
@@ -3573,7 +3987,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 526,
@@ -3586,7 +4001,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 531,
@@ -3599,7 +4015,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 532,
@@ -3612,7 +4029,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 537,
@@ -3625,7 +4043,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 538,
@@ -3638,7 +4057,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 539,
@@ -3651,7 +4071,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 543,
@@ -3664,7 +4085,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 544,
@@ -3677,7 +4099,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 548,
@@ -3690,7 +4113,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 549,
@@ -3703,7 +4127,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 551,
@@ -3716,7 +4141,8 @@
       "masterRank": 1,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 554,
@@ -3729,7 +4155,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 555,
@@ -3742,7 +4169,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 560,
@@ -3755,7 +4183,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 568,
@@ -3768,7 +4197,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 569,
@@ -3781,7 +4211,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 571,
@@ -3794,7 +4225,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 575,
@@ -3807,7 +4239,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 578,
@@ -3820,7 +4253,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 579,
@@ -3833,7 +4267,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 580,
@@ -3846,7 +4281,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 586,
@@ -3859,7 +4295,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 587,
@@ -3872,7 +4309,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 592,
@@ -3885,7 +4323,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 593,
@@ -3898,7 +4337,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 594,
@@ -3911,7 +4351,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 595,
@@ -3924,7 +4365,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 598,
@@ -3937,7 +4379,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 599,
@@ -3950,7 +4393,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 603,
@@ -3963,7 +4407,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 604,
@@ -3976,7 +4421,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 609,
@@ -3989,7 +4435,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 610,
@@ -4002,7 +4449,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 612,
@@ -4015,7 +4463,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 615,
@@ -4028,7 +4477,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 616,
@@ -4041,7 +4491,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 618,
@@ -4050,11 +4501,12 @@
       "attr": "cute",
       "supportUnit": "none",
       "prefix": "My Cheer For You",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 622,
@@ -4067,7 +4519,8 @@
       "masterRank": 1,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 623,
@@ -4080,7 +4533,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 625,
@@ -4093,7 +4547,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 627,
@@ -4106,7 +4561,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 628,
@@ -4119,7 +4575,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 633,
@@ -4132,7 +4589,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 634,
@@ -4145,7 +4603,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 635,
@@ -4158,7 +4617,8 @@
       "masterRank": 0,
       "skillLevel": 2,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 639,
@@ -4171,7 +4631,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 640,
@@ -4184,7 +4645,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 642,
@@ -4193,11 +4655,26 @@
       "attr": "mysterious",
       "supportUnit": "none",
       "prefix": "Donuts And Memories",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 644,
+      "characterId": 21,
+      "cardRarityType": "rarity_4",
+      "attr": "mysterious",
+      "supportUnit": "idol",
+      "prefix": "Yokohama? I Predict Good Food♪",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 645,
@@ -4210,7 +4687,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 646,
@@ -4223,7 +4701,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 648,
@@ -4236,7 +4715,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 649,
@@ -4249,7 +4729,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 650,
@@ -4262,7 +4743,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 651,
@@ -4275,7 +4757,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 652,
@@ -4288,7 +4771,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 655,
@@ -4301,7 +4785,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 656,
@@ -4314,7 +4799,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 657,
@@ -4327,7 +4813,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 658,
@@ -4340,7 +4827,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 659,
@@ -4353,7 +4841,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 662,
@@ -4366,7 +4855,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 663,
@@ -4379,7 +4869,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 664,
@@ -4392,7 +4883,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 667,
@@ -4405,7 +4897,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 668,
@@ -4418,7 +4911,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 670,
@@ -4431,7 +4925,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 671,
@@ -4444,7 +4939,8 @@
       "masterRank": 0,
       "skillLevel": 2,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 672,
@@ -4457,7 +4953,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 673,
@@ -4470,7 +4967,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 674,
@@ -4483,7 +4981,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 675,
@@ -4496,7 +4995,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 676,
@@ -4509,7 +5009,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 677,
@@ -4522,7 +5023,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 678,
@@ -4535,7 +5037,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 679,
@@ -4548,7 +5051,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 680,
@@ -4561,7 +5065,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 681,
@@ -4574,7 +5079,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 686,
@@ -4587,7 +5093,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 687,
@@ -4600,7 +5107,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 692,
@@ -4613,7 +5121,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 693,
@@ -4626,7 +5135,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 697,
@@ -4639,7 +5149,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 698,
@@ -4652,7 +5163,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 700,
@@ -4661,11 +5173,12 @@
       "attr": "happy",
       "supportUnit": "none",
       "prefix": "A World Of Smiles",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 703,
@@ -4678,7 +5191,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 704,
@@ -4691,7 +5205,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 711,
@@ -4704,7 +5219,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 712,
@@ -4717,7 +5233,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 716,
@@ -4726,11 +5243,12 @@
       "attr": "happy",
       "supportUnit": "none",
       "prefix": "Unbeatable Coordination!",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 717,
@@ -4743,7 +5261,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 718,
@@ -4756,7 +5275,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 719,
@@ -4769,7 +5289,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 720,
@@ -4782,7 +5303,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 722,
@@ -4795,7 +5317,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 723,
@@ -4808,7 +5331,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 724,
@@ -4821,7 +5345,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 725,
@@ -4834,7 +5359,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 726,
@@ -4847,7 +5373,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 727,
@@ -4860,7 +5387,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 728,
@@ -4873,7 +5401,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 729,
@@ -4886,7 +5415,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 730,
@@ -4899,7 +5429,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 731,
@@ -4912,7 +5443,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 732,
@@ -4925,7 +5457,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 733,
@@ -4938,7 +5471,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 734,
@@ -4951,7 +5485,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 735,
@@ -4964,7 +5499,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 736,
@@ -4977,7 +5513,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 737,
@@ -4990,7 +5527,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 738,
@@ -5003,7 +5541,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 739,
@@ -5016,7 +5555,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 740,
@@ -5029,7 +5569,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 741,
@@ -5042,7 +5583,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 742,
@@ -5055,7 +5597,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 743,
@@ -5068,7 +5611,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 744,
@@ -5081,7 +5625,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 745,
@@ -5094,7 +5639,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 746,
@@ -5107,7 +5653,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 747,
@@ -5120,7 +5667,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 748,
@@ -5133,7 +5681,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 749,
@@ -5146,7 +5695,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 750,
@@ -5159,7 +5709,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 751,
@@ -5172,7 +5723,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 752,
@@ -5185,7 +5737,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 753,
@@ -5198,7 +5751,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 754,
@@ -5211,7 +5765,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 755,
@@ -5224,7 +5779,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 756,
@@ -5237,7 +5793,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 757,
@@ -5250,7 +5807,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 758,
@@ -5263,7 +5821,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 759,
@@ -5276,7 +5835,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 760,
@@ -5285,11 +5845,12 @@
       "attr": "mysterious",
       "supportUnit": "none",
       "prefix": "A Name Held Dear",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 766,
@@ -5302,7 +5863,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 767,
@@ -5315,7 +5877,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 771,
@@ -5328,7 +5891,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 772,
@@ -5341,7 +5905,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 775,
@@ -5354,7 +5919,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 776,
@@ -5367,7 +5933,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 777,
@@ -5380,7 +5947,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 779,
@@ -5393,7 +5961,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 782,
@@ -5406,7 +5975,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 783,
@@ -5419,7 +5989,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 789,
@@ -5432,7 +6003,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 794,
@@ -5445,7 +6017,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 795,
@@ -5458,7 +6031,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 799,
@@ -5471,7 +6045,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 800,
@@ -5484,7 +6059,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 801,
@@ -5497,7 +6073,22 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 802,
+      "characterId": 2,
+      "cardRarityType": "rarity_4",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Featuring Pompompurin",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 803,
@@ -5510,7 +6101,22 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 804,
+      "characterId": 12,
+      "cardRarityType": "rarity_4",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "Featuring Pochacco",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 805,
@@ -5523,7 +6129,22 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 806,
+      "characterId": 19,
+      "cardRarityType": "rarity_4",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Featuring KUROMI",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 807,
@@ -5536,7 +6157,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 808,
@@ -5549,7 +6171,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 809,
@@ -5562,7 +6185,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 810,
@@ -5575,7 +6199,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 811,
@@ -5588,7 +6213,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 812,
@@ -5601,7 +6227,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 813,
@@ -5614,7 +6241,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 814,
@@ -5627,7 +6255,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 815,
@@ -5640,7 +6269,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 816,
@@ -5653,7 +6283,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 817,
@@ -5666,7 +6297,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 818,
@@ -5679,7 +6311,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 819,
@@ -5692,7 +6325,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 820,
@@ -5705,7 +6339,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 821,
@@ -5718,7 +6353,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 822,
@@ -5731,7 +6367,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 823,
@@ -5744,7 +6381,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 824,
@@ -5757,7 +6395,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 825,
@@ -5770,7 +6409,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 826,
@@ -5783,7 +6423,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 828,
@@ -5796,7 +6437,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 829,
@@ -5809,7 +6451,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 830,
@@ -5818,11 +6461,12 @@
       "attr": "cool",
       "supportUnit": "idol",
       "prefix": "Greetings Are Idol 101",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 831,
@@ -5835,7 +6479,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 832,
@@ -5848,7 +6493,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 835,
@@ -5861,7 +6507,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 836,
@@ -5874,7 +6521,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 837,
@@ -5887,7 +6535,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 845,
@@ -5900,7 +6549,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 846,
@@ -5913,7 +6563,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 852,
@@ -5926,7 +6577,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 853,
@@ -5939,7 +6591,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 857,
@@ -5952,7 +6605,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 858,
@@ -5965,7 +6619,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 861,
@@ -5978,7 +6633,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 862,
@@ -5991,7 +6647,8 @@
       "masterRank": 2,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 863,
@@ -6004,7 +6661,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 864,
@@ -6017,7 +6675,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 865,
@@ -6030,7 +6689,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 869,
@@ -6043,7 +6703,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 870,
@@ -6056,7 +6717,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 871,
@@ -6069,7 +6731,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 872,
@@ -6082,7 +6745,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 876,
@@ -6095,7 +6759,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 877,
@@ -6108,7 +6773,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 881,
@@ -6121,7 +6787,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 882,
@@ -6134,7 +6801,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 888,
@@ -6147,7 +6815,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 891,
@@ -6156,11 +6825,12 @@
       "attr": "happy",
       "supportUnit": "none",
       "prefix": "Swaying On The Road At Dusk",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 893,
@@ -6173,7 +6843,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 894,
@@ -6186,7 +6857,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 901,
@@ -6199,7 +6871,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 902,
@@ -6212,7 +6885,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 904,
@@ -6225,7 +6899,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 906,
@@ -6238,7 +6913,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 907,
@@ -6251,7 +6927,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 912,
@@ -6264,7 +6941,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 913,
@@ -6277,7 +6955,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 918,
@@ -6290,7 +6969,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 919,
@@ -6303,7 +6983,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 925,
@@ -6316,7 +6997,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 928,
@@ -6329,7 +7011,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 930,
@@ -6342,7 +7025,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 931,
@@ -6355,7 +7039,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 936,
@@ -6368,7 +7053,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 937,
@@ -6381,7 +7067,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 938,
@@ -6394,7 +7081,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 939,
@@ -6407,7 +7095,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 940,
@@ -6420,7 +7109,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 941,
@@ -6433,7 +7123,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 942,
@@ -6446,7 +7137,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 946,
@@ -6459,7 +7151,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 947,
@@ -6472,7 +7165,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 950,
@@ -6481,11 +7175,12 @@
       "attr": "cool",
       "supportUnit": "none",
       "prefix": "Feeling What My Selves Feel",
-      "level": 1,
+      "level": 60,
       "masterRank": 0,
       "skillLevel": 1,
-      "sideStory1": false,
-      "sideStory2": false
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 954,
@@ -6498,7 +7193,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 955,
@@ -6511,7 +7207,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 959,
@@ -6524,7 +7221,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 960,
@@ -6537,7 +7235,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 965,
@@ -6550,7 +7249,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 971,
@@ -6563,7 +7263,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 972,
@@ -6576,7 +7277,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 976,
@@ -6589,7 +7291,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 977,
@@ -6602,7 +7305,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 990,
@@ -6615,7 +7319,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 991,
@@ -6628,7 +7333,22 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 993,
+      "characterId": 6,
+      "cardRarityType": "rarity_4",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "You Give Me Wings",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 996,
@@ -6641,7 +7361,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 997,
@@ -6654,7 +7375,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1001,
@@ -6667,7 +7389,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1002,
@@ -6680,7 +7403,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1009,
@@ -6693,7 +7417,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1010,
@@ -6706,7 +7431,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1014,
@@ -6719,7 +7445,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1015,
@@ -6732,7 +7459,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1019,
@@ -6745,7 +7473,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1020,
@@ -6758,7 +7487,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1025,
@@ -6771,7 +7501,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1026,
@@ -6784,7 +7515,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1031,
@@ -6797,7 +7529,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1032,
@@ -6810,7 +7543,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1037,
@@ -6823,7 +7557,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1038,
@@ -6836,7 +7571,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1042,
@@ -6849,7 +7585,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1043,
@@ -6862,7 +7599,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1048,
@@ -6875,7 +7613,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1049,
@@ -6888,7 +7627,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1053,
@@ -6901,7 +7641,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1054,
@@ -6914,7 +7655,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1057,
@@ -6927,7 +7669,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1058,
@@ -6940,7 +7683,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1059,
@@ -6953,7 +7697,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1060,
@@ -6966,7 +7711,8 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1061,
@@ -6976,10 +7722,11 @@
       "supportUnit": "idol",
       "prefix": "Natural Juggler!",
       "level": 60,
-      "masterRank": 2,
+      "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1062,
@@ -6992,7 +7739,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1063,
@@ -7005,7 +7753,36 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": true,
-      "sideStory2": true
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1068,
+      "characterId": 11,
+      "cardRarityType": "rarity_3",
+      "attr": "mysterious",
+      "supportUnit": "none",
+      "prefix": "The View From Up Above",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1069,
+      "characterId": 10,
+      "cardRarityType": "rarity_2",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "The Guy Behind Our Troubles",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1070,
@@ -7018,7 +7795,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1071,
@@ -7031,7 +7809,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1072,
@@ -7044,7 +7823,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1073,
@@ -7057,7 +7837,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1074,
@@ -7070,7 +7851,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1075,
@@ -7083,7 +7865,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1076,
@@ -7096,7 +7879,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1077,
@@ -7109,7 +7893,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1078,
@@ -7122,7 +7907,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1079,
@@ -7135,7 +7921,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1080,
@@ -7148,7 +7935,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1081,
@@ -7161,7 +7949,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1082,
@@ -7174,7 +7963,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1083,
@@ -7187,7 +7977,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1084,
@@ -7200,7 +7991,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1085,
@@ -7213,7 +8005,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1086,
@@ -7226,7 +8019,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1087,
@@ -7239,7 +8033,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1088,
@@ -7252,7 +8047,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1089,
@@ -7265,7 +8061,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1090,
@@ -7278,7 +8075,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1091,
@@ -7291,7 +8089,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1092,
@@ -7304,7 +8103,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1093,
@@ -7317,7 +8117,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1094,
@@ -7330,7 +8131,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1095,
@@ -7343,7 +8145,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1096,
@@ -7356,7 +8159,120 @@
       "masterRank": 0,
       "skillLevel": 1,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
+    },
+    {
+      "id": 1100,
+      "characterId": 9,
+      "cardRarityType": "rarity_3",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "American Style?",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1101,
+      "characterId": 1,
+      "cardRarityType": "rarity_2",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "A Picture Of Radiance",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1107,
+      "characterId": 20,
+      "cardRarityType": "rarity_3",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "Embroidery Enjoyment",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1108,
+      "characterId": 6,
+      "cardRarityType": "rarity_2",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "MORE MORE HOUSE Surprise",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1110,
+      "characterId": 6,
+      "cardRarityType": "rarity_4",
+      "attr": "mysterious",
+      "supportUnit": "none",
+      "prefix": "Reality Hits Hard",
+      "level": 60,
+      "masterRank": 5,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": true
+    },
+    {
+      "id": 1112,
+      "characterId": 24,
+      "cardRarityType": "rarity_4",
+      "attr": "mysterious",
+      "supportUnit": "idol",
+      "prefix": "Accept Your Regrets",
+      "level": 60,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1113,
+      "characterId": 8,
+      "cardRarityType": "rarity_3",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Trial Skin Care Routine",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1114,
+      "characterId": 7,
+      "cardRarityType": "rarity_2",
+      "attr": "mysterious",
+      "supportUnit": "none",
+      "prefix": "Cooking Stream Prep",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
     },
     {
       "id": 1119,
@@ -7369,7 +8285,8 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
     },
     {
       "id": 1120,
@@ -7382,9 +8299,122 @@
       "masterRank": 5,
       "skillLevel": 4,
       "sideStory1": false,
-      "sideStory2": false
+      "sideStory2": false,
+      "painting": false
+    },
+    {
+      "id": 1125,
+      "characterId": 1,
+      "cardRarityType": "rarity_3",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "A Direct Compliment",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1126,
+      "characterId": 16,
+      "cardRarityType": "rarity_2",
+      "attr": "happy",
+      "supportUnit": "none",
+      "prefix": "A Director's Meticulous Magic",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1130,
+      "characterId": 4,
+      "cardRarityType": "rarity_3",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Hugs Of Friendship♪",
+      "level": 50,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1131,
+      "characterId": 25,
+      "cardRarityType": "rarity_2",
+      "attr": "cute",
+      "supportUnit": "theme_park",
+      "prefix": "A Clever Idea",
+      "level": 30,
+      "masterRank": 5,
+      "skillLevel": 4,
+      "sideStory1": true,
+      "sideStory2": true,
+      "painting": false
+    },
+    {
+      "id": 1136,
+      "characterId": 15,
+      "cardRarityType": "rarity_3",
+      "attr": "cool",
+      "supportUnit": "none",
+      "prefix": "Trying On Cuteness",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
+    },
+    {
+      "id": 1137,
+      "characterId": 5,
+      "cardRarityType": "rarity_2",
+      "attr": "mysterious",
+      "supportUnit": "none",
+      "prefix": "Can We Be Friends?",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
+    },
+    {
+      "id": 1142,
+      "characterId": 22,
+      "cardRarityType": "rarity_3",
+      "attr": "happy",
+      "supportUnit": "school_refusal",
+      "prefix": "Unheard Voice",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
+    },
+    {
+      "id": 1143,
+      "characterId": 20,
+      "cardRarityType": "rarity_2",
+      "attr": "cute",
+      "supportUnit": "none",
+      "prefix": "A Party With Everyone",
+      "level": 1,
+      "masterRank": 0,
+      "skillLevel": 1,
+      "sideStory1": false,
+      "sideStory2": false,
+      "painting": false
     }
   ],
   "created_at": "2025-10-09T23:29:57.4562424+02:00",
-  "updated_at": "2026-01-05T13:28:03.1533453+01:00"
+  "updated_at": "2026-03-25T22:52:11.1271043+01:00"
 }

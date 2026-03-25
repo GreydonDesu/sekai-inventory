@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -37,6 +38,10 @@ func EnsureResDirectory() error {
 // If the inventory file doesn't exist, it returns an empty inventory instead of an error.
 // This behavior supports first-time usage where no inventory exists yet.
 //
+// Additionally, this function checks whether the inventory uses the latest schema
+// (i.e., includes the 'painting' field on cards). If the field is missing and there
+// are cards present, the user is prompted to run the 'convert' command.
+//
 // Returns:
 //   - A pointer to the Inventory structure containing the user's cards
 //   - An error if file reading or JSON parsing fails
@@ -53,6 +58,25 @@ func LoadInventory() (*model.Inventory, error) {
 	data, err := os.ReadFile(InventoryFile)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read inventory file: %w", err)
+	}
+
+	// Schema check: does the file contain the 'painting' field?
+	// If not, and if there are cards, instruct the user to run 'convert'.
+	if !bytes.Contains(data, []byte(`"painting"`)) {
+		// Probe only the cards array to see if there is anything to migrate
+		var probe struct {
+			Cards []json.RawMessage `json:"cards"`
+		}
+		if err := json.Unmarshal(data, &probe); err != nil {
+			return nil, fmt.Errorf("failed to parse inventory file: %w", err)
+		}
+
+		if len(probe.Cards) > 0 {
+			PrintErrorMessage("Your inventory file uses an outdated schema (missing 'painting' field).")
+			PrintWarningMessage("Please run 'sekai-inventory convert' once to migrate your inventory.")
+			return nil, fmt.Errorf("inventory schema outdated: missing 'painting'")
+		}
+		// If there are no cards, treat it as effectively compatible and continue.
 	}
 
 	// Parse the JSON data into an Inventory struct

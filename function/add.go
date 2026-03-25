@@ -101,6 +101,7 @@ func Add(cardIDs ...int) {
 			SkillLevel: 1,
 			SideStory1: false,
 			SideStory2: false,
+			Painting:   false,
 		}
 
 		// Add the new card to the inventory

@@ -16,6 +16,7 @@ import (
 //   - masterRank: Integer between 0 and 5
 //   - sideStory1: Boolean (true/false)
 //   - sideStory2: Boolean (true/false)
+//   - painting:   Boolean (true/false)
 //
 // Parameters:
 //   - cardID: The ID of the card to modify
@@ -24,10 +25,10 @@ import (
 // Returns:
 //   - nil if all updates were successful
 //   - error if:
-//     * Card not found in inventory
-//     * Invalid field name
-//     * Invalid value for a field
-//     * File operations fail
+//   - Card not found in inventory
+//   - Invalid field name
+//   - Invalid value for a field
+//   - File operations fail
 func Change(cardID int, updates map[string]string) error {
 	// Load the inventory
 	inventory, err := tools.LoadInventory()
@@ -89,6 +90,13 @@ func Change(cardID int, updates map[string]string) error {
 			}
 			card.SideStory2 = sideStory2
 			changes["sideStory2"] = value
+		case "painting":
+			painting, err := strconv.ParseBool(value)
+			if err != nil {
+				return fmt.Errorf("invalid value for 'painting': %s. Must be 'true' or 'false'", value)
+			}
+			card.Painting = painting
+			changes["painting"] = value
 		default:
 			return fmt.Errorf("unknown field: %s", field)
 		}

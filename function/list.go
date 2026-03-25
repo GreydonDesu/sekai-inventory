@@ -5,6 +5,7 @@ import (
 	"sekai-inventory/model"
 	"sekai-inventory/tools"
 	"sort"
+	"strconv"
 )
 
 // List displays the user's card inventory with optional filtering.
@@ -15,6 +16,7 @@ import (
 //   - character: Filter by character name (case-insensitive partial match)
 //   - rarity: Filter by card rarity (1, 2, 3, 4, bd)
 //   - group: Filter by unit/group (L/N, MMJ, VBS, WxS, N25, VS)
+//   - painting: Filter by painting status (true/false)
 //
 // The function handles error cases such as:
 //   - Failed inventory loading
@@ -81,6 +83,15 @@ func List(filters map[string]string) {
 					if !exists || character.Unit != expectedGroup {
 						matches = false
 					}
+				}
+			case "painting":
+				// Match by painting status
+				expectedPainting, err := strconv.ParseBool(value)
+				if err != nil {
+					tools.PrintWarningMessage(fmt.Sprintf("Invalid value for 'painting': %s. Must be 'true' or 'false'", value))
+					matches = false
+				} else if card.Painting != expectedPainting {
+					matches = false
 				}
 			default:
 				// Handle unknown filter fields

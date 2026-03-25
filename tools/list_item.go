@@ -72,6 +72,16 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 		sideStory2 = color.RGB(r, g, b).Sprint("☐")
 	}
 
+	// Painting
+	var painting string
+	if card.Painting {
+		r, g, b, _ := HexToRGB(greenHex)
+		painting = color.RGB(r, g, b).Sprint("☑")
+	} else {
+		r, g, b, _ := HexToRGB(redHex)
+		painting = color.RGB(r, g, b).Sprint("☐")
+	}
+
 	// Highlight Master Rank and Skill Level with RGB green at max values
 	rGreen, gGreen, bGreen, _ := HexToRGB("#00ff00")
 
@@ -86,7 +96,7 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 	}
 
 	// Format the card details as a one-liner
-	return fmt.Sprintf("[%d]	%s	%s	%s	| %s | %s | Side Story 1: %s | Side Story 2: %s | %s%s \"%s\"",
+	return fmt.Sprintf("[%d]	%s	%s	%s	| %s | %s | Side Story 1: %s | Side Story 2: %s | Painting: %s | %s%s \"%s\"",
 		card.ID,
 		formattedRarity,
 		formattedLevel,
@@ -95,6 +105,7 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 		skillLevel,
 		sideStory1,
 		sideStory2,
+		painting,
 		characterName,
 		supportUnitCard,
 		card.Prefix,

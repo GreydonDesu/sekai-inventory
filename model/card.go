@@ -33,4 +33,6 @@ type CardEntity struct {
 	SideStory1 bool `json:"sideStory1"`
 	// SideStory2 indicates whether the second side story has been unlocked
 	SideStory2 bool `json:"sideStory2"`
+	// Painting indicates whether the card has its painting unlocked
+	Painting bool `json:"painting"`
 }

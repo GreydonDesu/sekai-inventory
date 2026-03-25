@@ -14,14 +14,16 @@ const (
 	filterFieldsHelp  = `Valid fields are:
   --character  (Filter by character's given name)
   --rarity     (Filter by card rarity (1, 2, 3, 4, bd))
-  --group      (Filter by unit (L/N, MMJ, VBS, WxS, N25, VS))`
-	
+  --group      (Filter by unit (L/N, MMJ, VBS, WxS, N25, VS))
+  --painting   (Filter by painting status (true/false))`
+
 	changeFieldsHelp = `Valid fields are:
   --level       (1-60)
   --skillLevel  (1-5)
   --masterRank  (0-5)
   --sideStory1  (true/false)
-  --sideStory2  (true/false)`
+  --sideStory2  (true/false)
+  --painting    (true/false)`
 )
 
 // handleChangeCommand processes the change command and its arguments
@@ -74,6 +76,9 @@ func main() {
 
 	case "update":
 		function.Update()
+
+	case "convert":
+		function.Convert()
 
 	case "search", "list":
 		// Parse filters for search/list commands

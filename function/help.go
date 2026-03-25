@@ -45,6 +45,7 @@ func Help() {
 				{"character", "Filter by character's given name"},
 				{"rarity", "Filter by card rarity (1, 2, 3, 4, bd)"},
 				{"group", "Filter by unit (L/N, MMJ, VBS, WxS, N25, VS)"},
+				{"painting", "Filter by painting status (true/false)"},
 			},
 		},
 		"Card Management": {
@@ -61,7 +62,11 @@ func Help() {
 				{"masterRank", "Master rank (0-5)"},
 				{"sideStory1", "Side story 1 unlock status (true/false)"},
 				{"sideStory2", "Side story 2 unlock status (true/false)"},
+				{"painting", "Painting status (true/false)"},
 			},
+		},
+		"Migration": {
+			"convert", "Convert existing inventory.json to the latest schema (adds 'painting' and creates a backup)", nil,
 		},
 		"Help": {
 			"help", "Display this help message", nil,
