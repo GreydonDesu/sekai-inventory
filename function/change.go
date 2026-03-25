@@ -5,6 +5,8 @@ import (
 	"sekai-inventory/model"
 	"sekai-inventory/tools"
 	"strconv"
+
+	"github.com/fatih/color"
 )
 
 // Change modifies specific attributes of a card in the user's inventory.
@@ -49,8 +51,11 @@ func Change(cardID int, updates map[string]string) error {
 		return fmt.Errorf("no card found with ID %d", cardID)
 	}
 
-	// Track changes
-	changes := make(map[string]string)
+	// Keep a copy of the original state for comparison
+	original := *card
+
+	// Track whether any actual change was made
+	changed := false
 
 	// Apply updates
 	for field, value := range updates {
@@ -61,45 +66,63 @@ func Change(cardID int, updates map[string]string) error {
 				return fmt.Errorf("invalid value for 'level': %s. Must be an integer between 1 and 60", value)
 			}
 			card.Level = level
-			changes["level"] = value
+			if card.Level != original.Level {
+				changed = true
+			}
 		case "skillLevel":
 			skillLevel, err := strconv.Atoi(value)
 			if err != nil || skillLevel < 1 || skillLevel > 5 {
 				return fmt.Errorf("invalid value for 'skillLevel': %s. Must be an integer between 1 and 5", value)
 			}
 			card.SkillLevel = skillLevel
-			changes["skillLevel"] = value
+			if card.SkillLevel != original.SkillLevel {
+				changed = true
+			}
 		case "masterRank":
 			masterRank, err := strconv.Atoi(value)
 			if err != nil || masterRank < 0 || masterRank > 5 {
 				return fmt.Errorf("invalid value for 'masterRank': %s. Must be an integer between 0 and 5", value)
 			}
 			card.MasterRank = masterRank
-			changes["masterRank"] = value
+			if card.MasterRank != original.MasterRank {
+				changed = true
+			}
 		case "sideStory1":
 			sideStory1, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'sideStory1': %s. Must be 'true' or 'false'", value)
 			}
 			card.SideStory1 = sideStory1
-			changes["sideStory1"] = value
+			if card.SideStory1 != original.SideStory1 {
+				changed = true
+			}
 		case "sideStory2":
 			sideStory2, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'sideStory2': %s. Must be 'true' or 'false'", value)
 			}
 			card.SideStory2 = sideStory2
-			changes["sideStory2"] = value
+			if card.SideStory2 != original.SideStory2 {
+				changed = true
+			}
 		case "painting":
 			painting, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'painting': %s. Must be 'true' or 'false'", value)
 			}
 			card.Painting = painting
-			changes["painting"] = value
+			if card.Painting != original.Painting {
+				changed = true
+			}
 		default:
 			return fmt.Errorf("unknown field: %s", field)
 		}
+	}
+
+	// If nothing actually changed, don't touch the file
+	if !changed {
+		fmt.Printf("No changes made for card with ID %d.\n", cardID)
+		return nil
 	}
 
 	// Save the updated inventory
@@ -108,14 +131,100 @@ func Change(cardID int, updates map[string]string) error {
 		return fmt.Errorf("error saving inventory: %v", err)
 	}
 
-	// Report changes
-	if len(changes) > 0 {
-		fmt.Println("Changes made:")
-		for field, value := range changes {
-			fmt.Printf("  - Field '%s' changed to '%s'.\n", field, value)
-		}
-		tools.UpdateTimeSet()
-	}
+	// Print a detailed summary of changes
+	printChangeSummary(card, &original)
+
+	// Update timestamp
+	_ = tools.UpdateTimeSet()
 
 	return nil
+}
+
+// printChangeSummary prints a user-friendly summary of the changes made to a card.
+func printChangeSummary(card, original *model.CardEntity) {
+	// Precompute colors (same as in FormatCardDetails)
+	rGreen, gGreen, bGreen, _ := tools.HexToRGB("#00ff00")
+	rRed, gRed, bRed, _ := tools.HexToRGB("#ff0000")
+
+	green := color.RGB(rGreen, gGreen, bGreen)
+	red := color.RGB(rRed, gRed, bRed)
+
+	// Try to load character data for a nicer header; fall back if it fails.
+	characters, err := tools.LoadCharacters()
+	var header string
+	if err != nil {
+		// Fallback header without character info
+		header = fmt.Sprintf("Changes for ID %d:", card.ID)
+	} else {
+		characterMap := tools.CreateCharacterMap(characters)
+		character, exists := characterMap[card.CharacterID]
+
+		characterName := "Unknown Character"
+		if exists {
+			if character.FirstName == "" {
+				characterName = character.GivenName
+			} else {
+				characterName = fmt.Sprintf("%s %s", character.FirstName, character.GivenName)
+			}
+		}
+
+		// Determine unit abbreviation (card.SupportUnit first, then character.Unit)
+		unitAbbrev := tools.FormatUnit(card.SupportUnit)
+		if unitAbbrev == "" && exists {
+			unitAbbrev = tools.FormatUnit(character.Unit)
+		}
+
+		unitPart := ""
+		if unitAbbrev != "" {
+			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
+		}
+
+		header = fmt.Sprintf("Changes for ID %d - %s%s \"%s\"", card.ID, characterName, unitPart, card.Prefix)
+	}
+
+	fmt.Println(header)
+
+	// Fixed width for the label column so everything lines up
+	const labelWidth = 13
+
+	// Helper for numeric old > new with color
+	printNumericChange := func(label string, oldVal, newVal int) {
+		fmt.Printf(
+			"  %-*s %s > %s\n",
+			labelWidth,
+			label,
+			red.Sprintf("%d", oldVal),
+			green.Sprintf("%d", newVal),
+		)
+	}
+
+	// Boolean fields: show final state ☑/☐ in color
+	boolMark := func(b bool) string {
+		if b {
+			return green.Sprint("☑")
+		}
+		return red.Sprint("☐")
+	}
+
+	// Numeric fields: show old > new if they actually changed
+	if original.Level != card.Level {
+		printNumericChange("Level", original.Level, card.Level)
+	}
+	if original.MasterRank != card.MasterRank {
+		printNumericChange("Master Rank", original.MasterRank, card.MasterRank)
+	}
+	if original.SkillLevel != card.SkillLevel {
+		printNumericChange("Skill Level", original.SkillLevel, card.SkillLevel)
+	}
+
+	// Boolean fields: only print if they changed
+	if original.SideStory1 != card.SideStory1 {
+		fmt.Printf("  %-*s %s\n", labelWidth, "Side Story 1", boolMark(card.SideStory1))
+	}
+	if original.SideStory2 != card.SideStory2 {
+		fmt.Printf("  %-*s %s\n", labelWidth, "Side Story 2", boolMark(card.SideStory2))
+	}
+	if original.Painting != card.Painting {
+		fmt.Printf("  %-*s %s\n", labelWidth, "Painting", boolMark(card.Painting))
+	}
 }

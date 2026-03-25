@@ -2,6 +2,7 @@ package function
 
 import (
 	"fmt"
+	"sekai-inventory/model"
 	"sekai-inventory/tools"
 )
 
@@ -19,7 +20,7 @@ import (
 //   - cardIDs: One or more card IDs to remove from the inventory
 //
 // Success/Error reporting:
-//   - Successfully removed cards are listed in a success message
+//   - Successfully removed cards are listed with detailed info
 //   - Cards not found in the inventory are listed in a warning message
 //   - File operation errors are reported as error messages
 func Remove(cardIDs ...int) {
@@ -31,8 +32,53 @@ func Remove(cardIDs ...int) {
 		return
 	}
 
+	// Load character data for prettier reporting (non-fatal if it fails)
+	characters, charErr := tools.LoadCharacters()
+	var characterMap map[int]model.Character
+	if charErr == nil {
+		characterMap = tools.CreateCharacterMap(characters)
+	}
+
+	// Helper to create a nice one-line label for a card
+	cardLabel := func(card model.CardEntity) string {
+		// Rarity (colored)
+		rarity := tools.FormatRarity(card.CardRarityType)
+
+		// Character name
+		characterName := "Unknown Character"
+		if characterMap != nil {
+			if c, ok := characterMap[card.CharacterID]; ok {
+				if c.FirstName == "" {
+					characterName = c.GivenName
+				} else {
+					characterName = fmt.Sprintf("%s %s", c.FirstName, c.GivenName)
+				}
+			}
+		}
+
+		// Unit abbreviation: from card.SupportUnit, fallback to character.Unit
+		unitAbbrev := tools.FormatUnit(card.SupportUnit)
+		if unitAbbrev == "" && characterMap != nil {
+			if c, ok := characterMap[card.CharacterID]; ok {
+				unitAbbrev = tools.FormatUnit(c.Unit)
+			}
+		}
+		unitPart := ""
+		if unitAbbrev != "" {
+			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
+		}
+
+		return fmt.Sprintf("[%d] %s	%s%s \"%s\"",
+			card.ID,
+			rarity,
+			characterName,
+			unitPart,
+			card.Prefix,
+		)
+	}
+
 	// Track cards that were successfully removed and those that were not found
-	removedCards := []int{}
+	removedCards := []model.CardEntity{}
 	notFoundCards := []int{}
 
 	// Iterate over the provided cardIDs
@@ -50,9 +96,12 @@ func Remove(cardIDs ...int) {
 			// Card not found
 			notFoundCards = append(notFoundCards, cardID)
 		} else {
+			// Remember the card for reporting
+			removedCard := inventory.Cards[cardIndex]
+
 			// Remove the card from the inventory
 			inventory.Cards = append(inventory.Cards[:cardIndex], inventory.Cards[cardIndex+1:]...)
-			removedCards = append(removedCards, cardID)
+			removedCards = append(removedCards, removedCard)
 		}
 	}
 
@@ -66,12 +115,18 @@ func Remove(cardIDs ...int) {
 
 	// Print success message for removed cards
 	if len(removedCards) > 0 {
-		tools.PrintSuccessMessage(fmt.Sprintf("Removed cards with IDs: %v", removedCards))
-		tools.UpdateTimeSet()
+		tools.PrintSuccessMessage(fmt.Sprintf("Removed %d card(s):", len(removedCards)))
+		for _, c := range removedCards {
+			fmt.Printf("  %s\n", cardLabel(c))
+		}
+		_ = tools.UpdateTimeSet()
 	}
 
 	// Print warning message for cards that were not found
 	if len(notFoundCards) > 0 {
-		tools.PrintWarningMessage(fmt.Sprintf("Cards with IDs not found: %v", notFoundCards))
+		tools.PrintWarningMessage(fmt.Sprintf("Not found in inventory (%d ID(s)):", len(notFoundCards)))
+		for _, id := range notFoundCards {
+			fmt.Printf("  %d\n", id)
+		}
 	}
 }
