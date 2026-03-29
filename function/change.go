@@ -10,35 +10,28 @@ import (
 )
 
 // Change modifies specific attributes of a card in the user's inventory.
-// This function supports updating multiple fields in a single operation.
 //
-// Supported fields and their valid values:
-//   - level: Integer between 1 and 60
-//   - skillLevel: Integer between 1 and 5
-//   - masterRank: Integer between 0 and 5
-//   - sideStory1: Boolean (true/false)
-//   - sideStory2: Boolean (true/false)
-//   - painting:   Boolean (true/false)
+// It supports updating multiple fields in a single operation. Supported fields
+// and their valid values are:
 //
-// Parameters:
-//   - cardID: The ID of the card to modify
-//   - updates: Map of field names to their new values (as strings)
+//   - level:       integer between 1 and 60.
+//   - skillLevel:  integer between 1 and 5.
+//   - masterRank:  integer between 0 and 5.
+//   - sideStory1:  boolean (true/false).
+//   - sideStory2:  boolean (true/false).
+//   - painting:    boolean (true/false).
 //
-// Returns:
-//   - nil if all updates were successful
-//   - error if:
-//   - Card not found in inventory
-//   - Invalid field name
-//   - Invalid value for a field
-//   - File operations fail
+// Change returns an error if the card does not exist, a field name is unknown,
+// a value is invalid, or the inventory cannot be saved. On success it prints a
+// detailed, colorized summary of the changes.
 func Change(cardID int, updates map[string]string) error {
-	// Load the inventory
+	// Load the inventory.
 	inventory, err := tools.LoadInventory()
 	if err != nil {
 		return fmt.Errorf("error loading inventory: %v", err)
 	}
 
-	// Find the card in the inventory
+	// Find the card in the inventory.
 	var card *model.CardEntity
 	for i := range inventory.Cards {
 		if inventory.Cards[i].ID == cardID {
@@ -51,13 +44,13 @@ func Change(cardID int, updates map[string]string) error {
 		return fmt.Errorf("no card found with ID %d", cardID)
 	}
 
-	// Keep a copy of the original state for comparison
+	// Keep a copy of the original state for comparison.
 	original := *card
 
-	// Track whether any actual change was made
+	// Track whether any actual change was made.
 	changed := false
 
-	// Apply updates
+	// Apply updates.
 	for field, value := range updates {
 		switch field {
 		case "level":
@@ -119,30 +112,32 @@ func Change(cardID int, updates map[string]string) error {
 		}
 	}
 
-	// If nothing actually changed, don't touch the file
+	// If nothing actually changed, do not touch the file.
 	if !changed {
 		fmt.Printf("No changes made for card with ID %d.\n", cardID)
 		return nil
 	}
 
-	// Save the updated inventory
+	// Save the updated inventory.
 	err = tools.SaveInventory(inventory)
 	if err != nil {
 		return fmt.Errorf("error saving inventory: %v", err)
 	}
 
-	// Print a detailed summary of changes
+	// Print a detailed summary of changes.
 	printChangeSummary(card, &original)
 
-	// Update timestamp
+	// Update timestamp.
 	_ = tools.UpdateTimeSet()
 
 	return nil
 }
 
-// printChangeSummary prints a user-friendly summary of the changes made to a card.
+// printChangeSummary prints a user-friendly, colorized summary of the changes
+// made to a card. It shows numeric fields as "old > new" and boolean fields
+// as colored checkboxes.
 func printChangeSummary(card, original *model.CardEntity) {
-	// Precompute colors (same as in FormatCardDetails)
+	// Precompute colors (same as in FormatCardDetails).
 	rGreen, gGreen, bGreen, _ := tools.HexToRGB("#00ff00")
 	rRed, gRed, bRed, _ := tools.HexToRGB("#ff0000")
 
@@ -153,7 +148,7 @@ func printChangeSummary(card, original *model.CardEntity) {
 	characters, err := tools.LoadCharacters()
 	var header string
 	if err != nil {
-		// Fallback header without character info
+		// Fallback header without character info.
 		header = fmt.Sprintf("Changes for ID %d:", card.ID)
 	} else {
 		characterMap := tools.CreateCharacterMap(characters)
@@ -168,7 +163,7 @@ func printChangeSummary(card, original *model.CardEntity) {
 			}
 		}
 
-		// Determine unit abbreviation (card.SupportUnit first, then character.Unit)
+		// Determine unit abbreviation (card.SupportUnit first, then character.Unit).
 		unitAbbrev := tools.FormatUnit(card.SupportUnit)
 		if unitAbbrev == "" && exists {
 			unitAbbrev = tools.FormatUnit(character.Unit)
@@ -184,10 +179,10 @@ func printChangeSummary(card, original *model.CardEntity) {
 
 	fmt.Println(header)
 
-	// Fixed width for the label column so everything lines up
+	// Fixed width for the label column so everything lines up.
 	const labelWidth = 13
 
-	// Helper for numeric old > new with color
+	// Helper for numeric "old > new" with color.
 	printNumericChange := func(label string, oldVal, newVal int) {
 		fmt.Printf(
 			"  %-*s %s > %s\n",
@@ -198,7 +193,7 @@ func printChangeSummary(card, original *model.CardEntity) {
 		)
 	}
 
-	// Boolean fields: show final state ☑/☐ in color
+	// Boolean fields: show final state ☑/☐ in color.
 	boolMark := func(b bool) string {
 		if b {
 			return green.Sprint("☑")
@@ -206,7 +201,7 @@ func printChangeSummary(card, original *model.CardEntity) {
 		return red.Sprint("☐")
 	}
 
-	// Numeric fields: show old > new if they actually changed
+	// Numeric fields: show old > new if they actually changed.
 	if original.Level != card.Level {
 		printNumericChange("Level", original.Level, card.Level)
 	}
@@ -217,7 +212,7 @@ func printChangeSummary(card, original *model.CardEntity) {
 		printNumericChange("Skill Level", original.SkillLevel, card.SkillLevel)
 	}
 
-	// Boolean fields: only print if they changed
+	// Boolean fields: only print if they changed.
 	if original.SideStory1 != card.SideStory1 {
 		fmt.Printf("  %-*s %s\n", labelWidth, "Side Story 1", boolMark(card.SideStory1))
 	}

@@ -8,34 +8,31 @@ import (
 )
 
 // Add introduces new cards to the user's inventory with default initial values.
-// This function supports adding multiple cards in a single operation and maintains
-// the inventory in a sorted state.
 //
-// Default values for new cards:
-//   - Level: 1
-//   - MasterRank: 0
-//   - SkillLevel: 1
-//   - SideStory1: false
-//   - SideStory2: false
-//   - Painting: false
+// It supports adding multiple cards in a single operation and keeps the
+// inventory sorted by card ID.
 //
-// The function:
-//  1. Loads the current inventory
-//  2. Validates each card ID against the game's database
-//  3. Adds new cards with default values
-//  4. Maintains inventory sorted by card ID
-//  5. Updates the modification timestamp
+// New cards are initialized with:
+//   - Level:       1
+//   - MasterRank:  0
+//   - SkillLevel:  1
+//   - SideStory1:  false
+//   - SideStory2:  false
+//   - Painting:    false
 //
-// Success/Error reporting:
-//   - Successfully added cards are listed with detailed info
-//   - Already existing cards are reported as warnings with detailed info
-//   - Cards not found in the database are reported as warnings
-//   - File operation errors are reported as errors
+// Add performs the following steps:
 //
-// Parameters:
-//   - cardIDs: One or more card IDs to add to the inventory
+//  1. Load the current inventory.
+//  2. Validate each card ID against cards.json.
+//  3. Add new cards with default values.
+//  4. Sort the inventory by card ID.
+//  5. Save the updated inventory and update the modification timestamp.
+//
+// It prints a detailed summary of added cards, already-owned cards, and
+// card IDs that are missing from the database; file operation errors
+// are reported as error messages.
 func Add(cardIDs ...int) {
-	// Load the inventory
+	// Load the inventory.
 	inventory, err := tools.LoadInventory()
 	if err != nil {
 		message := fmt.Sprintf("Error loading inventory: %v\n", err)
@@ -43,7 +40,7 @@ func Add(cardIDs ...int) {
 		return
 	}
 
-	// Load the card data from cards.json
+	// Load the card data from cards.json.
 	cards, err := tools.LoadCards()
 	if err != nil {
 		message := fmt.Sprintf("Error loading card data: %v\n", err)
@@ -51,25 +48,25 @@ func Add(cardIDs ...int) {
 		return
 	}
 
-	// Load character data for prettier reporting (non-fatal if it fails)
+	// Load character data for prettier reporting (non-fatal if it fails).
 	characters, charErr := tools.LoadCharacters()
 	var characterMap map[int]model.Character
 	if charErr == nil {
 		characterMap = tools.CreateCharacterMap(characters)
 	}
 
-	// Create a map of CardID to Card for quick lookup
+	// Create a map of CardID to Card for quick lookup.
 	cardMap := make(map[int]model.Card)
 	for _, card := range cards {
 		cardMap[card.ID] = card
 	}
 
-	// Helper to create a nice one-line label for a card
+	// Helper to create a nice one-line label for a card.
 	cardLabel := func(card model.CardEntity) string {
-		// Rarity (colored)
+		// Rarity (colored).
 		rarity := tools.FormatRarity(card.CardRarityType)
 
-		// Character name
+		// Character name.
 		characterName := "Unknown Character"
 		if characterMap != nil {
 			if c, ok := characterMap[card.CharacterID]; ok {
@@ -81,7 +78,7 @@ func Add(cardIDs ...int) {
 			}
 		}
 
-		// Unit abbreviation: from card.SupportUnit, fallback to character.Unit
+		// Unit abbreviation: from card.SupportUnit, fallback to character.Unit.
 		unitAbbrev := tools.FormatUnit(card.SupportUnit)
 		if unitAbbrev == "" && characterMap != nil {
 			if c, ok := characterMap[card.CharacterID]; ok {
@@ -93,7 +90,7 @@ func Add(cardIDs ...int) {
 			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
 		}
 
-		return fmt.Sprintf("[%d] %s	%s%s \"%s\"",
+		return fmt.Sprintf("[%d] %s\t%s%s \"%s\"",
 			card.ID,
 			rarity,
 			characterName,
@@ -102,14 +99,14 @@ func Add(cardIDs ...int) {
 		)
 	}
 
-	// Track cards that were successfully added and those that already exist
+	// Track cards that were successfully added and those that already exist.
 	addedCards := []model.CardEntity{}
 	existingCards := []model.CardEntity{}
 	missingCards := []int{}
 
-	// Iterate over the provided cardIDs
+	// Iterate over the provided cardIDs.
 	for _, cardID := range cardIDs {
-		// Check if the card already exists in the inventory
+		// Check if the card already exists in the inventory.
 		var existing *model.CardEntity
 		for i := range inventory.Cards {
 			if inventory.Cards[i].ID == cardID {
@@ -119,20 +116,20 @@ func Add(cardIDs ...int) {
 		}
 
 		if existing != nil {
-			// Card already exists
+			// Card already exists.
 			existingCards = append(existingCards, *existing)
 			continue
 		}
 
-		// Fetch card data from cards.json
+		// Fetch card data from cards.json.
 		cardData, exists := cardMap[cardID]
 		if !exists {
-			// Card not found in cards.json
+			// Card not found in cards.json.
 			missingCards = append(missingCards, cardID)
 			continue
 		}
 
-		// Create a new CardEntity with data from cards.json and default values
+		// Create a new CardEntity with data from cards.json and default values.
 		newCard := model.CardEntity{
 			Card: model.Card{
 				ID:             cardData.ID,
@@ -150,17 +147,17 @@ func Add(cardIDs ...int) {
 			Painting:   false,
 		}
 
-		// Add the new card to the inventory
+		// Add the new card to the inventory.
 		inventory.Cards = append(inventory.Cards, newCard)
 		addedCards = append(addedCards, newCard)
 	}
 
-	// Sort the inventory by card ID
+	// Sort the inventory by card ID.
 	sort.Slice(inventory.Cards, func(i, j int) bool {
 		return inventory.Cards[i].ID < inventory.Cards[j].ID
 	})
 
-	// Save the updated inventory (even if nothing changed, to be consistent)
+	// Save the updated inventory (even if nothing changed, to be consistent).
 	err = tools.SaveInventory(inventory)
 	if err != nil {
 		message := fmt.Sprintf("Error saving inventory: %v\n", err)
@@ -168,7 +165,7 @@ func Add(cardIDs ...int) {
 		return
 	}
 
-	// Print success message for added cards
+	// Print success message for added cards.
 	if len(addedCards) > 0 {
 		tools.PrintSuccessMessage(fmt.Sprintf("Added %d card(s):", len(addedCards)))
 		for _, c := range addedCards {
@@ -177,7 +174,7 @@ func Add(cardIDs ...int) {
 		_ = tools.UpdateTimeSet()
 	}
 
-	// Print warning message for cards that already exist
+	// Print warning message for cards that already exist.
 	if len(existingCards) > 0 {
 		tools.PrintWarningMessage(fmt.Sprintf("Already in inventory (%d card(s)):", len(existingCards)))
 		for _, c := range existingCards {
@@ -185,9 +182,9 @@ func Add(cardIDs ...int) {
 		}
 	}
 
-	// Print warning message for cards not found in Database (cards.json)
+	// Print warning message for cards not found in the database (cards.json).
 	if len(missingCards) > 0 {
-		tools.PrintWarningMessage(fmt.Sprintf("Not found in Database (%d ID(s)):", len(missingCards)))
+		tools.PrintWarningMessage(fmt.Sprintf("Not found in database (%d ID(s)):", len(missingCards)))
 		for _, id := range missingCards {
 			fmt.Printf("  %d\n", id)
 		}

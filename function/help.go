@@ -7,23 +7,24 @@ import (
 	"github.com/fatih/color"
 )
 
-// commandHelp holds the structure for command documentation
+// commandHelp holds the syntax, description, and optional field list for a
+// single CLI command, used to render the help output.
 type commandHelp struct {
 	syntax      string
 	description string
 	fields      []fieldHelp
 }
 
-// fieldHelp describes a command field's properties
+// fieldHelp describes a command field's name and its human-readable description.
 type fieldHelp struct {
 	name        string
 	description string
 }
 
-// Help displays a list of available commands and their descriptions in a
-// formatted and color-coded manner for better readability.
+// Help prints a colorized overview of available commands, their syntax, and
+// their purpose. It is the implementation behind the "help" CLI command.
 func Help() {
-	// Define command documentation
+	// Define command documentation.
 	commands := map[string]commandHelp{
 		"System Commands": {
 			"init", "Initialize the application by creating an empty inventory file", nil,
@@ -55,7 +56,7 @@ func Help() {
 			"remove <cardID> [...]", "Remove one or more cards from the inventory", nil,
 		},
 		" ": {
-			"change <cardID> --<field> <value>", "Modify a specific field of a card in the inventory",
+			"change <cardID> --<field> <value>", "Modify fields of a card in the inventory",
 			[]fieldHelp{
 				{"level", "Card level (1-60)"},
 				{"skillLevel", "Skill level (1-4)"},
@@ -76,7 +77,7 @@ func Help() {
 	tools.PrintSuccessMessage("Project Sekai Inventory Manager - Help")
 	fmt.Println()
 
-	// Print each command section
+	// Print each command section.
 	lastSection := ""
 	for section, cmd := range commands {
 		if section != "" && section != " " {
@@ -87,13 +88,13 @@ func Help() {
 			lastSection = section
 		}
 
-		// Command syntax and description
+		// Command syntax and description.
 		bold := color.New(color.Bold)
 		fmt.Printf("  ")
 		bold.Printf("%-25s", cmd.syntax)
 		fmt.Printf(" %s\n", cmd.description)
 
-		// Print fields if any
+		// Print fields if any.
 		if cmd.fields != nil {
 			fmt.Println("    Available fields:")
 			for _, field := range cmd.fields {
@@ -104,7 +105,7 @@ func Help() {
 		}
 	}
 
-	// Print footer
+	// Print footer.
 	fmt.Println()
-	tools.PrintWarningMessage("Note: Use square brackets [] for optional parameters and <> for required parameters")
+	tools.PrintWarningMessage("Note: Use square brackets [] for optional parameters and <> for required parameters.")
 }

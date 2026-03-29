@@ -1,3 +1,6 @@
+// Package main implements the Sekai Inventory Manager CLI, a command-line tool
+// for managing a local inventory of Project SEKAI cards. It exposes commands
+// such as init, update, convert, add, remove, search, list, change, and help.
 package main
 
 import (
@@ -8,7 +11,7 @@ import (
 	"strings"
 )
 
-// Common help texts for consistent messaging across commands
+// CLI help texts used for consistent messaging across commands.
 const (
 	filterUsageFormat = "Usage: sekai-inventory %s [--<field> <value>]"
 	filterFieldsHelp  = `Valid fields are:
@@ -26,7 +29,16 @@ const (
   --painting    (true/false)`
 )
 
-// handleChangeCommand processes the change command and its arguments
+// handleChangeCommand parses and executes the "change" subcommand.
+//
+// It expects arguments in the form:
+//
+//	change <cardID> --<field> <value> [--<field> <value> ...]
+//
+// The function validates the card ID and field/value pairs, delegates the
+// update to function.Change, and prints a success message when the card
+// has been updated. It returns an error if argument parsing fails or if
+// function.Change reports an error.
 func handleChangeCommand(args []string) error {
 	if len(args) < 3 {
 		tools.PrintWarningMessage("Usage: sekai-inventory change <cardID> --<field> <value> [--<field> <value> ...]")
@@ -34,13 +46,13 @@ func handleChangeCommand(args []string) error {
 		return fmt.Errorf("insufficient arguments")
 	}
 
-	// Parse the card ID
+	// Parse the card ID.
 	cardID, err := tools.ParseCardID(args[0])
 	if err != nil {
 		return err
 	}
 
-	// Parse the fields and values into a map
+	// Parse the fields and values into a map.
 	updates := make(map[string]string)
 	for i := 1; i < len(args)-1; i += 2 {
 		field := strings.TrimPrefix(args[i], "--")
@@ -58,6 +70,9 @@ func handleChangeCommand(args []string) error {
 	return nil
 }
 
+// main is the entry point of the Sekai Inventory Manager CLI. It parses
+// command-line arguments and dispatches to the corresponding command
+// handlers in the function package.
 func main() {
 	if len(os.Args) < 2 {
 		tools.PrintWarningMessage("Usage: sekai-inventory <command> [arguments]")
@@ -65,10 +80,10 @@ func main() {
 		return
 	}
 
-	// Parse the command
+	// Parse the command.
 	command := os.Args[1]
 
-	// Handle commands
+	// Handle commands.
 	switch command {
 
 	case "init":
@@ -81,16 +96,16 @@ func main() {
 		function.Convert()
 
 	case "search", "list":
-		// Parse filters for search/list commands
+		// Parse filters for search/list commands.
 		filters := tools.ParseFilters(os.Args[2:])
 		if filters == nil {
-			// Invalid usage
+			// Invalid usage.
 			tools.PrintWarningMessage(fmt.Sprintf(filterUsageFormat, command))
 			tools.PrintWarningMessage(filterFieldsHelp)
 			return
 		}
 
-		// Call the appropriate function
+		// Call the appropriate function.
 		if command == "search" {
 			function.Search(filters)
 		} else {
@@ -103,7 +118,7 @@ func main() {
 			return
 		}
 
-		// Parse all cardIDs
+		// Parse all card IDs.
 		var cardIDs []int
 		for _, arg := range os.Args[2:] {
 			cardID, err := tools.ParseCardID(arg)
@@ -114,7 +129,7 @@ func main() {
 			cardIDs = append(cardIDs, cardID)
 		}
 
-		// Call the Add function with all parsed cardIDs
+		// Call the Add function with all parsed card IDs.
 		function.Add(cardIDs...)
 
 	case "remove":
@@ -123,7 +138,7 @@ func main() {
 			return
 		}
 
-		// Parse all cardIDs
+		// Parse all card IDs.
 		var cardIDs []int
 		for _, arg := range os.Args[2:] {
 			cardID, err := tools.ParseCardID(arg)
@@ -134,7 +149,7 @@ func main() {
 			cardIDs = append(cardIDs, cardID)
 		}
 
-		// Call the Remove function with all parsed cardIDs
+		// Call the Remove function with all parsed card IDs.
 		function.Remove(cardIDs...)
 
 	case "change":
