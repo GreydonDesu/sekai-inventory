@@ -2,6 +2,7 @@ package tools
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -22,6 +23,8 @@ const (
 	// MetadataFile stores information about the last data update
 	MetadataFile = "res/metadata.json"
 )
+
+var ErrNoUpdateNeeded = errors.New("no update needed; local data is up to date")
 
 // Metadata tracks information about the fetched game data files including
 // timestamps and version information to help determine when updates are needed.
@@ -124,6 +127,24 @@ func fetchGitCommitID() (string, error) {
 	return data.SHA, nil
 }
 
+// LoadMetadata reads the metadata.json file and returns the parsed Metadata.
+// It returns an error if the file does not exist or cannot be parsed.
+func LoadMetadata() (*Metadata, error) {
+	file, err := os.Open(MetadataFile)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var m Metadata
+	dec := json.NewDecoder(file)
+	if err := dec.Decode(&m); err != nil {
+		return nil, err
+	}
+
+	return &m, nil
+}
+
 // SaveMetadata stores update information in the metadata file.
 // This includes timestamps and version information that can be used to
 // determine when the local data needs to be updated.
@@ -164,9 +185,12 @@ type ProgressCallback func(stage string, progress float64)
 // FetchAndSaveData downloads and updates all required game data files.
 // This function performs the following steps:
 //  1. Creates the resources directory if it doesn't exist
-//  2. Downloads the latest cards.json and gameCharacters.json files
-//  3. Retrieves the current Git commit ID for version tracking
+//  2. Checks the latest Git commit ID and compares with local metadata
+//  3. If there is a new commit, downloads cards.json and gameCharacters.json
 //  4. Updates the metadata file with current timestamps
+//
+// If the remote Git commit ID matches the local one, it returns ErrNoUpdateNeeded
+// and does not download any data.
 //
 // Parameters:
 //   - progressCb: Optional callback function to report progress (can be nil)
@@ -185,33 +209,44 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 		return err
 	}
 
-	// Fetch and save the cards.json file
-	reportProgress("Fetching card database", 0.0)
+	// 1) Check data version via Git commit ID
+	reportProgress("Checking data version", 0.0)
+	latestCommitID, err := fetchGitCommitID()
+	if err != nil {
+		return fmt.Errorf("error fetching Git commit ID: %v", err)
+	}
+
+	var oldMeta *Metadata
+	if m, err := LoadMetadata(); err == nil {
+		oldMeta = m
+	}
+
+	// If we already have metadata and the commit ID matches, skip downloads
+	if oldMeta != nil && oldMeta.GitCommitID == latestCommitID {
+		reportProgress("Checking data version", 1.0)
+		return ErrNoUpdateNeeded
+	}
+	reportProgress("Checking data version", 0.2)
+
+	// 2) Fetch and save the cards.json file
+	reportProgress("Fetching card database", 0.2)
 	cardsLastUpdate, err := fetchFile(CardsURL, LocalCardsFile)
 	if err != nil {
 		return fmt.Errorf("error fetching cards.json: %v", err)
 	}
-	reportProgress("Fetching card database", 0.35)
+	reportProgress("Fetching card database", 0.5)
 
-	// Fetch and save the gameCharacters.json file
-	reportProgress("Fetching character database", 0.35)
+	// 3) Fetch and save the gameCharacters.json file
+	reportProgress("Fetching character database", 0.5)
 	charsLastUpdate, err := fetchFile(CharactersURL, LocalCharsFile)
 	if err != nil {
 		return fmt.Errorf("error fetching gameCharacters.json: %v", err)
 	}
-	reportProgress("Fetching character database", 0.70)
+	reportProgress("Fetching character database", 0.8)
 
-	// Fetch the latest Git commit ID
-	reportProgress("Checking data version", 0.70)
-	gitCommitID, err := fetchGitCommitID()
-	if err != nil {
-		return fmt.Errorf("error fetching Git commit ID: %v", err)
-	}
-	reportProgress("Checking data version", 0.85)
-
-	// Save the metadata
-	reportProgress("Saving metadata", 0.85)
-	if err := SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate); err != nil {
+	// 4) Save the metadata
+	reportProgress("Saving metadata", 0.8)
+	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate); err != nil {
 		return fmt.Errorf("error saving metadata: %v", err)
 	}
 	reportProgress("Saving metadata", 1.0)

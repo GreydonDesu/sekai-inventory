@@ -1,6 +1,7 @@
 package function
 
 import (
+	"errors"
 	"fmt"
 	"sekai-inventory/tools"
 	"strings"
@@ -30,7 +31,7 @@ func Update() {
 	var lastStage string
 
 	// Fetch and save data with progress reporting
-	if err := tools.FetchAndSaveData(func(stage string, progress float64) {
+	err := tools.FetchAndSaveData(func(stage string, progress float64) {
 		// Only clear line and print stage if it changed
 		if stage != lastStage {
 			fmt.Print("\r" + strings.Repeat(" ", 80))
@@ -46,10 +47,20 @@ func Update() {
 			bar += strings.Repeat(" ", 19-bars)
 		}
 		fmt.Printf("%s] %.0f%%", bar, progress*100)
-	}); err != nil {
+	})
+
+	if err != nil {
+		// Special case: data already up to date
+		if errors.Is(err, tools.ErrNoUpdateNeeded) {
+			fmt.Println() // finish the progress line if any
+			tools.PrintSuccessMessage("Your local data is already up to date. No update needed.")
+			return
+		}
+
 		tools.PrintErrorMessage(fmt.Sprintf("\nUpdate failed: %v", err))
 		return
 	}
+
 	fmt.Println() // Add newline after progress bar
 
 	// Read and display update summary
