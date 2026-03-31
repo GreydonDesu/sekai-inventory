@@ -178,7 +178,7 @@ func Add(cardIDs ...int) {
 	if len(existingCards) > 0 {
 		tools.PrintWarningMessage(fmt.Sprintf("Already in inventory (%d card(s)):", len(existingCards)))
 		for _, c := range existingCards {
-			fmt.Printf("  %s\n", cardLabel(c))
+			fmt.Printf("%s\n", cardLabel(c))
 		}
 	}
 
@@ -186,7 +186,7 @@ func Add(cardIDs ...int) {
 	if len(missingCards) > 0 {
 		tools.PrintWarningMessage(fmt.Sprintf("Not found in database (%d ID(s)):", len(missingCards)))
 		for _, id := range missingCards {
-			fmt.Printf("  %d\n", id)
+			fmt.Printf("%d\n", id)
 		}
 	}
 }

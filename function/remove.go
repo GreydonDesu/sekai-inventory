@@ -122,7 +122,7 @@ func Remove(cardIDs ...int) {
 	if len(notFoundCards) > 0 {
 		tools.PrintWarningMessage(fmt.Sprintf("Not found in inventory (%d ID(s)):", len(notFoundCards)))
 		for _, id := range notFoundCards {
-			fmt.Printf("  %d\n", id)
+			fmt.Printf("%d\n", id)
 		}
 	}
 }
