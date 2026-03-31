@@ -90,7 +90,7 @@ func Add(cardIDs ...int) {
 			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
 		}
 
-		return fmt.Sprintf("[%d] %s\t%s%s \"%s\"",
+		return fmt.Sprintf("[%d]\t%s\t%s%s \"%s\"",
 			card.ID,
 			rarity,
 			characterName,
@@ -169,7 +169,7 @@ func Add(cardIDs ...int) {
 	if len(addedCards) > 0 {
 		tools.PrintSuccessMessage(fmt.Sprintf("Added %d card(s):", len(addedCards)))
 		for _, c := range addedCards {
-			fmt.Printf("  %s\n", cardLabel(c))
+			fmt.Printf("%s\n", cardLabel(c))
 		}
 		_ = tools.UpdateTimeSet()
 	}

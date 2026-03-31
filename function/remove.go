@@ -64,7 +64,7 @@ func Remove(cardIDs ...int) {
 			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
 		}
 
-		return fmt.Sprintf("[%d] %s\t%s%s \"%s\"",
+		return fmt.Sprintf("[%d]\t%s\t%s%s \"%s\"",
 			card.ID,
 			rarity,
 			characterName,
@@ -113,7 +113,7 @@ func Remove(cardIDs ...int) {
 	if len(removedCards) > 0 {
 		tools.PrintSuccessMessage(fmt.Sprintf("Removed %d card(s):", len(removedCards)))
 		for _, c := range removedCards {
-			fmt.Printf("  %s\n", cardLabel(c))
+			fmt.Printf("%s\n", cardLabel(c))
 		}
 		_ = tools.UpdateTimeSet()
 	}
