@@ -14,7 +14,7 @@ import (
 //
 // New cards are initialized with:
 //   - Level:       1
-//   - MasterRank:  0
+//   - MasteryRank: 0
 //   - SkillLevel:  1
 //   - SideStory1:  false
 //   - SideStory2:  false
@@ -139,12 +139,12 @@ func Add(cardIDs ...int) {
 				SupportUnit:    cardData.SupportUnit,
 				Prefix:         cardData.Prefix,
 			},
-			Level:      1,
-			MasterRank: 0,
-			SkillLevel: 1,
-			SideStory1: false,
-			SideStory2: false,
-			Painting:   false,
+			Level:       1,
+			MasteryRank: 0,
+			SkillLevel:  1,
+			SideStory1:  false,
+			SideStory2:  false,
+			Painting:    false,
 		}
 
 		// Add the new card to the inventory.

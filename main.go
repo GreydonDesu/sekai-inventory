@@ -23,7 +23,7 @@ const (
 	changeFieldsHelp = `Valid fields are:
   --level       (1-60)
   --skillLevel  (1-5)
-  --masterRank  (0-5)
+  --masteryRank (0-5)
   --sideStory1  (true/false)
   --sideStory2  (true/false)
   --painting    (true/false)`

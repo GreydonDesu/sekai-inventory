@@ -30,7 +30,7 @@ type Card struct {
 // instance in the user's inventory.
 //
 // These fields can be modified over time as the user levels and invests in
-// the card (levels, master rank, skill level, side stories, painting).
+// the card (levels, mastery rank, skill level, side stories, painting).
 type CardEntity struct {
 	// Embed the base Card type.
 	Card
@@ -38,8 +38,8 @@ type CardEntity struct {
 	// Level is the card's current level (1–60).
 	Level int `json:"level"`
 
-	// MasterRank indicates the number of duplicate cards merged (0–5).
-	MasterRank int `json:"masterRank"`
+	// MasteryRank indicates the number of duplicate cards merged (0–5).
+	MasteryRank int `json:"masteryRank"`
 
 	// SkillLevel represents the card's skill enhancement level (1–4).
 	SkillLevel int `json:"skillLevel"`

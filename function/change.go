@@ -16,7 +16,7 @@ import (
 //
 //   - level:       integer between 1 and 60.
 //   - skillLevel:  integer between 1 and 5.
-//   - masterRank:  integer between 0 and 5.
+//   - masteryRank: integer between 0 and 5.
 //   - sideStory1:  boolean (true/false).
 //   - sideStory2:  boolean (true/false).
 //   - painting:    boolean (true/false).
@@ -71,13 +71,13 @@ func Change(cardID int, updates map[string]string) error {
 			if card.SkillLevel != original.SkillLevel {
 				changed = true
 			}
-		case "masterRank":
-			masterRank, err := strconv.Atoi(value)
-			if err != nil || masterRank < 0 || masterRank > 5 {
-				return fmt.Errorf("invalid value for 'masterRank': %s. Must be an integer between 0 and 5", value)
+		case "masteryRank":
+			masteryRank, err := strconv.Atoi(value)
+			if err != nil || masteryRank < 0 || masteryRank > 5 {
+				return fmt.Errorf("invalid value for 'masteryRank': %s. Must be an integer between 0 and 5", value)
 			}
-			card.MasterRank = masterRank
-			if card.MasterRank != original.MasterRank {
+			card.MasteryRank = masteryRank
+			if card.MasteryRank != original.MasteryRank {
 				changed = true
 			}
 		case "sideStory1":
@@ -205,8 +205,8 @@ func printChangeSummary(card, original *model.CardEntity) {
 	if original.Level != card.Level {
 		printNumericChange("Level", original.Level, card.Level)
 	}
-	if original.MasterRank != card.MasterRank {
-		printNumericChange("Master Rank", original.MasterRank, card.MasterRank)
+	if original.MasteryRank != card.MasteryRank {
+		printNumericChange("Mastery Rank", original.MasteryRank, card.MasteryRank)
 	}
 	if original.SkillLevel != card.SkillLevel {
 		printNumericChange("Skill Level", original.SkillLevel, card.SkillLevel)
