@@ -1,5 +1,14 @@
 package model
 
+// Rarity type constants mirror the game's internal rarity identifier strings.
+const (
+	RarityType1        = "rarity_1"
+	RarityType2        = "rarity_2"
+	RarityType3        = "rarity_3"
+	RarityType4        = "rarity_4"
+	RarityTypeBirthday = "rarity_birthday"
+)
+
 // Card represents the base card information from the game's master data.
 //
 // The fields of Card describe immutable properties that are the same for all
