@@ -50,7 +50,7 @@ type CardEntity struct {
 	// MasterRank indicates the number of duplicate cards merged (0–5).
 	MasterRank int `json:"masterRank"`
 
-	// SkillLevel represents the card's skill enhancement level (1–4).
+	// SkillLevel represents the card's skill enhancement level (1–5).
 	SkillLevel int `json:"skillLevel"`
 
 	// SideStory1 reports whether the first side story has been unlocked.
