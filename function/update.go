@@ -20,7 +20,7 @@ import (
 func Update() {
 	// Check if metadata file exists and read last update time.
 	var lastUpdate time.Time
-	if metadata, err := tools.ReadMetadata(); err == nil {
+	if metadata, err := tools.LoadMetadata(); err == nil {
 		if t, err := time.Parse(time.RFC3339, metadata.Timestamp); err == nil {
 			lastUpdate = t
 		}
@@ -69,7 +69,7 @@ func Update() {
 	fmt.Println() // Add newline after progress bar.
 
 	// Read and display update summary.
-	if metadata, err := tools.ReadMetadata(); err == nil {
+	if metadata, err := tools.LoadMetadata(); err == nil {
 		fmt.Println()
 		tools.PrintSuccessMessage("Update completed successfully!")
 		fmt.Printf("\nUpdate Summary:\n")
