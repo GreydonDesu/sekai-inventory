@@ -23,7 +23,7 @@ go test ./...
 Single-module Go CLI with three packages under the root module:
 
 - **`function/`** — One file per CLI command (`add`, `remove`, `change`, `search`, `list`, `update`, `convert`, `init`, `help`). Each exports a single top-level function called by `main.go`.
-- **`model/`** — Data structs: `Card` (immutable game data), `CardEntity` (extends Card with user state: Level, MasterRank, SkillLevel, SideStory1/2, Painting), `Inventory` (CardEntity slice + timestamps), `Character`.
+- **`model/`** — Data structs: `Card` (immutable game data), `CardEntity` (extends Card with user state: Level 1–60, MasterRank 0–5, SkillLevel 1–4, SideStory1/SideStory2/Painting bool), `Inventory` (CardEntity slice + timestamps), `Character`.
 - **`tools/`** — Storage I/O (`storage.go`), HTTP fetching from Sekai-World GitHub (`fetcher.go`), output formatting/colorization (`list_item.go`, `utils.go`), and update metadata (`metadata.go`).
 
 `main.go` handles all argument parsing and routes to `function/` — there is no flag library; args are parsed manually.

@@ -152,13 +152,13 @@ func FormatRarity(rarity string) string {
 //   - Yellow: approaching maximum level (rarity_3 at 40, rarity_4 at 50).
 //   - Plain:  below the thresholds above.
 //
-// Maximum levels by rarity:
+// Level thresholds by rarity:
 //
-//   - rarity_1:        20
-//   - rarity_2:        30
-//   - rarity_3:        50
-//   - rarity_4:        60
-//   - rarity_birthday: 60
+//   - rarity_1:        20 (green/max)
+//   - rarity_2:        30 (green/max)
+//   - rarity_3:        40 (yellow), 50 (green/max)
+//   - rarity_4:        50 (yellow), 60 (green/max)
+//   - rarity_birthday: 60 (green/max)
 func FormatLevel(rarity string, level int) string {
 	if level <= 0 {
 		return "Lvl 0"
