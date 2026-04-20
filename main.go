@@ -29,6 +29,26 @@ const (
   --painting    (true/false)`
 )
 
+// parseCardIDArgs parses a slice of string arguments into card IDs. It prints
+// a usage warning and returns (nil, false) if args is empty or any argument
+// fails to parse as a positive integer.
+func parseCardIDArgs(cmd string, args []string) ([]int, bool) {
+	if len(args) == 0 {
+		tools.PrintWarningMessage(fmt.Sprintf("Usage: sekai-inventory %s <cardID> [cardID...]", cmd))
+		return nil, false
+	}
+	ids := make([]int, 0, len(args))
+	for _, arg := range args {
+		id, err := tools.ParseCardID(arg)
+		if err != nil {
+			tools.PrintErrorMessage(fmt.Sprintf("Invalid card ID: %s", arg))
+			return nil, false
+		}
+		ids = append(ids, id)
+	}
+	return ids, true
+}
+
 // handleChangeCommand parses and executes the "change" subcommand.
 //
 // It expects arguments in the form:
@@ -46,13 +66,11 @@ func handleChangeCommand(args []string) error {
 		return fmt.Errorf("insufficient arguments")
 	}
 
-	// Parse the card ID.
 	cardID, err := tools.ParseCardID(args[0])
 	if err != nil {
 		return err
 	}
 
-	// Parse the fields and values into a map.
 	updates := make(map[string]string)
 	for i := 1; i < len(args)-1; i += 2 {
 		field := strings.TrimPrefix(args[i], "--")
@@ -80,12 +98,9 @@ func main() {
 		return
 	}
 
-	// Parse the command.
 	command := os.Args[1]
 
-	// Handle commands.
 	switch command {
-
 	case "init":
 		function.Init()
 
@@ -96,16 +111,12 @@ func main() {
 		function.Convert()
 
 	case "search", "list":
-		// Parse filters for search/list commands.
 		filters := tools.ParseFilters(os.Args[2:])
 		if filters == nil {
-			// Invalid usage.
 			tools.PrintWarningMessage(fmt.Sprintf(filterUsageFormat, command))
 			tools.PrintWarningMessage(filterFieldsHelp)
 			return
 		}
-
-		// Call the appropriate function.
 		if command == "search" {
 			function.Search(filters)
 		} else {
@@ -113,44 +124,14 @@ func main() {
 		}
 
 	case "add":
-		if len(os.Args) < 3 {
-			tools.PrintWarningMessage("Usage: sekai-inventory add <cardID> [cardID...]")
-			return
+		if ids, ok := parseCardIDArgs("add", os.Args[2:]); ok {
+			function.Add(ids...)
 		}
-
-		// Parse all card IDs.
-		var cardIDs []int
-		for _, arg := range os.Args[2:] {
-			cardID, err := tools.ParseCardID(arg)
-			if err != nil {
-				tools.PrintErrorMessage(fmt.Sprintf("Invalid card ID: %s", arg))
-				return
-			}
-			cardIDs = append(cardIDs, cardID)
-		}
-
-		// Call the Add function with all parsed card IDs.
-		function.Add(cardIDs...)
 
 	case "remove":
-		if len(os.Args) < 3 {
-			tools.PrintWarningMessage("Usage: sekai-inventory remove <cardID> [cardID...]")
-			return
+		if ids, ok := parseCardIDArgs("remove", os.Args[2:]); ok {
+			function.Remove(ids...)
 		}
-
-		// Parse all card IDs.
-		var cardIDs []int
-		for _, arg := range os.Args[2:] {
-			cardID, err := tools.ParseCardID(arg)
-			if err != nil {
-				tools.PrintErrorMessage(fmt.Sprintf("Invalid card ID: %s", arg))
-				return
-			}
-			cardIDs = append(cardIDs, cardID)
-		}
-
-		// Call the Remove function with all parsed card IDs.
-		function.Remove(cardIDs...)
 
 	case "change":
 		if err := handleChangeCommand(os.Args[2:]); err != nil {
