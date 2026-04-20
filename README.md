@@ -147,7 +147,7 @@ Change the details of a card in the inventory.
 **Valid Fields**:
 
 - `--level`: Card level (`1-60`).
-- `--skillLevel`: Skill level (`1-5`).
+- `--skillLevel`: Skill level (`1-4`).
 - `--masterRank`: Master rank (`0-5`).
 - `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
 - `--sideStory2`: Unlock status of side story 2 (`true`/`false`).

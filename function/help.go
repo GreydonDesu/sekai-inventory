@@ -81,7 +81,7 @@ var helpSections = []commandSection{
 				"Modify fields of a card in the inventory",
 				[]fieldHelp{
 					{"level", "Card level (1-60)"},
-					{"skillLevel", "Skill level (1-5)"},
+					{"skillLevel", "Skill level (1-4)"},
 					{"masterRank", "Master rank (0-5)"},
 					{"sideStory1", "Side story 1 unlock status (true/false)"},
 					{"sideStory2", "Side story 2 unlock status (true/false)"},

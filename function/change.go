@@ -28,7 +28,7 @@ const (
 // and their valid values are:
 //
 //   - level:       integer between 1 and 60.
-//   - skillLevel:  integer between 1 and 5.
+//   - skillLevel:  integer between 1 and 4.
 //   - masterRank:  integer between 0 and 5.
 //   - sideStory1:  boolean (true/false).
 //   - sideStory2:  boolean (true/false).

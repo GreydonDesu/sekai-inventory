@@ -70,6 +70,7 @@ func TestApplyCardField(t *testing.T) {
 		{"sideStory1", "true", func(c *model.CardEntity) bool { return c.SideStory1 }, false},
 		{"sideStory2", "true", func(c *model.CardEntity) bool { return c.SideStory2 }, false},
 		{"painting", "true", func(c *model.CardEntity) bool { return c.Painting }, false},
+		{"skillLevel", "5", nil, true},
 		{"level", "99", nil, true},
 		{"level", "abc", nil, true},
 		{"unknown", "x", nil, true},
