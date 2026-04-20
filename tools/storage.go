@@ -92,7 +92,7 @@ func LoadInventory() (*model.Inventory, error) {
 // The JSON output is pretty-printed for better human readability. SaveInventory
 // returns an error if file creation or JSON encoding fails.
 func SaveInventory(inv *model.Inventory) error {
-	file, err := os.Create(InventoryFile)
+	file, err := os.OpenFile(InventoryFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o600)
 	if err != nil {
 		return fmt.Errorf("failed to create inventory file: %w", err)
 	}

@@ -87,7 +87,7 @@ func fetchFile(url, filePath string) (string, error) {
 	}
 
 	// Create the local file.
-	file, err := os.Create(filePath)
+	file, err := os.OpenFile(filePath, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o600)
 	if err != nil {
 		return "", fmt.Errorf("failed to create file: %w", err)
 	}
@@ -167,7 +167,7 @@ func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate, skillsLastUpdat
 	}
 
 	// Create or overwrite the metadata file.
-	file, err := os.Create(MetadataFile)
+	file, err := os.OpenFile(MetadataFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o600)
 	if err != nil {
 		return fmt.Errorf("failed to create metadata file: %w", err)
 	}
@@ -218,7 +218,7 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	reportProgress("Checking data version", 0.0)
 	latestCommitID, err := fetchGitCommitID()
 	if err != nil {
-		return fmt.Errorf("error fetching Git commit ID: %v", err)
+		return fmt.Errorf("error fetching Git commit ID: %w", err)
 	}
 
 	var oldMeta *Metadata
@@ -237,7 +237,7 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	reportProgress("Fetching card database", 0.2)
 	cardsLastUpdate, err := fetchFile(CardsURL, LocalCardsFile)
 	if err != nil {
-		return fmt.Errorf("error fetching cards.json: %v", err)
+		return fmt.Errorf("error fetching cards.json: %w", err)
 	}
 	reportProgress("Fetching card database", 0.4)
 
@@ -245,7 +245,7 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	reportProgress("Fetching character database", 0.4)
 	charsLastUpdate, err := fetchFile(CharactersURL, LocalCharsFile)
 	if err != nil {
-		return fmt.Errorf("error fetching gameCharacters.json: %v", err)
+		return fmt.Errorf("error fetching gameCharacters.json: %w", err)
 	}
 	reportProgress("Fetching character database", 0.6)
 
@@ -253,14 +253,14 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	reportProgress("Fetching skills database", 0.6)
 	skillsLastUpdate, err := fetchFile(SkillsURL, LocalSkillsFile)
 	if err != nil {
-		return fmt.Errorf("error fetching skills.json: %v", err)
+		return fmt.Errorf("error fetching skills.json: %w", err)
 	}
 	reportProgress("Fetching skills database", 0.8)
 
 	// 5) Save the metadata.
 	reportProgress("Saving metadata", 0.8)
 	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate, skillsLastUpdate); err != nil {
-		return fmt.Errorf("error saving metadata: %v", err)
+		return fmt.Errorf("error saving metadata: %w", err)
 	}
 	reportProgress("Saving metadata", 1.0)
 
