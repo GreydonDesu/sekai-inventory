@@ -13,7 +13,7 @@ import (
 const (
 	fieldLevel      = "level"
 	fieldSkillLevel = "skillLevel"
-	fieldMasterRank = "masterRank"
+	fieldMasteryRank = "masteryRank"
 	fieldSideStory1 = "sideStory1"
 	fieldSideStory2 = "sideStory2"
 	fieldPainting   = "painting"
@@ -63,54 +63,42 @@ func Change(cardID int, updates map[string]string) error {
 				return fmt.Errorf("invalid value for 'level': %s. Must be an integer between 1 and 60", value)
 			}
 			card.Level = level
-			if card.Level != original.Level {
-				changed = true
-			}
+
 		case "skillLevel":
 			skillLevel, err := strconv.Atoi(value)
 			if err != nil || skillLevel < 1 || skillLevel > 5 {
 				return fmt.Errorf("invalid value for 'skillLevel': %s. Must be an integer between 1 and 5", value)
 			}
 			card.SkillLevel = skillLevel
-			if card.SkillLevel != original.SkillLevel {
-				changed = true
-			}
+
 		case "masteryRank":
 			masteryRank, err := strconv.Atoi(value)
 			if err != nil || masteryRank < 0 || masteryRank > 5 {
 				return fmt.Errorf("invalid value for 'masteryRank': %s. Must be an integer between 0 and 5", value)
 			}
 			card.MasteryRank = masteryRank
-			if card.MasteryRank != original.MasteryRank {
-				changed = true
-			}
+
 		case "sideStory1":
 			sideStory1, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'sideStory1': %s. Must be 'true' or 'false'", value)
 			}
 			card.SideStory1 = sideStory1
-			if card.SideStory1 != original.SideStory1 {
-				changed = true
-			}
+
 		case "sideStory2":
 			sideStory2, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'sideStory2': %s. Must be 'true' or 'false'", value)
 			}
 			card.SideStory2 = sideStory2
-			if card.SideStory2 != original.SideStory2 {
-				changed = true
-			}
+
 		case "painting":
 			painting, err := strconv.ParseBool(value)
 			if err != nil {
 				return fmt.Errorf("invalid value for 'painting': %s. Must be 'true' or 'false'", value)
 			}
 			card.Painting = painting
-			if card.Painting != original.Painting {
-				changed = true
-			}
+
 		default:
 			return fmt.Errorf("unknown field: %s", field)
 		}
@@ -142,17 +130,17 @@ func applyCardField(card *model.CardEntity, field, value string) error {
 		}
 		card.Level = v
 	case fieldSkillLevel:
-		v, err := parseIntField(value, fieldSkillLevel, 1, 4)
-		if err != nil {
-			return err
-		}
-		card.SkillLevel = v
-	case fieldMasterRank:
-		v, err := parseIntField(value, fieldMasterRank, 0, 5)
-		if err != nil {
-			return err
-		}
-		card.MasterRank = v
+			v, err := parseIntField(value, fieldSkillLevel, 1, 4)
+			if err != nil {
+				return err
+			}
+			card.SkillLevel = v
+		case fieldMasteryRank:
+			v, err := parseIntField(value, fieldMasteryRank, 0, 5)
+			if err != nil {
+				return err
+			}
+			card.MasteryRank = v
 	case fieldSideStory1:
 		v, err := parseBoolField(value, fieldSideStory1)
 		if err != nil {

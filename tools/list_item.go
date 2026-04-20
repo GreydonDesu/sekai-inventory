@@ -93,14 +93,14 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 	}
 
 	// Painting.
-	var painting string
-	if card.Painting {
-		r, g, b, _ := HexToRGB(greenHex)
-		painting = color.RGB(r, g, b).Sprint("☑")
-	} else {
-		r, g, b, _ := HexToRGB(redHex)
-		painting = color.RGB(r, g, b).Sprint("☐")
-	}
+		var painting string
+		if card.Painting {
+			r, g, b, _ := HexToRGB("#00ff00")
+			painting = color.RGB(r, g, b).Sprint("☑")
+		} else {
+			r, g, b, _ := HexToRGB("#ff0000")
+			painting = color.RGB(r, g, b).Sprint("☐")
+		}
 
 	// Highlight Mastery Rank and Skill Level with RGB green at max values.
 	rGreen, gGreen, bGreen, _ := HexToRGB("#00ff00")
@@ -124,8 +124,8 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 		masteryRank,
 		skillLevel,
 		FormatBool(card.SideStory1),
-		FormatBool(card.SideStory2),
-		FormatBool(card.Painting),
+				FormatBool(card.SideStory2),
+				painting,
 		characterName,
 		unitPart,
 		card.Prefix,
