@@ -26,7 +26,7 @@ const (
 // issues when checking or creating the directory.
 func EnsureResDirectory() error {
 	if _, err := os.Stat("res"); os.IsNotExist(err) {
-		if err := os.Mkdir("res", 0755); err != nil {
+		if err := os.Mkdir("res", 0o755); err != nil {
 			return fmt.Errorf("error creating res directory: %w", err)
 		}
 	} else if err != nil {
@@ -92,7 +92,7 @@ func LoadInventory() (*model.Inventory, error) {
 // The JSON output is pretty-printed for better human readability. SaveInventory
 // returns an error if file creation or JSON encoding fails.
 func SaveInventory(inv *model.Inventory) error {
-	file, err := os.Create(InventoryFile)
+	file, err := os.OpenFile(InventoryFile, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0o600)
 	if err != nil {
 		return fmt.Errorf("failed to create inventory file: %w", err)
 	}

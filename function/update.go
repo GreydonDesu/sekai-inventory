@@ -8,19 +8,19 @@ import (
 	"time"
 )
 
-// Update fetches the latest card and character data from the remote database.
+// Update fetches the latest card, character, and skill data from the remote database.
 //
 // It compares the current Git commit ID of the Sekai-World master data
 // repository with the commit ID stored in the local metadata. If the commit
 // has not changed, Update skips downloading new data and reports that the
 // local data is already up to date. Otherwise it downloads the latest
-// cards.json and gameCharacters.json, updates metadata, and prints a summary.
+// cards.json, gameCharacters.json, skills.json, updates metadata, and prints a summary.
 //
 // Progress is reported as a simple text progress bar on stdout.
 func Update() {
 	// Check if metadata file exists and read last update time.
 	var lastUpdate time.Time
-	if metadata, err := tools.ReadMetadata(); err == nil {
+	if metadata, err := tools.LoadMetadata(); err == nil {
 		if t, err := time.Parse(time.RFC3339, metadata.Timestamp); err == nil {
 			lastUpdate = t
 		}
@@ -69,13 +69,18 @@ func Update() {
 	fmt.Println() // Add newline after progress bar.
 
 	// Read and display update summary.
-	if metadata, err := tools.ReadMetadata(); err == nil {
+	if metadata, err := tools.LoadMetadata(); err == nil {
 		fmt.Println()
 		tools.PrintSuccessMessage("Update completed successfully!")
 		fmt.Printf("\nUpdate Summary:\n")
 		fmt.Printf("  Cards database updated:      %s\n", tools.FormatTime(metadata.CardsLastUpdate))
 		fmt.Printf("  Characters database updated: %s\n", tools.FormatTime(metadata.CharsLastUpdate))
-		fmt.Printf("  Data version:                %s\n", metadata.GitCommitID[:7])
+		fmt.Printf("  Skills database updated:     %s\n", tools.FormatTime(metadata.SkillsLastUpdate))
+		commitID := metadata.GitCommitID
+		if len(commitID) > 7 {
+			commitID = commitID[:7]
+		}
+		fmt.Printf("  Data version:                %s\n", commitID)
 	} else {
 		tools.PrintSuccessMessage("\nUpdate completed successfully!")
 	}

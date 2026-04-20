@@ -42,3 +42,6 @@ coverage.out
 *.yaml
 *.yml
 *.lock
+
+# Saiji specific files
+saiji/
