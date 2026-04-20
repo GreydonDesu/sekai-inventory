@@ -59,4 +59,5 @@ Functions that call `LoadInventory`, `LoadCards`, `LoadCharacters`, `SaveInvento
 - Unexported helpers tested per package: `classifyCardIDs` (function/add.go), `matchesFilters` (function/list.go), `applyCardField`/`parseIntField`/`parseBoolField` (function/change.go).
 - Rarity constants: `model.RarityType1` … `model.RarityTypeBirthday` in `model/card.go`.
 - Lookup maps: `tools.RarityToKey`, `tools.GroupToKey` in `tools/utils.go`.
+- Card field validation ranges (enforced by `parseIntField` in `function/change.go`): Level 1–60, SkillLevel 1–4, MasterRank 0–5. SideStory1, SideStory2, and Painting are bool.
 - Linter config: `.golangci.yml` — do not modify it to suppress issues.
