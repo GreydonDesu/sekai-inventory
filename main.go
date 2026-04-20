@@ -74,9 +74,6 @@ func handleChangeCommand(args []string) error {
 	updates := make(map[string]string)
 	for i := 1; i < len(args)-1; i += 2 {
 		field := strings.TrimPrefix(args[i], "--")
-		if i+1 >= len(args) {
-			return fmt.Errorf("missing value for field '%s'", field)
-		}
 		updates[field] = args[i+1]
 	}
 

@@ -76,7 +76,11 @@ func Update() {
 		fmt.Printf("  Cards database updated:      %s\n", tools.FormatTime(metadata.CardsLastUpdate))
 		fmt.Printf("  Characters database updated: %s\n", tools.FormatTime(metadata.CharsLastUpdate))
 		fmt.Printf("  Skills database updated:     %s\n", tools.FormatTime(metadata.SkillsLastUpdate))
-		fmt.Printf("  Data version:                %s\n", metadata.GitCommitID[:7])
+		commitID := metadata.GitCommitID
+		if len(commitID) > 7 {
+			commitID = commitID[:7]
+		}
+		fmt.Printf("  Data version:                %s\n", commitID)
 	} else {
 		tools.PrintSuccessMessage("\nUpdate completed successfully!")
 	}
