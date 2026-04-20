@@ -26,7 +26,7 @@ const (
 // issues when checking or creating the directory.
 func EnsureResDirectory() error {
 	if _, err := os.Stat("res"); os.IsNotExist(err) {
-		if err := os.Mkdir("res", 0755); err != nil {
+		if err := os.Mkdir("res", 0o755); err != nil {
 			return fmt.Errorf("error creating res directory: %w", err)
 		}
 	} else if err != nil {

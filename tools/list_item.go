@@ -9,147 +9,148 @@ import (
 	"github.com/fatih/color"
 )
 
+// rarity label map used by FormatRarity; avoids repeating string literals.
+var rarityLabels = map[string]string{
+	model.RarityType1:        "★",
+	model.RarityType2:        "★★",
+	model.RarityType3:        "★★★",
+	model.RarityType4:        "★★★★",
+	model.RarityTypeBirthday: "୨୧",
+}
+
+// FormatBool returns a colorized checkbox symbol representing a boolean value:
+// ☑ (green) for true and ☐ (red) for false.
+func FormatBool(b bool) string {
+	if b {
+		r, g, bl, _ := HexToRGB("#00ff00")
+		return color.RGB(r, g, bl).Sprint("☑")
+	}
+	r, g, bl, _ := HexToRGB("#ff0000")
+	return color.RGB(r, g, bl).Sprint("☐")
+}
+
+// FormatCharacterName returns the display name for a character. For characters
+// with both a family name and a given name the result is "FirstName GivenName".
+// For characters with no family name only the given name is returned.
+func FormatCharacterName(c model.Character) string {
+	if c.FirstName == "" {
+		return c.GivenName
+	}
+	return c.FirstName + " " + c.GivenName
+}
+
+// FormatCardLabel returns a compact, colorized one-liner for a card, used in
+// add and remove operation summaries. It shows the card ID, rarity stars,
+// character name, unit abbreviation, and card title prefix.
+//
+// A nil characterMap is safe; affected fields fall back to "Unknown Character".
+func FormatCardLabel(card model.CardEntity, characterMap map[int]model.Character) string {
+	rarity := FormatRarity(card.CardRarityType)
+	characterName := "Unknown Character"
+	unitAbbrev := FormatUnit(card.SupportUnit)
+
+	if c, ok := characterMap[card.CharacterID]; ok {
+		characterName = FormatCharacterName(c)
+		if unitAbbrev == "" {
+			unitAbbrev = FormatUnit(c.Unit)
+		}
+	}
+
+	unitPart := ""
+	if unitAbbrev != "" {
+		unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
+	}
+
+	return fmt.Sprintf("[%d]\t%s\t%s%s \"%s\"",
+		card.ID,
+		rarity,
+		characterName,
+		unitPart,
+		card.Prefix,
+	)
+}
+
 // FormatCardDetails returns a human-readable, colorized string representation
 // of a card. It combines card properties with character information and applies
 // formatting based on rarity, level, side stories, and painting status.
 //
 // The characterMap is used to resolve CharacterID to character names and units.
 func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Character) string {
-	// Get the character name.
 	character, exists := characterMap[card.CharacterID]
 	characterName := "Unknown Character"
 	if exists {
-		if character.FirstName == "" {
-			characterName = character.GivenName
-		} else {
-			characterName = fmt.Sprintf("%s %s", character.FirstName, character.GivenName)
-		}
+		characterName = FormatCharacterName(character)
 	}
 
-	// Map the support unit to its abbreviation.
-	supportUnitAbbreviation := FormatUnit(card.SupportUnit)
-	if supportUnitAbbreviation == "" && exists {
-		// Fallback: use the Unit from the character data.
-		supportUnitAbbreviation = FormatUnit(character.Unit)
+	unitAbbrev := FormatUnit(card.SupportUnit)
+	if unitAbbrev == "" && exists {
+		unitAbbrev = FormatUnit(character.Unit)
 	}
 
-	var supportUnitCard string
-	if supportUnitAbbreviation != "" {
-		supportUnitCard = fmt.Sprintf(" (%s)", supportUnitAbbreviation)
+	var unitPart string
+	if unitAbbrev != "" {
+		unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
 	}
 
-	// Format the rarity.
-	formattedRarity := FormatRarity(card.CardRarityType)
-
-	// Format the level.
-	formattedLevel := FormatLevel(card.CardRarityType, card.Level)
-
-	// Colors.
-	greenHex := "#00ff00"
-	redHex := "#ff0000"
-
-	// Side Story 1.
-	var sideStory1 string
-	if card.SideStory1 {
-		r, g, b, _ := HexToRGB(greenHex)
-		sideStory1 = color.RGB(r, g, b).Sprint("☑")
-	} else {
-		r, g, b, _ := HexToRGB(redHex)
-		sideStory1 = color.RGB(r, g, b).Sprint("☐")
-	}
-
-	// Side Story 2.
-	var sideStory2 string
-	if card.SideStory2 {
-		r, g, b, _ := HexToRGB(greenHex)
-		sideStory2 = color.RGB(r, g, b).Sprint("☑")
-	} else {
-		r, g, b, _ := HexToRGB(redHex)
-		sideStory2 = color.RGB(r, g, b).Sprint("☐")
-	}
-
-	// Painting.
-	var painting string
-	if card.Painting {
-		r, g, b, _ := HexToRGB(greenHex)
-		painting = color.RGB(r, g, b).Sprint("☑")
-	} else {
-		r, g, b, _ := HexToRGB(redHex)
-		painting = color.RGB(r, g, b).Sprint("☐")
-	}
-
-	// Highlight Master Rank and Skill Level with RGB green at max values.
 	rGreen, gGreen, bGreen, _ := HexToRGB("#00ff00")
+	green := color.RGB(rGreen, gGreen, bGreen)
 
 	masterRank := fmt.Sprintf("MR%d", card.MasterRank)
 	if card.MasterRank == 5 {
-		masterRank = color.RGB(rGreen, gGreen, bGreen).Sprint(masterRank)
+		masterRank = green.Sprint(masterRank)
 	}
 
 	skillLevel := fmt.Sprintf("SL%d", card.SkillLevel)
 	if card.SkillLevel == 4 {
-		skillLevel = color.RGB(rGreen, gGreen, bGreen).Sprint(skillLevel)
+		skillLevel = green.Sprint(skillLevel)
 	}
 
-	// Format the card details as a one-liner.
 	return fmt.Sprintf("[%d]\t%s\t%s\t%s\t| %s | %s | Side Story 1: %s | Side Story 2: %s | Painting: %s | %s%s \"%s\"",
 		card.ID,
-		formattedRarity,
-		formattedLevel,
+		FormatRarity(card.CardRarityType),
+		FormatLevel(card.CardRarityType, card.Level),
 		FormatAttribute(card.Attr),
 		masterRank,
 		skillLevel,
-		sideStory1,
-		sideStory2,
-		painting,
+		FormatBool(card.SideStory1),
+		FormatBool(card.SideStory2),
+		FormatBool(card.Painting),
 		characterName,
-		supportUnitCard,
+		unitPart,
 		card.Prefix,
 	)
 }
 
 // FormatRarity converts a raw rarity value into a visually appealing string.
-// Each rarity level is represented by colored stars, with birthday cards using
-// a special symbol.
+// Each rarity level is represented by colored stars; birthday cards use a
+// special symbol.
 //
 // Rarity levels:
 //
-//   - rarity_1:        ★ (yellow)
-//   - rarity_2:       ★★ (yellow)
-//   - rarity_3:      ★★★ (yellow)
+//   - rarity_1:        ★    (yellow)
+//   - rarity_2:       ★★   (yellow)
+//   - rarity_3:      ★★★  (yellow)
 //   - rarity_4:     ★★★★ (yellow)
-//   - rarity_birthday: ୨୧ (magenta)
+//   - rarity_birthday: ୨୧   (magenta)
 func FormatRarity(rarity string) string {
-	yellowHex := "#ffd700"
-	magentaHex := "#ff00ff"
-
-	switch rarity {
-	case "rarity_1":
-		r, g, b, _ := HexToRGB(yellowHex)
-		return color.RGB(r, g, b).Sprint("★")
-	case "rarity_2":
-		r, g, b, _ := HexToRGB(yellowHex)
-		return color.RGB(r, g, b).Sprint("★★")
-	case "rarity_3":
-		r, g, b, _ := HexToRGB(yellowHex)
-		return color.RGB(r, g, b).Sprint("★★★")
-	case "rarity_4":
-		r, g, b, _ := HexToRGB(yellowHex)
-		return color.RGB(r, g, b).Sprint("★★★★")
-	case "rarity_birthday":
-		r, g, b, _ := HexToRGB(magentaHex)
-		return color.RGB(r, g, b).Sprint("୨୧")
-	default:
+	label, ok := rarityLabels[rarity]
+	if !ok {
 		return rarity
 	}
+	if rarity == model.RarityTypeBirthday {
+		r, g, b, _ := HexToRGB("#ff00ff")
+		return color.RGB(r, g, b).Sprint(label)
+	}
+	rYellow, gYellow, bYellow, _ := HexToRGB("#ffd700")
+	return color.RGB(rYellow, gYellow, bYellow).Sprint(label)
 }
 
 // FormatLevel formats a card's level with color coding based on rarity-specific
 // maximum level thresholds. The color indicates the card's progression:
 //
 //   - Green:  at maximum level for the card's rarity.
-//   - Yellow: approaching maximum level.
-//   - Plain:  below maximum level.
+//   - Yellow: approaching maximum level (rarity_3 at 40, rarity_4 at 50).
+//   - Plain:  below the thresholds above.
 //
 // Maximum levels by rarity:
 //
@@ -163,37 +164,33 @@ func FormatLevel(rarity string, level int) string {
 		return "Lvl 0"
 	}
 
-	greenHex := "#00ff00"
-	yellowHex := "#ffff00"
+	rGreen, gGreen, bGreen, _ := HexToRGB("#00ff00")
+	rYellow, gYellow, bYellow, _ := HexToRGB("#ffff00")
+	green := color.RGB(rGreen, gGreen, bGreen)
+	yellow := color.RGB(rYellow, gYellow, bYellow)
 
 	switch level {
 	case 20:
-		if rarity == "rarity_1" {
-			r, g, b, _ := HexToRGB(greenHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
+		if rarity == model.RarityType1 {
+			return green.Sprintf("Lvl %d", level)
 		}
 	case 30:
-		if rarity == "rarity_2" {
-			r, g, b, _ := HexToRGB(greenHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
+		if rarity == model.RarityType2 {
+			return green.Sprintf("Lvl %d", level)
 		}
 	case 40:
-		if rarity == "rarity_3" {
-			r, g, b, _ := HexToRGB(yellowHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
+		if rarity == model.RarityType3 {
+			return yellow.Sprintf("Lvl %d", level)
 		}
 	case 50:
-		if rarity == "rarity_3" {
-			r, g, b, _ := HexToRGB(greenHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
-		} else if rarity == "rarity_4" {
-			r, g, b, _ := HexToRGB(yellowHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
+		if rarity == model.RarityType3 {
+			return green.Sprintf("Lvl %d", level)
+		} else if rarity == model.RarityType4 {
+			return yellow.Sprintf("Lvl %d", level)
 		}
 	case 60:
-		if rarity == "rarity_4" || rarity == "rarity_birthday" {
-			r, g, b, _ := HexToRGB(greenHex)
-			return color.RGB(r, g, b).Sprintf("Lvl %d", level)
+		if rarity == model.RarityType4 || rarity == model.RarityTypeBirthday {
+			return green.Sprintf("Lvl %d", level)
 		}
 	}
 
@@ -204,27 +201,27 @@ func FormatLevel(rarity string, level int) string {
 // official colors. Each attribute has its own distinct color for easy visual
 // identification:
 //
-//   - cool:       blue  (#2545ec)
-//   - cute:       pink  (#FF65AA)
+//   - cool:       blue   (#2545ec)
+//   - cute:       pink   (#FF65AA)
 //   - happy:      orange (#fe8100)
-//   - pure:       green (#009632)
+//   - pure:       green  (#009632)
 //   - mysterious: purple (#713fc1)
 func FormatAttribute(attr string) string {
 	switch attr {
 	case "cool":
-		r, g, b, _ := HexToRGB("#2545ec") // Blue
+		r, g, b, _ := HexToRGB("#2545ec")
 		return color.RGB(r, g, b).Sprint("Cool")
 	case "cute":
-		r, g, b, _ := HexToRGB("#FF65AA") // Pink
+		r, g, b, _ := HexToRGB("#FF65AA")
 		return color.RGB(r, g, b).Sprint("Cute")
 	case "happy":
-		r, g, b, _ := HexToRGB("#fe8100") // Orange
+		r, g, b, _ := HexToRGB("#fe8100")
 		return color.RGB(r, g, b).Sprint("Happy")
 	case "pure":
-		r, g, b, _ := HexToRGB("#009632") // Green
+		r, g, b, _ := HexToRGB("#009632")
 		return color.RGB(r, g, b).Sprint("Pure")
 	case "mysterious":
-		r, g, b, _ := HexToRGB("#713fc1") // Purple
+		r, g, b, _ := HexToRGB("#713fc1")
 		return color.RGB(r, g, b).Sprint("Myst")
 	default:
 		return attr
@@ -256,13 +253,13 @@ func FormatUnit(supportUnit string) string {
 	case "piapro":
 		return "VS"
 	default:
-		// Return an empty string if the unit is not recognized.
 		return ""
 	}
 }
 
-// ParseCardID parses a card ID from a string and validates that it is a positive
-// integer. It returns an error with a human-readable message if parsing fails.
+// ParseCardID parses a card ID from a string and validates that it is a
+// positive integer. It returns an error with a human-readable message if
+// parsing fails or the value is not positive.
 func ParseCardID(arg string) (int, error) {
 	cardID, err := strconv.Atoi(arg)
 	if err != nil {
@@ -274,24 +271,18 @@ func ParseCardID(arg string) (int, error) {
 	return cardID, nil
 }
 
-// ContainsIgnoreCase reports whether substr is contained within str, ignoring
-// case. It is useful for case-insensitive matching of names and other text.
+// ContainsIgnoreCase reports whether substr is contained within str,
+// ignoring case. Useful for case-insensitive name matching.
 func ContainsIgnoreCase(str, substr string) bool {
 	return strings.Contains(strings.ToLower(str), strings.ToLower(substr))
 }
 
 // HexToRGB converts a hexadecimal color code into its red, green, and blue
-// components. The input may include a leading "#" prefix.
-//
-// It returns the RGB components in the range [0, 255] and an error if the
-// hex string is invalid.
+// components in the range [0, 255]. The input may include a leading "#" prefix.
 func HexToRGB(hex string) (int, int, int, error) {
-	// Remove the "#" if it exists.
 	if len(hex) > 0 && hex[0] == '#' {
 		hex = hex[1:]
 	}
-
-	// Parse the red, green, and blue components.
 	r, err := strconv.ParseInt(hex[0:2], 16, 0)
 	if err != nil {
 		return 0, 0, 0, err
@@ -304,6 +295,5 @@ func HexToRGB(hex string) (int, int, int, error) {
 	if err != nil {
 		return 0, 0, 0, err
 	}
-
 	return int(r), int(g), int(b), nil
 }

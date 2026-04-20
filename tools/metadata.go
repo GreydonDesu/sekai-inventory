@@ -1,30 +1,8 @@
 package tools
 
-import (
-	"encoding/json"
-	"os"
-	"time"
-)
+import "time"
 
-// readMetadata reads tools.MetadataFile and decodes it into a Metadata value.
-//
-// It returns an error if the file cannot be opened or decoded.
-func ReadMetadata() (*Metadata, error) {
-	file, err := os.Open(MetadataFile)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	var metadata Metadata
-	if err := json.NewDecoder(file).Decode(&metadata); err != nil {
-		return nil, err
-	}
-
-	return &metadata, nil
-}
-
-// formatTime converts a timestamp string to a more readable format.
+// FormatTime converts a timestamp string to a human-readable format.
 //
 // It attempts several common timestamp layouts (RFC1123, RFC3339, and related
 // variants). If the timestamp is empty, it returns "Not available". If no
@@ -34,15 +12,14 @@ func FormatTime(timestamp string) string {
 		return "Not available"
 	}
 
-	// Try different time formats.
 	formats := []string{
-		time.RFC1123,                    // Standard HTTP header format.
-		"Mon, 02 Jan 2006 15:04:05 MST", // RFC1123 without GMT.
-		time.RFC1123Z,                   // RFC1123 with numeric zone.
-		time.RFC3339,                    // ISO8601/RFC3339.
-		"2006-01-02T15:04:05Z",          // Basic ISO8601.
-		time.RFC822,                     // Another common format.
-		time.RFC822Z,                    // RFC822 with numeric zone.
+		time.RFC1123,
+		"Mon, 02 Jan 2006 15:04:05 MST",
+		time.RFC1123Z,
+		time.RFC3339,
+		"2006-01-02T15:04:05Z",
+		time.RFC822,
+		time.RFC822Z,
 	}
 
 	for _, format := range formats {
@@ -51,6 +28,5 @@ func FormatTime(timestamp string) string {
 		}
 	}
 
-	// If we cannot parse the timestamp, return a user-friendly message.
 	return "Unknown format (" + timestamp + ")"
 }
