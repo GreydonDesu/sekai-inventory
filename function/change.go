@@ -28,8 +28,8 @@ const (
 // and their valid values are:
 //
 //   - level:       integer between 1 and 60.
-//   - skillLevel:  integer between 1 and 4.
-//   - masterRank:  integer between 0 and 5.
+//   - skillLevel:  integer between 1 and 5.
+//   - masteryRank: integer between 0 and 5.
 //   - sideStory1:  boolean (true/false).
 //   - sideStory2:  boolean (true/false).
 //   - painting:    boolean (true/false).
@@ -56,8 +56,63 @@ func Change(cardID int, updates map[string]string) error {
 
 	original := *card
 	for field, value := range updates {
-		if err := applyCardField(card, field, value); err != nil {
-			return err
+		switch field {
+		case "level":
+			level, err := strconv.Atoi(value)
+			if err != nil || level < 1 || level > 60 {
+				return fmt.Errorf("invalid value for 'level': %s. Must be an integer between 1 and 60", value)
+			}
+			card.Level = level
+			if card.Level != original.Level {
+				changed = true
+			}
+		case "skillLevel":
+			skillLevel, err := strconv.Atoi(value)
+			if err != nil || skillLevel < 1 || skillLevel > 5 {
+				return fmt.Errorf("invalid value for 'skillLevel': %s. Must be an integer between 1 and 5", value)
+			}
+			card.SkillLevel = skillLevel
+			if card.SkillLevel != original.SkillLevel {
+				changed = true
+			}
+		case "masteryRank":
+			masteryRank, err := strconv.Atoi(value)
+			if err != nil || masteryRank < 0 || masteryRank > 5 {
+				return fmt.Errorf("invalid value for 'masteryRank': %s. Must be an integer between 0 and 5", value)
+			}
+			card.MasteryRank = masteryRank
+			if card.MasteryRank != original.MasteryRank {
+				changed = true
+			}
+		case "sideStory1":
+			sideStory1, err := strconv.ParseBool(value)
+			if err != nil {
+				return fmt.Errorf("invalid value for 'sideStory1': %s. Must be 'true' or 'false'", value)
+			}
+			card.SideStory1 = sideStory1
+			if card.SideStory1 != original.SideStory1 {
+				changed = true
+			}
+		case "sideStory2":
+			sideStory2, err := strconv.ParseBool(value)
+			if err != nil {
+				return fmt.Errorf("invalid value for 'sideStory2': %s. Must be 'true' or 'false'", value)
+			}
+			card.SideStory2 = sideStory2
+			if card.SideStory2 != original.SideStory2 {
+				changed = true
+			}
+		case "painting":
+			painting, err := strconv.ParseBool(value)
+			if err != nil {
+				return fmt.Errorf("invalid value for 'painting': %s. Must be 'true' or 'false'", value)
+			}
+			card.Painting = painting
+			if card.Painting != original.Painting {
+				changed = true
+			}
+		default:
+			return fmt.Errorf("unknown field: %s", field)
 		}
 	}
 
@@ -191,8 +246,8 @@ func printChangeSummary(card, original *model.CardEntity) {
 	if original.Level != card.Level {
 		printNumericChange("Level", original.Level, card.Level)
 	}
-	if original.MasterRank != card.MasterRank {
-		printNumericChange("Master Rank", original.MasterRank, card.MasterRank)
+	if original.MasteryRank != card.MasteryRank {
+		printNumericChange("Mastery Rank", original.MasteryRank, card.MasteryRank)
 	}
 	if original.SkillLevel != card.SkillLevel {
 		printNumericChange("Skill Level", original.SkillLevel, card.SkillLevel)

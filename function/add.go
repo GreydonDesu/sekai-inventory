@@ -14,7 +14,7 @@ import (
 //
 // New cards are initialized with:
 //   - Level:       1
-//   - MasterRank:  0
+//   - MasteryRank: 0
 //   - SkillLevel:  1
 //   - SideStory1:  false
 //   - SideStory2:  false
@@ -96,10 +96,20 @@ func classifyCardIDs(cardIDs []int, inventory *model.Inventory, cardMap map[int]
 		}
 
 		newCard := model.CardEntity{
-			Card:       cardData,
-			Level:      1,
-			MasterRank: 0,
-			SkillLevel: 1,
+			Card: model.Card{
+				ID:             cardData.ID,
+				CharacterID:    cardData.CharacterID,
+				CardRarityType: cardData.CardRarityType,
+				Attr:           cardData.Attr,
+				SupportUnit:    cardData.SupportUnit,
+				Prefix:         cardData.Prefix,
+			},
+			Level:       1,
+			MasteryRank: 0,
+			SkillLevel:  1,
+			SideStory1:  false,
+			SideStory2:  false,
+			Painting:    false,
 		}
 		inventory.Cards = append(inventory.Cards, newCard)
 		added = append(added, newCard)

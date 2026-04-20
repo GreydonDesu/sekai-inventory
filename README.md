@@ -4,27 +4,27 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 ## Features
 
-- **Initialization**  
+- **Initialization**
   - Create a new empty inventory file (`init`)
 
-- **Data Management**  
+- **Data Management**
   - Add cards to inventory with sensible defaults (`add`)
   - Remove cards from inventory (`remove`)
   - Update card details, including painting status (`change`)
   - Convert old inventory files to the latest schema (`convert`)
 
-- **Search and List**  
+- **Search and List**
   - Search available cards that are **not yet in the inventory** (`search`)
   - List inventory contents with detailed information (`list`)
   - Filter by character, rarity, unit, and painting status (for `list`)
   - Inventory statistics summary by rarity at the top of `list` output
 
-- **Data Synchronization**  
+- **Data Synchronization**
   - Fetch latest card and character data (`update`)
   - Track data versions in resource files
   - Automatic timestamp management for inventory changes
 
-- **User Interface**  
+- **User Interface**
   - Progress indicators for long operations
   - Color-coded output for better readability
   - Human-friendly summaries for add, remove, and change operations
@@ -147,8 +147,8 @@ Change the details of a card in the inventory.
 **Valid Fields**:
 
 - `--level`: Card level (`1-60`).
-- `--skillLevel`: Skill level (`1-4`).
-- `--masterRank`: Master rank (`0-5`).
+- `--skillLevel`: Skill level (`1-5`).
+- `--masteryRank`: Mastery rank (`0-5`).
 - `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
 - `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
 - `--painting`: Painting unlock status (`true`/`false`).
@@ -195,8 +195,8 @@ classDiagram
     class CardEntity {
         +Card
         +Level int
-        +MasterRank int
         +SkillLevel int
+        +MasteryRank int
         +SideStory1 bool
         +SideStory2 bool
         +Painting bool
