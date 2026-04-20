@@ -50,7 +50,7 @@ func Convert() {
 	}
 
 	// Backup old file.
-	if err := os.WriteFile(deprecatedInventoryFile, data, 0644); err != nil {
+	if err := os.WriteFile(deprecatedInventoryFile, data, 0o600); err != nil {
 		tools.PrintErrorMessage(fmt.Sprintf("Error writing backup inventory file: %v", err))
 		return
 	}

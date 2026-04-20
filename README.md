@@ -34,7 +34,7 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 ### Prerequisites
 
-- **Go**: Version 1.18 or later (Install from <https://go.dev/dl/>)
+- **Go**: Version 1.25 or later (Install from <https://go.dev/dl/>)
 
 ### Installation
 
@@ -128,7 +128,7 @@ List cards in your inventory, optionally filtered by various fields.
 
 **Valid Fields**:
 
-- `--character`: Search by character's name.
+- `--character`: Filter by character's name.
 - `--rarity`: Card rarity (`1`, `2`, `3`, `4`, `bd`).
 - `--group`: Unit name (`L/N`, `MMJ`, `VBS`, `WxS`, `N25`, `VS`).
 - `--painting`: Filter by painting status (`true`/`false`).
@@ -144,13 +144,14 @@ Change the details of a card in the inventory.
 ./sekai-inventory change <cardID> --<field> <value>
 ```
 
-***Valid Fields**:
+**Valid Fields**:
 
 - `--level`: Card level (`1-60`).
 - `--skillLevel`: Skill level (`1-5`).
 - `--masteryRank`: Mastery rank (`0-5`).
 - `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
 - `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
+- `--painting`: Painting unlock status (`true`/`false`).
 
 ## Program Structure and Flow
 
@@ -166,26 +167,33 @@ The program is structured into three main components:
    - Core logic for each command (e.g., `add`, `remove`, `search`, `list`, `change`, `convert`, `update`, `help`).
 
 3. **model/**:
-   - Data models for inventory, cards, and characters.
+   - Data models: `Card` (immutable game data), `CardEntity` (extends `Card` with user state), `Character`, `Inventory`.
 
 4. **tools/**:
    - Utility functions for:
      - File handling (`LoadInventory`, `SaveInventory`, `LoadCards`, `LoadCharacters`)
+     - HTTP fetching from Sekai-World GitHub (`FetchJSON`)
      - Timestamp updates (`UpdateTimeSet`)
-     - Formatting and printing (`FormatCardDetails`, `FormatRarity`, etc.)
-     - Helper methods (parsing, filters, color helpers)
+     - Formatting and printing (`FormatCardDetails`, `FormatCardLabel`, `FormatRarity`, `FormatBool`, etc.)
+     - Helper methods (`ParseFilters`, `ParseCardID`, `CreateCharacterMap`, lookup tables)
 
 ### Class Diagram
 
-Below is a class diagram representing the structure of the program (built with Mermaid). It’s a conceptual overview rather than a 1:1 mapping of every struct:
+Below is a class diagram representing the structure of the program (built with Mermaid):
 
 ```mermaid
 classDiagram
     class Card {
         +ID int
         +CharacterID int
-        +Rarity string
-        +Attribute string
+        +CardRarityType string
+        +Attr string
+        +SupportUnit string
+        +Prefix string
+    }
+
+    class CardEntity {
+        +Card
         +Level int
         +SkillLevel int
         +MasteryRank int
@@ -194,27 +202,21 @@ classDiagram
         +Painting bool
     }
 
+    class Character {
+        +ID int
+        +FirstName string
+        +GivenName string
+        +Unit string
+    }
+
     class Inventory {
-        +Cards []Card
+        +Cards []CardEntity
+        +CreatedAt time.Time
         +UpdatedAt time.Time
-        +Save()
-        +Load()
     }
 
-    class Storage {
-        +ReadJSON()
-        +WriteJSON()
-        +FileExists()
-    }
-
-    class Fetcher {
-        +FetchCardData()
-        +UpdateCardData()
-    }
-
-    Inventory "1" --* "many" Card : contains
-    Inventory --> Storage : uses
-    Inventory --> Fetcher : uses
+    CardEntity --> Card : embeds
+    Inventory "1" --* "many" CardEntity : contains
 ```
 
 [Mermaid Live Editor](https://mermaid.live/)

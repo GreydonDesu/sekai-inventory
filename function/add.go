@@ -32,19 +32,15 @@ import (
 // card IDs that are missing from the database; file operation errors
 // are reported as error messages.
 func Add(cardIDs ...int) {
-	// Load the inventory.
 	inventory, err := tools.LoadInventory()
 	if err != nil {
-		message := fmt.Sprintf("Error loading inventory: %v\n", err)
-		tools.PrintErrorMessage(message)
+		tools.PrintErrorMessage(fmt.Sprintf("Error loading inventory: %v\n", err))
 		return
 	}
 
-	// Load the card data from cards.json.
 	cards, err := tools.LoadCards()
 	if err != nil {
-		message := fmt.Sprintf("Error loading card data: %v\n", err)
-		tools.PrintErrorMessage(message)
+		tools.PrintErrorMessage(fmt.Sprintf("Error loading card data: %v\n", err))
 		return
 	}
 
@@ -55,81 +51,50 @@ func Add(cardIDs ...int) {
 		characterMap = tools.CreateCharacterMap(characters)
 	}
 
-	// Create a map of CardID to Card for quick lookup.
-	cardMap := make(map[int]model.Card)
+	cardMap := make(map[int]model.Card, len(cards))
 	for _, card := range cards {
 		cardMap[card.ID] = card
 	}
 
-	// Helper to create a nice one-line label for a card.
-	cardLabel := func(card model.CardEntity) string {
-		// Rarity (colored).
-		rarity := tools.FormatRarity(card.CardRarityType)
+	added, existing, missingIDs := classifyCardIDs(cardIDs, inventory, cardMap)
 
-		// Character name.
-		characterName := "Unknown Character"
-		if characterMap != nil {
-			if c, ok := characterMap[card.CharacterID]; ok {
-				if c.FirstName == "" {
-					characterName = c.GivenName
-				} else {
-					characterName = fmt.Sprintf("%s %s", c.FirstName, c.GivenName)
-				}
-			}
-		}
+	sort.Slice(inventory.Cards, func(i, j int) bool {
+		return inventory.Cards[i].ID < inventory.Cards[j].ID
+	})
 
-		// Unit abbreviation: from card.SupportUnit, fallback to character.Unit.
-		unitAbbrev := tools.FormatUnit(card.SupportUnit)
-		if unitAbbrev == "" && characterMap != nil {
-			if c, ok := characterMap[card.CharacterID]; ok {
-				unitAbbrev = tools.FormatUnit(c.Unit)
-			}
-		}
-		unitPart := ""
-		if unitAbbrev != "" {
-			unitPart = fmt.Sprintf(" (%s)", unitAbbrev)
-		}
-
-		return fmt.Sprintf("[%d]\t%s\t%s%s \"%s\"",
-			card.ID,
-			rarity,
-			characterName,
-			unitPart,
-			card.Prefix,
-		)
+	// Save even when nothing changed to stay consistent.
+	if err = tools.SaveInventory(inventory); err != nil {
+		tools.PrintErrorMessage(fmt.Sprintf("Error saving inventory: %v\n", err))
+		return
 	}
 
-	// Track cards that were successfully added and those that already exist.
-	addedCards := []model.CardEntity{}
-	existingCards := []model.CardEntity{}
-	missingCards := []int{}
+	printAddReport(added, existing, missingIDs, characterMap)
+}
 
-	// Iterate over the provided cardIDs.
+// classifyCardIDs iterates over the requested IDs, appending new cards to
+// inventory and returning three buckets: successfully added, already-owned,
+// and IDs missing from the game database.
+func classifyCardIDs(cardIDs []int, inventory *model.Inventory, cardMap map[int]model.Card) (added, existing []model.CardEntity, missingIDs []int) {
 	for _, cardID := range cardIDs {
-		// Check if the card already exists in the inventory.
-		var existing *model.CardEntity
+		var found *model.CardEntity
 		for i := range inventory.Cards {
 			if inventory.Cards[i].ID == cardID {
-				existing = &inventory.Cards[i]
+				found = &inventory.Cards[i]
 				break
 			}
 		}
 
-		if existing != nil {
-			// Card already exists.
-			existingCards = append(existingCards, *existing)
+		if found != nil {
+			existing = append(existing, *found)
 			continue
 		}
 
-		// Fetch card data from cards.json.
-		cardData, exists := cardMap[cardID]
-		if !exists {
-			// Card not found in cards.json.
-			missingCards = append(missingCards, cardID)
+		cardData, ok := cardMap[cardID]
+		if !ok {
+			missingIDs = append(missingIDs, cardID)
 			continue
 		}
 
-		// Create a new CardEntity with data from cards.json and default values.
 		newCard := model.CardEntity{
 			Card: model.Card{
 				ID:             cardData.ID,
@@ -146,47 +111,33 @@ func Add(cardIDs ...int) {
 			SideStory2:  false,
 			Painting:    false,
 		}
-
-		// Add the new card to the inventory.
 		inventory.Cards = append(inventory.Cards, newCard)
-		addedCards = append(addedCards, newCard)
+		added = append(added, newCard)
 	}
+	return
+}
 
-	// Sort the inventory by card ID.
-	sort.Slice(inventory.Cards, func(i, j int) bool {
-		return inventory.Cards[i].ID < inventory.Cards[j].ID
-	})
-
-	// Save the updated inventory (even if nothing changed, to be consistent).
-	err = tools.SaveInventory(inventory)
-	if err != nil {
-		message := fmt.Sprintf("Error saving inventory: %v\n", err)
-		tools.PrintErrorMessage(message)
-		return
-	}
-
-	// Print success message for added cards.
-	if len(addedCards) > 0 {
-		tools.PrintSuccessMessage(fmt.Sprintf("Added %d card(s):", len(addedCards)))
-		for _, c := range addedCards {
-			fmt.Printf("%s\n", cardLabel(c))
+// printAddReport prints the outcome of an Add operation: which cards were
+// added, which were already owned, and which IDs were not found in the
+// game database.
+func printAddReport(added, existing []model.CardEntity, missingIDs []int, characterMap map[int]model.Character) {
+	if len(added) > 0 {
+		tools.PrintSuccessMessage(fmt.Sprintf("Added %d card(s):", len(added)))
+		for _, c := range added {
+			fmt.Println(tools.FormatCardLabel(c, characterMap))
 		}
 		_ = tools.UpdateTimeSet()
 	}
-
-	// Print warning message for cards that already exist.
-	if len(existingCards) > 0 {
-		tools.PrintWarningMessage(fmt.Sprintf("Already in inventory (%d card(s)):", len(existingCards)))
-		for _, c := range existingCards {
-			fmt.Printf("%s\n", cardLabel(c))
+	if len(existing) > 0 {
+		tools.PrintWarningMessage(fmt.Sprintf("Already in inventory (%d card(s)):", len(existing)))
+		for _, c := range existing {
+			fmt.Println(tools.FormatCardLabel(c, characterMap))
 		}
 	}
-
-	// Print warning message for cards not found in the database (cards.json).
-	if len(missingCards) > 0 {
-		tools.PrintWarningMessage(fmt.Sprintf("Not found in database (%d ID(s)):", len(missingCards)))
-		for _, id := range missingCards {
-			fmt.Printf("%d\n", id)
+	if len(missingIDs) > 0 {
+		tools.PrintWarningMessage(fmt.Sprintf("Not found in database (%d ID(s)):", len(missingIDs)))
+		for _, id := range missingIDs {
+			fmt.Println(id)
 		}
 	}
 }

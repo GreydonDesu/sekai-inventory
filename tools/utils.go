@@ -9,6 +9,27 @@ import (
 	"github.com/fatih/color"
 )
 
+// RarityToKey maps user-facing rarity codes to internal rarity type strings
+// used in the game data. Used by list and search filters.
+var RarityToKey = map[string]string{
+	"1":  model.RarityType1,
+	"2":  model.RarityType2,
+	"3":  model.RarityType3,
+	"4":  model.RarityType4,
+	"bd": model.RarityTypeBirthday,
+}
+
+// GroupToKey maps unit abbreviations to internal unit key strings used in the
+// game data. Used by list and search filters.
+var GroupToKey = map[string]string{
+	"L/N": "light_sound",
+	"MMJ": "idol",
+	"VBS": "street",
+	"WxS": "theme_park",
+	"N25": "school_refusal",
+	"VS":  "piapro",
+}
+
 // CreateCharacterMap converts a slice of Character values into a map indexed
 // by CharacterID. It is useful for efficient character lookup when processing
 // card data.

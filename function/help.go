@@ -34,7 +34,25 @@ var helpSections = []commandSection{
 		name: "System Commands",
 		commands: []commandHelp{
 			{"init", "Initialize the application by creating an empty inventory file", nil},
+// commandSection groups related commands under a named heading in the help output.
+type commandSection struct {
+	name     string
+	commands []commandHelp
+}
+
+// helpSections defines all CLI commands in display order. Keeping this as a
+// slice (rather than a map) guarantees deterministic output.
+var helpSections = []commandSection{
+	{
+		name: "System Commands",
+		commands: []commandHelp{
+			{"init", "Initialize the application by creating an empty inventory file", nil},
 		},
+	},
+	{
+		name: "Data Commands",
+		commands: []commandHelp{
+			{"update", "Fetch the latest data from the server and update local files", nil},
 	},
 	{
 		name: "Data Commands",
@@ -108,6 +126,11 @@ var helpSections = []commandSection{
 		name: "Help",
 		commands: []commandHelp{
 			{"help", "Display this help message", nil},
+	},
+	{
+		name: "Help",
+		commands: []commandHelp{
+			{"help", "Display this help message", nil},
 		},
 	},
 }
@@ -120,7 +143,25 @@ func Help() {
 
 	for _, section := range helpSections {
 		color.New(color.FgHiCyan, color.Bold).Printf("== %s ==\n", section.name)
+	for _, section := range helpSections {
+		color.New(color.FgHiCyan, color.Bold).Printf("== %s ==\n", section.name)
 		bold := color.New(color.Bold)
+		for _, cmd := range section.commands {
+			fmt.Printf("  ")
+			bold.Printf("%-25s", cmd.syntax)
+			fmt.Printf(" %s\n", cmd.description)
+			if len(cmd.fields) > 0 {
+				fmt.Println("    Available fields:")
+				for _, field := range cmd.fields {
+					fmt.Printf("      ")
+					color.HiYellow("--%-12s", field.name)
+					fmt.Printf(" %s\n", field.description)
+				}
+			}
+		}
+		fmt.Println()
+	}
+
 		for _, cmd := range section.commands {
 			fmt.Printf("  ")
 			bold.Printf("%-25s", cmd.syntax)
