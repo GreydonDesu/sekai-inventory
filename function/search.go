@@ -75,16 +75,16 @@ func Search(filters map[string]string) {
 func matchesCardFilters(card model.Card, filters map[string]string, characterMap map[int]model.Character) bool {
 	for field, value := range filters {
 		switch field {
-		case "character":
+		case fieldCharacter:
 			character, exists := characterMap[card.CharacterID]
-			if !exists || !tools.ContainsIgnoreCase(character.FirstName+" "+character.GivenName, value) {
+			if !exists || !tools.ContainsIgnoreCase(tools.FormatCharacterName(character), value) {
 				return false
 			}
-		case "rarity":
+		case fieldRarity:
 			if card.CardRarityType != tools.RarityToKey[value] {
 				return false
 			}
-		case "group":
+		case fieldGroup:
 			expectedGroup := tools.GroupToKey[value]
 			if card.SupportUnit != expectedGroup {
 				character, exists := characterMap[card.CharacterID]
@@ -92,6 +92,10 @@ func matchesCardFilters(card model.Card, filters map[string]string, characterMap
 					return false
 				}
 			}
+		case fieldPainting:
+			// The painting filter is not applicable to unowned cards in search results.
+			tools.PrintWarningMessage("The 'painting' filter is not supported by the search command (use 'list' instead).")
+			return false
 		default:
 			tools.PrintWarningMessage(fmt.Sprintf("Unknown filter field: %s", field))
 			return false

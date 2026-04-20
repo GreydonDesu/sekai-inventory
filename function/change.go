@@ -9,6 +9,19 @@ import (
 	"github.com/fatih/color"
 )
 
+// Card field names used as keys in filter and update maps across commands.
+const (
+	fieldLevel      = "level"
+	fieldSkillLevel = "skillLevel"
+	fieldMasterRank = "masterRank"
+	fieldSideStory1 = "sideStory1"
+	fieldSideStory2 = "sideStory2"
+	fieldPainting   = "painting"
+	fieldCharacter  = "character"
+	fieldRarity     = "rarity"
+	fieldGroup      = "group"
+)
+
 // Change modifies specific attributes of a card in the user's inventory.
 //
 // It supports updating multiple fields in a single operation. Supported fields
@@ -67,38 +80,38 @@ func Change(cardID int, updates map[string]string) error {
 // the field name is unrecognized or the value fails validation.
 func applyCardField(card *model.CardEntity, field, value string) error {
 	switch field {
-	case "level":
-		v, err := parseIntField(value, "level", 1, 60)
+	case fieldLevel:
+		v, err := parseIntField(value, fieldLevel, 1, 60)
 		if err != nil {
 			return err
 		}
 		card.Level = v
-	case "skillLevel":
-		v, err := parseIntField(value, "skillLevel", 1, 5)
+	case fieldSkillLevel:
+		v, err := parseIntField(value, fieldSkillLevel, 1, 4)
 		if err != nil {
 			return err
 		}
 		card.SkillLevel = v
-	case "masterRank":
-		v, err := parseIntField(value, "masterRank", 0, 5)
+	case fieldMasterRank:
+		v, err := parseIntField(value, fieldMasterRank, 0, 5)
 		if err != nil {
 			return err
 		}
 		card.MasterRank = v
-	case "sideStory1":
-		v, err := parseBoolField(value, "sideStory1")
+	case fieldSideStory1:
+		v, err := parseBoolField(value, fieldSideStory1)
 		if err != nil {
 			return err
 		}
 		card.SideStory1 = v
-	case "sideStory2":
-		v, err := parseBoolField(value, "sideStory2")
+	case fieldSideStory2:
+		v, err := parseBoolField(value, fieldSideStory2)
 		if err != nil {
 			return err
 		}
 		card.SideStory2 = v
-	case "painting":
-		v, err := parseBoolField(value, "painting")
+	case fieldPainting:
+		v, err := parseBoolField(value, fieldPainting)
 		if err != nil {
 			return err
 		}

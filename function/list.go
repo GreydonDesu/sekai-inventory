@@ -55,22 +55,22 @@ func List(filters map[string]string) {
 	}
 
 	rarityCounts := map[string]int{
-		"rarity_1":        0,
-		"rarity_2":        0,
-		"rarity_3":        0,
-		"rarity_4":        0,
-		"rarity_birthday": 0,
+		model.RarityType1:        0,
+		model.RarityType2:        0,
+		model.RarityType3:        0,
+		model.RarityType4:        0,
+		model.RarityTypeBirthday: 0,
 	}
 	for _, card := range filteredCards {
 		rarityCounts[card.CardRarityType]++
 	}
 
 	tools.PrintSuccessMessage(fmt.Sprintf("Inventory Stats (Total: %d):", len(filteredCards)))
-	fmt.Printf("  %s\t%d\n", tools.FormatRarity("rarity_4"), rarityCounts["rarity_4"])
-	fmt.Printf("  %s\t%d\n", tools.FormatRarity("rarity_birthday"), rarityCounts["rarity_birthday"])
-	fmt.Printf("  %s\t%d\n", tools.FormatRarity("rarity_3"), rarityCounts["rarity_3"])
-	fmt.Printf("  %s\t%d\n", tools.FormatRarity("rarity_2"), rarityCounts["rarity_2"])
-	fmt.Printf("  %s\t%d\n", tools.FormatRarity("rarity_1"), rarityCounts["rarity_1"])
+	fmt.Printf("  %s\t%d\n", tools.FormatRarity(model.RarityType4), rarityCounts[model.RarityType4])
+	fmt.Printf("  %s\t%d\n", tools.FormatRarity(model.RarityTypeBirthday), rarityCounts[model.RarityTypeBirthday])
+	fmt.Printf("  %s\t%d\n", tools.FormatRarity(model.RarityType3), rarityCounts[model.RarityType3])
+	fmt.Printf("  %s\t%d\n", tools.FormatRarity(model.RarityType2), rarityCounts[model.RarityType2])
+	fmt.Printf("  %s\t%d\n", tools.FormatRarity(model.RarityType1), rarityCounts[model.RarityType1])
 
 	tools.PrintSuccessMessage("--- Inventory List ---")
 	for _, card := range filteredCards {
@@ -82,16 +82,16 @@ func List(filters map[string]string) {
 func matchesFilters(card model.CardEntity, filters map[string]string, characterMap map[int]model.Character) bool {
 	for field, value := range filters {
 		switch field {
-		case "character":
+		case fieldCharacter:
 			character, exists := characterMap[card.CharacterID]
-			if !exists || !tools.ContainsIgnoreCase(character.FirstName+" "+character.GivenName, value) {
+			if !exists || !tools.ContainsIgnoreCase(tools.FormatCharacterName(character), value) {
 				return false
 			}
-		case "rarity":
+		case fieldRarity:
 			if card.CardRarityType != tools.RarityToKey[value] {
 				return false
 			}
-		case "group":
+		case fieldGroup:
 			expectedGroup := tools.GroupToKey[value]
 			if card.SupportUnit != expectedGroup {
 				character, exists := characterMap[card.CharacterID]
@@ -99,7 +99,7 @@ func matchesFilters(card model.CardEntity, filters map[string]string, characterM
 					return false
 				}
 			}
-		case "painting":
+		case fieldPainting:
 			expectedPainting, err := strconv.ParseBool(value)
 			if err != nil {
 				tools.PrintWarningMessage(fmt.Sprintf("Invalid value for 'painting': %s. Must be 'true' or 'false'", value))

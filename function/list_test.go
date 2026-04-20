@@ -45,6 +45,27 @@ func TestMatchesFilters(t *testing.T) {
 	}
 }
 
+func TestMatchesFiltersCharacterNoFirstName(t *testing.T) {
+	// Characters with no FirstName (e.g. "Miku") must still match when the
+	// filter value is their given name, without a leading space.
+	characterMap := map[int]model.Character{
+		3: {ID: 3, FirstName: "", GivenName: "Miku", Unit: "piapro"},
+	}
+	card := model.CardEntity{
+		Card: model.Card{
+			ID:          3,
+			CharacterID: 3,
+			SupportUnit: "piapro",
+		},
+	}
+	if !matchesFilters(card, map[string]string{"character": "Miku"}, characterMap) {
+		t.Error("matchesFilters() should match given name 'Miku' for character with no FirstName")
+	}
+	if !matchesFilters(card, map[string]string{"character": "miku"}, characterMap) {
+		t.Error("matchesFilters() should match 'miku' case-insensitively for character with no FirstName")
+	}
+}
+
 func TestMatchesFiltersGroupFallback(t *testing.T) {
 	characterMap := map[int]model.Character{
 		2: {ID: 2, GivenName: "Miku", Unit: "piapro"},
