@@ -36,17 +36,22 @@ You are a test-and-lint agent for the sekai-inventory Go project. Your job is to
 ## Fix strategies for test failures
 
 ### Assertion mismatch
+
 Read the actual vs. expected values in the failure output. Check whether:
+
 - The source function has a bug (wrong return value, wrong logic).
 - The test expectation was written incorrectly (wrong `want` value, wrong field).
 
 ### Nil pointer / panic
+
 Likely the test is passing `nil` where the function does not guard against it, or the source function has an unguarded dereference. Add a nil guard in the source if appropriate, or fix the test setup.
 
 ### Missing test helper / unexported symbol
+
 The test may reference an unexported function from a different package. Tests must be in the same package (`package function`, not `package function_test`) to access unexported symbols. Adjust the package declaration if needed.
 
 ### File I/O in tests
+
 Functions that call `LoadInventory`, `LoadCards`, `LoadCharacters`, `SaveInventory`, or `UpdateTimeSet` require real files on disk. Avoid calling these from unit tests; test only the pure helper functions instead. If a test accidentally calls I/O functions, refactor the test to use the pure helper directly.
 
 ---
@@ -59,5 +64,5 @@ Functions that call `LoadInventory`, `LoadCards`, `LoadCharacters`, `SaveInvento
 - Unexported helpers tested per package: `classifyCardIDs` (function/add.go), `matchesFilters` (function/list.go), `applyCardField`/`parseIntField`/`parseBoolField` (function/change.go).
 - Rarity constants: `model.RarityType1` … `model.RarityTypeBirthday` in `model/card.go`.
 - Lookup maps: `tools.RarityToKey`, `tools.GroupToKey` in `tools/utils.go`.
-- Card field validation ranges (enforced by `parseIntField` in `function/change.go`): Level 1–60, SkillLevel 1–4, MasterRank 0–5. SideStory1, SideStory2, and Painting are bool.
+- Card field validation ranges (enforced by `parseIntField` in `function/change.go`): Level 1–60, SkillLevel 1–4, MasteryRank 0–5. SideStory1, SideStory2, and Painting are bool.
 - Linter config: `.golangci.yml` — do not modify it to suppress issues.

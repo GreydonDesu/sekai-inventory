@@ -25,25 +25,32 @@ Also read any file flagged by the linters to understand the surrounding context 
 Group findings into three tiers:
 
 #### Tier 1 — Must fix (correctness / security)
+
 Issues that indicate bugs, data loss risk, or security vulnerabilities:
+
 - `gosec` findings (file permissions, unsafe operations)
 - `errcheck` on I/O operations (unchecked errors that could silently corrupt state)
 - `govet` structural problems (data races, printf mismatches)
 - `staticcheck` SA-series warnings (use of deprecated/broken APIs)
 
 #### Tier 2 — Should fix (quality / maintainability)
+
 Issues that make the code harder to understand or extend:
+
 - `gocyclo` (high cyclomatic complexity — name the function and its current score)
 - `goconst` (magic strings that should be named constants)
 - `revive` / `unparam` / `unconvert` / `ineffassign` / `unused`
 - Missing or incorrect doc comments on exported symbols
 
 #### Tier 3 — Auto-fixable (formatting / style)
+
 Issues that a tool can fix mechanically:
+
 - `gofumpt` / `goimports` formatting
 - `misspell` spelling corrections
 
 For each finding, report:
+
 ```
 [LINTER] file:line — description
   Context: one-line summary of why this matters
@@ -65,26 +72,34 @@ Run `golangci-lint run 2>&1` after each tier to confirm no regressions before pr
 ## Per-linter review guidance
 
 ### `gocyclo` — complexity analysis
+
 When reporting a high-complexity function, include:
+
 - The current complexity score and the threshold (15).
 - Which branches drive the complexity (switch cases, nested loops, boolean conditions).
 - A concrete refactor sketch: which sub-logic could become a named helper and what it would be called.
 
 ### `goconst` — repeated literals
+
 Identify the string, count its occurrences, and suggest a constant name following Go convention (`camelCase` for unexported, `PascalCase` for exported). Note the most appropriate file for the declaration.
 
 ### `errcheck` — unhandled errors
+
 Distinguish between:
+
 - **Critical**: file I/O, JSON marshalling, network calls — always handle.
 - **Non-critical**: timestamp updates, cosmetic operations — document why `_` is safe.
 
 ### `gosec` — security
+
 Explain the actual risk, not just the rule ID. For example: "G306: world-readable backup file may expose inventory data if the system is multi-user."
 
 ### `revive` — conventions
+
 Identify the specific rule (e.g. `exported`, `var-naming`, `unused-parameter`) and show the before/after.
 
 ### `staticcheck` — analysis
+
 Cite both the rule ID (e.g. `SA1019`) and the human-readable explanation from the lint output.
 
 ---
@@ -104,5 +119,5 @@ Cite both the rule ID (e.g. `SA1019`) and the human-readable explanation from th
 - Module path `sekai-inventory` affects gofumpt import grouping: stdlib → third-party → `sekai-inventory/...`.
 - Rarity type constants: `model.RarityType1` … `model.RarityTypeBirthday` in `model/card.go`.
 - Filter key maps: `tools.RarityToKey`, `tools.GroupToKey` in `tools/utils.go`.
-- Card field validation ranges (enforced by `applyCardField` in `function/change.go`): Level 1–60, SkillLevel 1–4, MasterRank 0–5. SideStory1, SideStory2, and Painting are bool.
+- Card field validation ranges (enforced by `applyCardField` in `function/change.go`): Level 1–60, SkillLevel 1–4, MasteryRank 0–5. SideStory1, SideStory2, and Painting are bool.
 - The `res/` directory holds runtime data files (gitignored); do not lint or modify JSON files there.

@@ -43,8 +43,8 @@ func TestClassifyCardIDsDefaults(t *testing.T) {
 	if added[0].Level != 1 {
 		t.Errorf("default Level = %d, want 1", added[0].Level)
 	}
-	if added[0].MasterRank != 0 {
-		t.Errorf("default MasterRank = %d, want 0", added[0].MasterRank)
+	if added[0].MasteryRank != 0 {
+		t.Errorf("default MasteryRank = %d, want 0", added[0].MasteryRank)
 	}
 	if added[0].SkillLevel != 1 {
 		t.Errorf("default SkillLevel = %d, want 1", added[0].SkillLevel)

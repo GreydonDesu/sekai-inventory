@@ -11,15 +11,15 @@ import (
 
 // Card field names used as keys in filter and update maps across commands.
 const (
-	fieldLevel      = "level"
-	fieldSkillLevel = "skillLevel"
+	fieldLevel       = "level"
+	fieldSkillLevel  = "skillLevel"
 	fieldMasteryRank = "masteryRank"
-	fieldSideStory1 = "sideStory1"
-	fieldSideStory2 = "sideStory2"
-	fieldPainting   = "painting"
-	fieldCharacter  = "character"
-	fieldRarity     = "rarity"
-	fieldGroup      = "group"
+	fieldSideStory1  = "sideStory1"
+	fieldSideStory2  = "sideStory2"
+	fieldPainting    = "painting"
+	fieldCharacter   = "character"
+	fieldRarity      = "rarity"
+	fieldGroup       = "group"
 )
 
 // Change modifies specific attributes of a card in the user's inventory.
@@ -56,51 +56,8 @@ func Change(cardID int, updates map[string]string) error {
 
 	original := *card
 	for field, value := range updates {
-		switch field {
-		case "level":
-			level, err := strconv.Atoi(value)
-			if err != nil || level < 1 || level > 60 {
-				return fmt.Errorf("invalid value for 'level': %s. Must be an integer between 1 and 60", value)
-			}
-			card.Level = level
-
-		case "skillLevel":
-			skillLevel, err := strconv.Atoi(value)
-			if err != nil || skillLevel < 1 || skillLevel > 5 {
-				return fmt.Errorf("invalid value for 'skillLevel': %s. Must be an integer between 1 and 5", value)
-			}
-			card.SkillLevel = skillLevel
-
-		case "masteryRank":
-			masteryRank, err := strconv.Atoi(value)
-			if err != nil || masteryRank < 0 || masteryRank > 5 {
-				return fmt.Errorf("invalid value for 'masteryRank': %s. Must be an integer between 0 and 5", value)
-			}
-			card.MasteryRank = masteryRank
-
-		case "sideStory1":
-			sideStory1, err := strconv.ParseBool(value)
-			if err != nil {
-				return fmt.Errorf("invalid value for 'sideStory1': %s. Must be 'true' or 'false'", value)
-			}
-			card.SideStory1 = sideStory1
-
-		case "sideStory2":
-			sideStory2, err := strconv.ParseBool(value)
-			if err != nil {
-				return fmt.Errorf("invalid value for 'sideStory2': %s. Must be 'true' or 'false'", value)
-			}
-			card.SideStory2 = sideStory2
-
-		case "painting":
-			painting, err := strconv.ParseBool(value)
-			if err != nil {
-				return fmt.Errorf("invalid value for 'painting': %s. Must be 'true' or 'false'", value)
-			}
-			card.Painting = painting
-
-		default:
-			return fmt.Errorf("unknown field: %s", field)
+		if err := applyCardField(card, field, value); err != nil {
+			return err
 		}
 	}
 
@@ -124,44 +81,79 @@ func Change(cardID int, updates map[string]string) error {
 func applyCardField(card *model.CardEntity, field, value string) error {
 	switch field {
 	case fieldLevel:
-		v, err := parseIntField(value, fieldLevel, 1, 60)
-		if err != nil {
-			return err
-		}
-		card.Level = v
+		return applyLevel(card, value)
 	case fieldSkillLevel:
-			v, err := parseIntField(value, fieldSkillLevel, 1, 4)
-			if err != nil {
-				return err
-			}
-			card.SkillLevel = v
-		case fieldMasteryRank:
-			v, err := parseIntField(value, fieldMasteryRank, 0, 5)
-			if err != nil {
-				return err
-			}
-			card.MasteryRank = v
+		return applySkillLevel(card, value)
+	case fieldMasteryRank:
+		return applyMasteryRank(card, value)
 	case fieldSideStory1:
-		v, err := parseBoolField(value, fieldSideStory1)
-		if err != nil {
-			return err
-		}
-		card.SideStory1 = v
+		return applySideStory1(card, value)
 	case fieldSideStory2:
-		v, err := parseBoolField(value, fieldSideStory2)
-		if err != nil {
-			return err
-		}
-		card.SideStory2 = v
+		return applySideStory2(card, value)
 	case fieldPainting:
-		v, err := parseBoolField(value, fieldPainting)
-		if err != nil {
-			return err
-		}
-		card.Painting = v
+		return applyPainting(card, value)
 	default:
 		return fmt.Errorf("unknown field: %s", field)
 	}
+}
+
+// applyLevel validates and sets the card's level (1–60).
+func applyLevel(card *model.CardEntity, value string) error {
+	v, err := parseIntField(value, fieldLevel, 1, 60)
+	if err != nil {
+		return err
+	}
+	card.Level = v
+	return nil
+}
+
+// applySkillLevel validates and sets the card's skill level (1–4).
+func applySkillLevel(card *model.CardEntity, value string) error {
+	v, err := parseIntField(value, fieldSkillLevel, 1, 4)
+	if err != nil {
+		return err
+	}
+	card.SkillLevel = v
+	return nil
+}
+
+// applyMasteryRank validates and sets the card's mastery rank (0–5).
+func applyMasteryRank(card *model.CardEntity, value string) error {
+	v, err := parseIntField(value, fieldMasteryRank, 0, 5)
+	if err != nil {
+		return err
+	}
+	card.MasteryRank = v
+	return nil
+}
+
+// applySideStory1 validates and sets the card's side story 1 status.
+func applySideStory1(card *model.CardEntity, value string) error {
+	v, err := parseBoolField(value, fieldSideStory1)
+	if err != nil {
+		return err
+	}
+	card.SideStory1 = v
+	return nil
+}
+
+// applySideStory2 validates and sets the card's side story 2 status.
+func applySideStory2(card *model.CardEntity, value string) error {
+	v, err := parseBoolField(value, fieldSideStory2)
+	if err != nil {
+		return err
+	}
+	card.SideStory2 = v
+	return nil
+}
+
+// applyPainting validates and sets the card's painting status.
+func applyPainting(card *model.CardEntity, value string) error {
+	v, err := parseBoolField(value, fieldPainting)
+	if err != nil {
+		return err
+	}
+	card.Painting = v
 	return nil
 }
 

@@ -234,12 +234,12 @@ func TestFormatCardDetails(t *testing.T) {
 			SupportUnit:    "light_sound",
 			Prefix:         "Detail Card",
 		},
-		Level:      30,
-		MasterRank: 3,
-		SkillLevel: 2,
-		SideStory1: true,
-		SideStory2: false,
-		Painting:   true,
+		Level:       30,
+		MasteryRank: 3,
+		SkillLevel:  2,
+		SideStory1:  true,
+		SideStory2:  false,
+		Painting:    true,
 	}
 	characterMap := map[int]model.Character{
 		2: {ID: 2, FirstName: "Hoshino", GivenName: "Ichika"},

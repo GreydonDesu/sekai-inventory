@@ -66,7 +66,7 @@ func TestApplyCardField(t *testing.T) {
 	}{
 		{"level", "30", func(c *model.CardEntity) bool { return c.Level == 30 }, false},
 		{"skillLevel", "4", func(c *model.CardEntity) bool { return c.SkillLevel == 4 }, false},
-		{"masterRank", "3", func(c *model.CardEntity) bool { return c.MasterRank == 3 }, false},
+		{"masteryRank", "3", func(c *model.CardEntity) bool { return c.MasteryRank == 3 }, false},
 		{"sideStory1", "true", func(c *model.CardEntity) bool { return c.SideStory1 }, false},
 		{"sideStory2", "true", func(c *model.CardEntity) bool { return c.SideStory2 }, false},
 		{"painting", "true", func(c *model.CardEntity) bool { return c.Painting }, false},
