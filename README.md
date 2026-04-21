@@ -114,7 +114,7 @@ erDiagram
     }
 
     CARD_ENTITY {
-        CARD
+        int ID PK
         int Level
         int SkillLevel
         int MasteryRank
@@ -144,6 +144,7 @@ erDiagram
 
 | Field | Type | Range | Description |
 |---|---|---|---|
+| `ID` | int | - | Card ID (primary key) |
 | `Level` | int | 1–60 | Card level |
 | `SkillLevel` | int | 1–4 | Skill level |
 | `MasteryRank` | int | 0–5 | Mastery rank |
