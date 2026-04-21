@@ -1,4 +1,9 @@
+
 # Sekai Inventory Manager
+
+[![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://go.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![golangci-lint](https://img.shields.io/badge/golangci--lint-passed-brightgreen)](https://https://golangci-lint.run/)
 
 Sekai Inventory Manager is a command-line tool written in Go for managing and converting inventory data for **Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (プロジェクトセカイ カラフルステージ！ feat. 初音ミク)**. This tool helps players manage their card collection by providing features for tracking, updating, and searching their inventory.
 
@@ -34,7 +39,7 @@ Sekai Inventory Manager is a command-line tool written in Go for managing and co
 
 ### Prerequisites
 
-- **Go**: Version 1.25 or later (Install from <https://go.dev/dl/>)
+- **Go**: Version 1.21 or later (Install from <https://go.dev/dl/>)
 
 ### Installation
 
@@ -147,7 +152,7 @@ Change the details of a card in the inventory.
 **Valid Fields**:
 
 - `--level`: Card level (`1-60`).
-- `--skillLevel`: Skill level (`1-5`).
+- `--skillLevel`: Skill level (`1-4`).
 - `--masteryRank`: Mastery rank (`0-5`).
 - `--sideStory1`: Unlock status of side story 1 (`true`/`false`).
 - `--sideStory2`: Unlock status of side story 2 (`true`/`false`).
