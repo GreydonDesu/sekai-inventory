@@ -115,9 +115,9 @@ erDiagram
 
     CARD_ENTITY {
         CARD
-        int Level "1-60"
-        int SkillLevel "1-4"
-        int MasteryRank "0-5"
+        int Level
+        int SkillLevel
+        int MasteryRank
         bool SideStory1
         bool SideStory2
         bool Painting
@@ -139,6 +139,17 @@ erDiagram
     CARD_ENTITY ||--o{ CARD : "embeds"
     INVENTORY ||--o{ CARD_ENTITY : "contains"
 ```
+
+### Card Entity Fields
+
+| Field | Type | Range | Description |
+|---|---|---|---|
+| `Level` | int | 1–60 | Card level |
+| `SkillLevel` | int | 1–4 | Skill level |
+| `MasteryRank` | int | 0–5 | Mastery rank |
+| `SideStory1` | bool | true/false | Side story 1 unlock |
+| `SideStory2` | bool | true/false | Side story 2 unlock |
+| `Painting` | bool | true/false | Painting unlock |
 
 ## Tech Stack
 
