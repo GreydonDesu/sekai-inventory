@@ -34,13 +34,13 @@ import (
 func Add(cardIDs ...int) {
 	inventory, err := tools.LoadInventory()
 	if err != nil {
-		tools.PrintErrorMessage(fmt.Sprintf("Error loading inventory: %v\n", err))
+		tools.PrintErrorMessage(fmt.Sprintf("Error loading inventory: %v", err))
 		return
 	}
 
 	cards, err := tools.LoadCards()
 	if err != nil {
-		tools.PrintErrorMessage(fmt.Sprintf("Error loading card data: %v\n", err))
+		tools.PrintErrorMessage(fmt.Sprintf("Error loading card data: %v", err))
 		return
 	}
 
@@ -64,7 +64,7 @@ func Add(cardIDs ...int) {
 
 	// Save even when nothing changed to stay consistent.
 	if err = tools.SaveInventory(inventory); err != nil {
-		tools.PrintErrorMessage(fmt.Sprintf("Error saving inventory: %v\n", err))
+		tools.PrintErrorMessage(fmt.Sprintf("Error saving inventory: %v", err))
 		return
 	}
 
@@ -75,17 +75,14 @@ func Add(cardIDs ...int) {
 // inventory and returning three buckets: successfully added, already-owned,
 // and IDs missing from the game database.
 func classifyCardIDs(cardIDs []int, inventory *model.Inventory, cardMap map[int]model.Card) (added, existing []model.CardEntity, missingIDs []int) {
-	for _, cardID := range cardIDs {
-		var found *model.CardEntity
-		for i := range inventory.Cards {
-			if inventory.Cards[i].ID == cardID {
-				found = &inventory.Cards[i]
-				break
-			}
-		}
+	existingCards := make(map[int]model.CardEntity, len(inventory.Cards))
+	for _, c := range inventory.Cards {
+		existingCards[c.ID] = c
+	}
 
-		if found != nil {
-			existing = append(existing, *found)
+	for _, cardID := range cardIDs {
+		if c, ok := existingCards[cardID]; ok {
+			existing = append(existing, c)
 			continue
 		}
 

@@ -28,7 +28,7 @@ const (
 // and their valid values are:
 //
 //   - level:       integer between 1 and 60.
-//   - skillLevel:  integer between 1 and 5.
+//   - skillLevel:  integer between 1 and 4.
 //   - masteryRank: integer between 0 and 5.
 //   - sideStory1:  boolean (true/false).
 //   - sideStory2:  boolean (true/false).
@@ -159,10 +159,10 @@ func applyPainting(card *model.CardEntity, value string) error {
 
 // parseIntField converts value to an integer and validates it falls within
 // [min, max]. Returns a descriptive error if conversion or range check fails.
-func parseIntField(value, fieldName string, min, max int) (int, error) {
+func parseIntField(value, fieldName string, minVal, maxVal int) (int, error) {
 	v, err := strconv.Atoi(value)
-	if err != nil || v < min || v > max {
-		return 0, fmt.Errorf("invalid value for '%s': %s. Must be an integer between %d and %d", fieldName, value, min, max)
+	if err != nil || v < minVal || v > maxVal {
+		return 0, fmt.Errorf("invalid value for '%s': %s. Must be an integer between %d and %d", fieldName, value, minVal, maxVal)
 	}
 	return v, nil
 }

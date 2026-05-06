@@ -22,7 +22,7 @@ import (
 func Remove(cardIDs ...int) {
 	inventory, err := tools.LoadInventory()
 	if err != nil {
-		tools.PrintErrorMessage(fmt.Sprintf("Error loading inventory: %v\n", err))
+		tools.PrintErrorMessage(fmt.Sprintf("Error loading inventory: %v", err))
 		return
 	}
 
@@ -54,7 +54,7 @@ func Remove(cardIDs ...int) {
 	}
 
 	if err = tools.SaveInventory(inventory); err != nil {
-		tools.PrintErrorMessage(fmt.Sprintf("Error saving inventory: %v\n", err))
+		tools.PrintErrorMessage(fmt.Sprintf("Error saving inventory: %v", err))
 		return
 	}
 

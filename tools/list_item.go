@@ -22,10 +22,10 @@ var rarityLabels = map[string]string{
 // ☑ (green) for true and ☐ (red) for false.
 func FormatBool(b bool) string {
 	if b {
-		r, g, bl, _ := HexToRGB("#00ff00")
+		r, g, bl, _ := HexToRGB("#00ff00") //nolint:errcheck // hardcoded valid hex
 		return color.RGB(r, g, bl).Sprint("☑")
 	}
-	r, g, bl, _ := HexToRGB("#ff0000")
+	r, g, bl, _ := HexToRGB("#ff0000") //nolint:errcheck // hardcoded valid hex
 	return color.RGB(r, g, bl).Sprint("☐")
 }
 
