@@ -7,7 +7,9 @@ import (
 	"fmt"
 	"os"
 	"sekai-inventory/function"
+	"sekai-inventory/model"
 	"sekai-inventory/tools"
+	"strconv"
 	"strings"
 )
 
@@ -26,7 +28,8 @@ const (
   --masteryRank (0-5)
   --sideStory1  (true/false)
   --sideStory2  (true/false)
-  --painting    (true/false)`
+  --painting    (true/false)
+  --max         (Set all fields to maximum values except painting)`
 )
 
 // parseCardIDArgs parses a slice of string arguments into card IDs. It prints
@@ -49,19 +52,40 @@ func parseCardIDArgs(cmd string, args []string) ([]int, bool) {
 	return ids, true
 }
 
+// getCardMaxLevel returns the maximum level for a card based on its rarity.
+func getCardMaxLevel(rarity string) int {
+	switch rarity {
+	case model.RarityType1:
+		return 20
+	case model.RarityType2:
+		return 30
+	case model.RarityType3:
+		return 50
+	case model.RarityType4, model.RarityTypeBirthday:
+		return 60
+	default:
+		return 60 // fallback to max
+	}
+}
+
 // handleChangeCommand parses and executes the "change" subcommand.
 //
 // It expects arguments in the form:
 //
 //	change <cardID> --<field> <value> [--<field> <value> ...]
+//	change <cardID> --max
+//
+// The --max flag sets all fields (except painting) to their maximum values:
+// level (based on rarity), skillLevel=4, masteryRank=5, sideStory1=true, sideStory2=true.
 //
 // The function validates the card ID and field/value pairs, delegates the
 // update to function.Change, and prints a success message when the card
 // has been updated. It returns an error if argument parsing fails or if
 // function.Change reports an error.
 func handleChangeCommand(args []string) error {
-	if len(args) < 3 {
+	if len(args) < 2 {
 		tools.PrintWarningMessage("Usage: sekai-inventory change <cardID> --<field> <value> [--<field> <value> ...]")
+		tools.PrintWarningMessage("       sekai-inventory change <cardID> --max")
 		tools.PrintWarningMessage(changeFieldsHelp)
 		return fmt.Errorf("insufficient arguments")
 	}
@@ -72,9 +96,48 @@ func handleChangeCommand(args []string) error {
 	}
 
 	updates := make(map[string]string)
-	for i := 1; i < len(args)-1; i += 2 {
+	hasMax := false
+
+	for i := 1; i < len(args); i++ {
+		if args[i] == "--max" {
+			hasMax = true
+			continue
+		}
+		if i+1 >= len(args) {
+			tools.PrintWarningMessage("Missing value for flag: " + args[i])
+			return fmt.Errorf("missing value for flag")
+		}
 		field := strings.TrimPrefix(args[i], "--")
 		updates[field] = args[i+1]
+		i++
+	}
+
+	if hasMax {
+		// Load inventory to get the card's rarity for max level calculation
+		inventory, err := tools.LoadInventory()
+		if err != nil {
+			return fmt.Errorf("error loading inventory: %v", err)
+		}
+
+		var cardRarity string
+		for i := range inventory.Cards {
+			if inventory.Cards[i].ID == cardID {
+				cardRarity = inventory.Cards[i].CardRarityType
+				break
+			}
+		}
+
+		// Default to 60 if card not found (will be validated by Change function)
+		if cardRarity == "" {
+			cardRarity = model.RarityType4
+		}
+
+		maxLevel := getCardMaxLevel(cardRarity)
+		updates["level"] = strconv.Itoa(maxLevel)
+		updates["skillLevel"] = "4"
+		updates["masteryRank"] = "5"
+		updates["sideStory1"] = "true"
+		updates["sideStory2"] = "true"
 	}
 
 	if err := function.Change(cardID, updates); err != nil {
