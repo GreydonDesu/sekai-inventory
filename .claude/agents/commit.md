@@ -17,40 +17,41 @@ You are a commit assistant for the sekai-inventory Go project. When invoked:
    - **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `build`, `ci`, `revert`
    - **Scope** (optional): the package or area changed — e.g. `function`, `tools`, `model`, `main`, `agents`
    - **Description**: short, imperative, lowercase, no trailing period
-   - **Body** (optional): separated from subject by a blank line; explain *why*, not *what*
+   - **Body** (optional): bullet points, concise; explain _why_, not _what_
 5. Commit using a HEREDOC to preserve formatting:
+
    ```
    git commit -m "$(cat <<'EOF'
    <type>(<scope>): <description>
 
-   <optional body>
-
-   Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+   - bullet 1
+   - bullet 2
    EOF
    )"
    ```
+
 6. Do **not** push.
 7. Report the resulting commit hash and message.
 
 ## Commit type guide for this project
 
-| Type       | When to use                                                  |
-|------------|--------------------------------------------------------------|
-| `feat`     | New command, filter, field, or user-visible behaviour        |
-| `fix`      | Bug in an existing command or data handling                  |
-| `refactor` | Code restructure with no behaviour change                    |
-| `docs`     | Changes to CLAUDE.md, godoc comments, or README             |
-| `chore`    | Tooling, `.gitignore`, golangci-lint config, agent files     |
-| `style`    | Formatting-only changes (`gofmt`/`goimports`)                |
-| `perf`     | Performance improvement (e.g. reducing redundant I/O)        |
+| Type       | When to use                                              |
+| ---------- | -------------------------------------------------------- |
+| `feat`     | New command, filter, field, or user-visible behaviour    |
+| `fix`      | Bug in an existing command or data handling              |
+| `refactor` | Code restructure with no behaviour change                |
+| `docs`     | Changes to CLAUDE.md, godoc comments, or README          |
+| `chore`    | Tooling, `.gitignore`, golangci-lint config, agent files |
+| `style`    | Formatting-only changes (`gofmt`/`goimports`)            |
+| `perf`     | Performance improvement (e.g. reducing redundant I/O)    |
 
 ## Scope guide
 
-| Scope      | What it covers                        |
-|------------|---------------------------------------|
-| `main`     | `main.go`                             |
-| `function` | Any file under `function/`            |
-| `tools`    | Any file under `tools/`               |
-| `model`    | Any file under `model/`               |
-| `agents`   | `.claude/agents/` files               |
-| *(omit)*   | Changes that span multiple packages   |
+| Scope      | What it covers                      |
+| ---------- | ----------------------------------- |
+| `main`     | `main.go`                           |
+| `function` | Any file under `function/`          |
+| `tools`    | Any file under `tools/`             |
+| `model`    | Any file under `model/`             |
+| `agents`   | `.claude/agents/` files             |
+| _(omit)_   | Changes that span multiple packages |
