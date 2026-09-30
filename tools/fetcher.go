@@ -18,17 +18,11 @@ const (
 	// CharactersURL points to the latest character data in the Sekai-World repository.
 	CharactersURL = "https://raw.githubusercontent.com/Sekai-World/sekai-master-db-en-diff/refs/heads/main/gameCharacters.json"
 
-	// SkillsURL points to the latest skills data in the Sekai-World repository.
-	SkillsURL = "https://raw.githubusercontent.com/Sekai-World/sekai-master-db-en-diff/refs/heads/main/skills.json"
-
 	// LocalCardsFile is the path where the cards data is stored locally.
 	LocalCardsFile = "res/cards.json"
 
 	// LocalCharsFile is the path where the character data is stored locally.
 	LocalCharsFile = "res/gameCharacters.json"
-
-	// LocalSkillsFile is the path where the skills data is stored locally.
-	LocalSkillsFile = "res/skills.json"
 
 	// MetadataFile stores information about the last data update.
 	MetadataFile = "res/metadata.json"
@@ -54,9 +48,6 @@ type Metadata struct {
 
 	// CharsLastUpdate stores when the gameCharacters.json file was last modified.
 	CharsLastUpdate string `json:"charsLastUpdate"`
-
-	// SkillsLastUpdate stores when the skills.json file was last modified.
-	SkillsLastUpdate string `json:"skillsLastUpdate"`
 }
 
 // fetchFile downloads a file from the given URL and saves it to filePath.
@@ -156,14 +147,13 @@ func LoadMetadata() (*Metadata, error) {
 
 // SaveMetadata writes a Metadata record to MetadataFile. It records the current
 // time as Timestamp and stores the provided Git commit ID and Last-Modified
-// values for the card, character, and skills databases.
-func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate, skillsLastUpdate string) error {
+// values for the card and character databases.
+func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate string) error {
 	metadata := Metadata{
-		Timestamp:        time.Now().Format(time.RFC3339),
-		GitCommitID:      gitCommitID,
-		CardsLastUpdate:  cardsLastUpdate,
-		CharsLastUpdate:  charsLastUpdate,
-		SkillsLastUpdate: skillsLastUpdate,
+		Timestamp:       time.Now().Format(time.RFC3339),
+		GitCommitID:     gitCommitID,
+		CardsLastUpdate: cardsLastUpdate,
+		CharsLastUpdate: charsLastUpdate,
 	}
 
 	// Create or overwrite the metadata file.
@@ -195,7 +185,7 @@ type ProgressCallback func(stage string, progress float64)
 //  1. Ensure the "res" directory exists.
 //  2. Fetch the latest Git commit ID from the Sekai-World repository.
 //  3. Compare the commit with local metadata; if unchanged, return ErrNoUpdateNeeded.
-//  4. If updated, download cards.json, gameCharacters.json and skills.json.
+//  4. If updated, download cards.json and gameCharacters.json.
 //  5. Save metadata with updated timestamps and commit ID.
 //
 // If the remote Git commit ID matches the local one, FetchAndSaveData returns
@@ -239,27 +229,19 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	if err != nil {
 		return fmt.Errorf("error fetching cards.json: %w", err)
 	}
-	reportProgress("Fetching card database", 0.4)
+	reportProgress("Fetching card database", 0.5)
 
 	// 3) Fetch and save the gameCharacters.json file.
-	reportProgress("Fetching character database", 0.4)
+	reportProgress("Fetching character database", 0.5)
 	charsLastUpdate, err := fetchFile(CharactersURL, LocalCharsFile)
 	if err != nil {
 		return fmt.Errorf("error fetching gameCharacters.json: %w", err)
 	}
-	reportProgress("Fetching character database", 0.6)
+	reportProgress("Fetching character database", 0.8)
 
-	// 4) Fetch and save the skills.json file.
-	reportProgress("Fetching skills database", 0.6)
-	skillsLastUpdate, err := fetchFile(SkillsURL, LocalSkillsFile)
-	if err != nil {
-		return fmt.Errorf("error fetching skills.json: %w", err)
-	}
-	reportProgress("Fetching skills database", 0.8)
-
-	// 5) Save the metadata.
+	// 4) Save the metadata.
 	reportProgress("Saving metadata", 0.8)
-	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate, skillsLastUpdate); err != nil {
+	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate); err != nil {
 		return fmt.Errorf("error saving metadata: %w", err)
 	}
 	reportProgress("Saving metadata", 1.0)
