@@ -25,7 +25,7 @@ const (
 	changeFieldsHelp = `Valid fields are:
   --level       (1-60)
   --skillLevel  (1-4)
-  --masteryRank (0-5)
+  --masterRank  (0-5)
   --sideStory1  (true/false)
   --sideStory2  (true/false)
   --painting    (true/false)
@@ -76,7 +76,7 @@ func getCardMaxLevel(rarity string) int {
 //	change <cardID> --max
 //
 // The --max flag sets all fields (except painting) to their maximum values:
-// level (based on rarity), skillLevel=4, masteryRank=5, sideStory1=true, sideStory2=true.
+// level (based on rarity), skillLevel=4, masterRank=5, sideStory1=true, sideStory2=true.
 //
 // The function validates the card ID and field/value pairs, delegates the
 // update to function.Change, and prints a success message when the card
@@ -135,7 +135,7 @@ func handleChangeCommand(args []string) error {
 		maxLevel := getCardMaxLevel(cardRarity)
 		updates["level"] = strconv.Itoa(maxLevel)
 		updates["skillLevel"] = "4"
-		updates["masteryRank"] = "5"
+		updates["masterRank"] = "5"
 		updates["sideStory1"] = "true"
 		updates["sideStory2"] = "true"
 	}

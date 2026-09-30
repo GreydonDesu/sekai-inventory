@@ -11,15 +11,15 @@ import (
 
 // Card field names used as keys in filter and update maps across commands.
 const (
-	fieldLevel       = "level"
-	fieldSkillLevel  = "skillLevel"
-	fieldMasteryRank = "masteryRank"
-	fieldSideStory1  = "sideStory1"
-	fieldSideStory2  = "sideStory2"
-	fieldPainting    = "painting"
-	fieldCharacter   = "character"
-	fieldRarity      = "rarity"
-	fieldGroup       = "group"
+	fieldLevel      = "level"
+	fieldSkillLevel = "skillLevel"
+	fieldMasterRank = "masterRank"
+	fieldSideStory1 = "sideStory1"
+	fieldSideStory2 = "sideStory2"
+	fieldPainting   = "painting"
+	fieldCharacter  = "character"
+	fieldRarity     = "rarity"
+	fieldGroup      = "group"
 )
 
 // Change modifies specific attributes of a card in the user's inventory.
@@ -29,7 +29,7 @@ const (
 //
 //   - level:       integer between 1 and 60.
 //   - skillLevel:  integer between 1 and 4.
-//   - masteryRank: integer between 0 and 5.
+//   - masterRank:  integer between 0 and 5.
 //   - sideStory1:  boolean (true/false).
 //   - sideStory2:  boolean (true/false).
 //   - painting:    boolean (true/false).
@@ -84,8 +84,8 @@ func applyCardField(card *model.CardEntity, field, value string) error {
 		return applyLevel(card, value)
 	case fieldSkillLevel:
 		return applySkillLevel(card, value)
-	case fieldMasteryRank:
-		return applyMasteryRank(card, value)
+	case fieldMasterRank:
+		return applyMasterRank(card, value)
 	case fieldSideStory1:
 		return applySideStory1(card, value)
 	case fieldSideStory2:
@@ -117,13 +117,13 @@ func applySkillLevel(card *model.CardEntity, value string) error {
 	return nil
 }
 
-// applyMasteryRank validates and sets the card's mastery rank (0–5).
-func applyMasteryRank(card *model.CardEntity, value string) error {
-	v, err := parseIntField(value, fieldMasteryRank, 0, 5)
+// applyMasterRank validates and sets the card's master rank (0–5).
+func applyMasterRank(card *model.CardEntity, value string) error {
+	v, err := parseIntField(value, fieldMasterRank, 0, 5)
 	if err != nil {
 		return err
 	}
-	card.MasteryRank = v
+	card.MasterRank = v
 	return nil
 }
 
@@ -226,8 +226,8 @@ func printChangeSummary(card, original *model.CardEntity) {
 	if original.Level != card.Level {
 		printNumericChange("Level", original.Level, card.Level)
 	}
-	if original.MasteryRank != card.MasteryRank {
-		printNumericChange("Mastery Rank", original.MasteryRank, card.MasteryRank)
+	if original.MasterRank != card.MasterRank {
+		printNumericChange("Master Rank", original.MasterRank, card.MasterRank)
 	}
 	if original.SkillLevel != card.SkillLevel {
 		printNumericChange("Skill Level", original.SkillLevel, card.SkillLevel)

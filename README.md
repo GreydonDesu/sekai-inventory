@@ -11,7 +11,7 @@ A command-line tool written in Go for managing and converting inventory data for
 - **Card Management** — Add, remove, and update cards with detailed properties
 - **Live Data Sync** — Fetch latest card and character data from Sekai-World
 - **Advanced Search** — Find cards by character, rarity, unit, or painting status
-- **Inventory Tracking** — Monitor card levels, mastery ranks, skill levels, and side stories
+- **Inventory Tracking** — Monitor card levels, master ranks, skill levels, and side stories
 - **Colorized Output** — Beautiful terminal output with rarity stars and unit badges
 
 ## Requirements
@@ -117,7 +117,7 @@ erDiagram
         int ID PK
         int Level
         int SkillLevel
-        int MasteryRank
+        int MasterRank
         bool SideStory1
         bool SideStory2
         bool Painting
@@ -147,7 +147,7 @@ erDiagram
 | `ID` | int | - | Card ID (primary key) |
 | `Level` | int | 1–60 | Card level |
 | `SkillLevel` | int | 1–4 | Skill level |
-| `MasteryRank` | int | 0–5 | Mastery rank |
+| `MasterRank` | int | 0–5 | Master rank |
 | `SideStory1` | bool | true/false | Side story 1 unlock |
 | `SideStory2` | bool | true/false | Side story 2 unlock |
 | `Painting` | bool | true/false | Painting unlock |

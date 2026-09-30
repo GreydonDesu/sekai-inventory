@@ -90,11 +90,11 @@ var helpSections = []commandSection{
 				[]fieldHelp{
 					{"level", "Card level (1-60)"},
 					{"skillLevel", "Skill level (1-4)"},
-					{"masteryRank", "Mastery rank (0-5)"},
+					{"masterRank", "Master rank (0-5)"},
 					{"sideStory1", "Side story 1 unlock status (true/false)"},
 					{"sideStory2", "Side story 2 unlock status (true/false)"},
 					{"painting", "Painting status (true/false)"},
-					{"max", "Set level, skill, mastery, and side stories to maximum (painting unchanged)"},
+					{"max", "Set level, skill, master rank, and side stories to maximum (painting unchanged)"},
 				},
 			},
 		},
