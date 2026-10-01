@@ -8,13 +8,13 @@ import (
 	"time"
 )
 
-// Update fetches the latest card and character data from the remote database.
+// Update fetches the latest card, character, and card episode data from the remote database.
 //
 // It compares the current Git commit ID of the Sekai-World master data
 // repository with the commit ID stored in the local metadata. If the commit
 // has not changed, Update skips downloading new data and reports that the
 // local data is already up to date. Otherwise it downloads the latest
-// cards.json and gameCharacters.json, updates metadata, and prints a summary.
+// cards.json, gameCharacters.json and cardEpisodes.json, updates metadata, and prints a summary.
 //
 // Progress is reported as a simple text progress bar on stdout.
 func Update() {
@@ -75,6 +75,7 @@ func Update() {
 		fmt.Printf("\nUpdate Summary:\n")
 		fmt.Printf("  Cards database updated:      %s\n", tools.FormatTime(metadata.CardsLastUpdate))
 		fmt.Printf("  Characters database updated: %s\n", tools.FormatTime(metadata.CharsLastUpdate))
+		fmt.Printf("  Card episodes updated:       %s\n", tools.FormatTime(metadata.CardEpisodesLastUpdate))
 		commitID := metadata.GitCommitID
 		if len(commitID) > 7 {
 			commitID = commitID[:7]

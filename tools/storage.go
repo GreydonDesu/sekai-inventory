@@ -18,6 +18,9 @@ const (
 
 	// CharactersFile is the path to the game's character database.
 	CharactersFile = "res/gameCharacters.json"
+
+	// CardEpisodesFile is the path to the game's card episode (side story) database.
+	CardEpisodesFile = "res/cardEpisodes.json"
 )
 
 // EnsureResDirectory creates the "res" directory if it does not exist.
@@ -161,4 +164,44 @@ func LoadCharacters() ([]model.Character, error) {
 		return nil, fmt.Errorf("failed to parse gameCharacters.json: %w", err)
 	}
 	return characters, nil
+}
+
+// LoadCardEpisodes reads and parses the game's card episode database from
+// CardEpisodesFile.
+//
+// The cardEpisodes.json file lists the side story parts of each card. It is
+// used to tell which cards have side stories at all. LoadCardEpisodes returns
+// an error if the file is missing or contains invalid data.
+func LoadCardEpisodes() ([]model.CardEpisode, error) {
+	// Check if the card episodes file exists.
+	if _, err := os.Stat(CardEpisodesFile); os.IsNotExist(err) {
+		return nil, fmt.Errorf("cardEpisodes.json not found. Please run 'sekai-inventory update' to fetch the latest data")
+	} else if err != nil {
+		return nil, fmt.Errorf("failed to check cardEpisodes.json file: %w", err)
+	}
+
+	// Read the card episodes file.
+	data, err := os.ReadFile(CardEpisodesFile)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read cardEpisodes.json: %w", err)
+	}
+
+	// Parse the JSON data into a slice of CardEpisode structs.
+	var episodes []model.CardEpisode
+	if err := json.Unmarshal(data, &episodes); err != nil {
+		return nil, fmt.Errorf("failed to parse cardEpisodes.json: %w", err)
+	}
+	return episodes, nil
+}
+
+// CreateSideStorySet returns the set of card IDs that have side stories, that
+// is, every card ID that appears in the given episodes. In the current master
+// data a card has either both side story parts or none, so one flag per card
+// is enough.
+func CreateSideStorySet(episodes []model.CardEpisode) map[int]bool {
+	set := make(map[int]bool, len(episodes)/2+1)
+	for _, e := range episodes {
+		set[e.CardID] = true
+	}
+	return set
 }

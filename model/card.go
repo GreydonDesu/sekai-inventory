@@ -35,6 +35,29 @@ type Card struct {
 	Prefix string `json:"prefix"`
 }
 
+// Card episode part types as they appear in cardEpisodes.json.
+const (
+	EpisodePartFirst  = "first_part"
+	EpisodePartSecond = "second_part"
+)
+
+// CardEpisode describes one side story part of a card in the game's master data.
+//
+// A card has side stories only if cardEpisodes.json contains entries for its ID.
+type CardEpisode struct {
+	// ID uniquely identifies the episode.
+	ID int `json:"id"`
+
+	// Seq is the episode's order within its card.
+	Seq int `json:"seq"`
+
+	// CardID links to the card this episode belongs to.
+	CardID int `json:"cardId"`
+
+	// CardEpisodePartType is "first_part" or "second_part".
+	CardEpisodePartType string `json:"cardEpisodePartType"`
+}
+
 // CardEntity extends Card with user-specific properties that represent a card
 // instance in the user's inventory.
 //

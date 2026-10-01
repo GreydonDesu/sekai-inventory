@@ -18,11 +18,17 @@ const (
 	// CharactersURL points to the latest character data in the Sekai-World repository.
 	CharactersURL = "https://raw.githubusercontent.com/Sekai-World/sekai-master-db-en-diff/refs/heads/main/gameCharacters.json"
 
+	// CardEpisodesURL points to the latest card episode (side story) data in the Sekai-World repository.
+	CardEpisodesURL = "https://raw.githubusercontent.com/Sekai-World/sekai-master-db-en-diff/refs/heads/main/cardEpisodes.json"
+
 	// LocalCardsFile is the path where the cards data is stored locally.
 	LocalCardsFile = "res/cards.json"
 
 	// LocalCharsFile is the path where the character data is stored locally.
 	LocalCharsFile = "res/gameCharacters.json"
+
+	// LocalCardEpisodesFile is the path where the card episode data is stored locally.
+	LocalCardEpisodesFile = "res/cardEpisodes.json"
 
 	// MetadataFile stores information about the last data update.
 	MetadataFile = "res/metadata.json"
@@ -48,6 +54,9 @@ type Metadata struct {
 
 	// CharsLastUpdate stores when the gameCharacters.json file was last modified.
 	CharsLastUpdate string `json:"charsLastUpdate"`
+
+	// CardEpisodesLastUpdate stores when the cardEpisodes.json file was last modified.
+	CardEpisodesLastUpdate string `json:"cardEpisodesLastUpdate"`
 }
 
 // fetchFile downloads a file from the given URL and saves it to filePath.
@@ -147,13 +156,14 @@ func LoadMetadata() (*Metadata, error) {
 
 // SaveMetadata writes a Metadata record to MetadataFile. It records the current
 // time as Timestamp and stores the provided Git commit ID and Last-Modified
-// values for the card and character databases.
-func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate string) error {
+// values for the card, character and card episode databases.
+func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate, cardEpisodesLastUpdate string) error {
 	metadata := Metadata{
-		Timestamp:       time.Now().Format(time.RFC3339),
-		GitCommitID:     gitCommitID,
-		CardsLastUpdate: cardsLastUpdate,
-		CharsLastUpdate: charsLastUpdate,
+		Timestamp:              time.Now().Format(time.RFC3339),
+		GitCommitID:            gitCommitID,
+		CardsLastUpdate:        cardsLastUpdate,
+		CharsLastUpdate:        charsLastUpdate,
+		CardEpisodesLastUpdate: cardEpisodesLastUpdate,
 	}
 
 	// Create or overwrite the metadata file.
@@ -173,6 +183,18 @@ func SaveMetadata(gitCommitID, cardsLastUpdate, charsLastUpdate string) error {
 	return nil
 }
 
+// dataFilesMissing reports whether any of the downloaded data files is absent
+// locally. In that case an update is required even if the Git commit ID is
+// unchanged.
+func dataFilesMissing() bool {
+	for _, path := range []string{LocalCardsFile, LocalCharsFile, LocalCardEpisodesFile} {
+		if _, err := os.Stat(path); err != nil {
+			return true
+		}
+	}
+	return false
+}
+
 // ProgressCallback reports progress for long-running fetch operations.
 // Stage is a human-readable description of the current step, and progress
 // is a value in the range [0, 1].
@@ -184,8 +206,8 @@ type ProgressCallback func(stage string, progress float64)
 //
 //  1. Ensure the "res" directory exists.
 //  2. Fetch the latest Git commit ID from the Sekai-World repository.
-//  3. Compare the commit with local metadata; if unchanged, return ErrNoUpdateNeeded.
-//  4. If updated, download cards.json and gameCharacters.json.
+//  3. Compare the commit with local metadata; if unchanged and all data files exist, return ErrNoUpdateNeeded.
+//  4. Otherwise, download cards.json, gameCharacters.json and cardEpisodes.json.
 //  5. Save metadata with updated timestamps and commit ID.
 //
 // If the remote Git commit ID matches the local one, FetchAndSaveData returns
@@ -216,8 +238,8 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 		oldMeta = m
 	}
 
-	// If we already have metadata and the commit ID matches, skip downloads.
-	if oldMeta != nil && oldMeta.GitCommitID == latestCommitID {
+	// If we already have metadata, the commit ID matches and all data files exist, skip downloads.
+	if oldMeta != nil && oldMeta.GitCommitID == latestCommitID && !dataFilesMissing() {
 		reportProgress("Checking data version", 1.0)
 		return ErrNoUpdateNeeded
 	}
@@ -229,19 +251,27 @@ func FetchAndSaveData(progressCb ProgressCallback) error {
 	if err != nil {
 		return fmt.Errorf("error fetching cards.json: %w", err)
 	}
-	reportProgress("Fetching card database", 0.5)
+	reportProgress("Fetching card database", 0.4)
 
 	// 3) Fetch and save the gameCharacters.json file.
-	reportProgress("Fetching character database", 0.5)
+	reportProgress("Fetching character database", 0.4)
 	charsLastUpdate, err := fetchFile(CharactersURL, LocalCharsFile)
 	if err != nil {
 		return fmt.Errorf("error fetching gameCharacters.json: %w", err)
 	}
-	reportProgress("Fetching character database", 0.8)
+	reportProgress("Fetching character database", 0.6)
 
-	// 4) Save the metadata.
+	// 4) Fetch and save the cardEpisodes.json file.
+	reportProgress("Fetching card episode database", 0.6)
+	cardEpisodesLastUpdate, err := fetchFile(CardEpisodesURL, LocalCardEpisodesFile)
+	if err != nil {
+		return fmt.Errorf("error fetching cardEpisodes.json: %w", err)
+	}
+	reportProgress("Fetching card episode database", 0.8)
+
+	// 5) Save the metadata.
 	reportProgress("Saving metadata", 0.8)
-	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate); err != nil {
+	if err := SaveMetadata(latestCommitID, cardsLastUpdate, charsLastUpdate, cardEpisodesLastUpdate); err != nil {
 		return fmt.Errorf("error saving metadata: %w", err)
 	}
 	reportProgress("Saving metadata", 1.0)
