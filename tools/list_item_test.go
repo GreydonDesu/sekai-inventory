@@ -244,7 +244,7 @@ func TestFormatCardDetails(t *testing.T) {
 	characterMap := map[int]model.Character{
 		2: {ID: 2, FirstName: "Hoshino", GivenName: "Ichika"},
 	}
-	details := FormatCardDetails(card, characterMap)
+	details := FormatCardDetails(card, characterMap, nil)
 	for _, substr := range []string{"[5]", "★★★", "Lvl 30", "Cool", "MR3", "SL2", "☑", "☐", "Hoshino Ichika", "(L/N)", "Detail Card"} {
 		if !strings.Contains(details, substr) {
 			t.Errorf("FormatCardDetails() output %q missing %q", details, substr)

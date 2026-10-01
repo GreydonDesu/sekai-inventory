@@ -18,6 +18,22 @@ var rarityLabels = map[string]string{
 	model.RarityTypeBirthday: "୨୧",
 }
 
+// FormatSideStory returns a colorized checkbox symbol for a side story.
+// If the card has no side story, it returns ☒ (crossed box).
+// Otherwise it returns ☑ (green) for unlocked or ☐ (red) for locked.
+func FormatSideStory(hasStory, unlocked bool) string {
+	if !hasStory {
+		r, g, b, _ := HexToRGB("#808080") //nolint:errcheck // hardcoded valid hex
+		return color.RGB(r, g, b).Sprint("☒")
+	}
+	if unlocked {
+		r, g, bl, _ := HexToRGB("#00ff00") //nolint:errcheck // hardcoded valid hex
+		return color.RGB(r, g, bl).Sprint("☑")
+	}
+	r, g, bl, _ := HexToRGB("#ff0000") //nolint:errcheck // hardcoded valid hex
+	return color.RGB(r, g, bl).Sprint("☐")
+}
+
 // FormatBool returns a colorized checkbox symbol representing a boolean value:
 // ☑ (green) for true and ☐ (red) for false.
 func FormatBool(b bool) string {
@@ -75,7 +91,10 @@ func FormatCardLabel(card model.CardEntity, characterMap map[int]model.Character
 // formatting based on rarity, level, side stories, and painting status.
 //
 // The characterMap is used to resolve CharacterID to character names and units.
-func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Character) string {
+// The sideStorySet, if provided, indicates which cards have side stories; cards
+// not in the set show ☒ instead of a checkbox. If sideStorySet is nil, all cards
+// are treated as having side stories (backward compatible).
+func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Character, sideStorySet map[int]bool) string {
 	character, exists := characterMap[card.CharacterID]
 	characterName := "Unknown Character"
 	if exists {
@@ -116,6 +135,12 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 		skillLevel = green.Sprint(skillLevel)
 	}
 
+	// Determine if this card has side stories.
+	hasSideStories := true
+	if sideStorySet != nil {
+		hasSideStories = sideStorySet[card.ID]
+	}
+
 	return fmt.Sprintf("[%d]\t%s\t%s\t%s\t| %s | %s | Side Story 1: %s | Side Story 2: %s | Painting: %s | %s%s \"%s\"",
 		card.ID,
 		FormatRarity(card.CardRarityType),
@@ -123,8 +148,8 @@ func FormatCardDetails(card model.CardEntity, characterMap map[int]model.Charact
 		FormatAttribute(card.Attr),
 		masterRank,
 		skillLevel,
-		FormatBool(card.SideStory1),
-		FormatBool(card.SideStory2),
+		FormatSideStory(hasSideStories, card.SideStory1),
+		FormatSideStory(hasSideStories, card.SideStory2),
 		painting,
 		characterName,
 		unitPart,

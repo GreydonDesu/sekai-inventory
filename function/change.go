@@ -35,8 +35,9 @@ const (
 //   - painting:    boolean (true/false).
 //
 // Change returns an error if the card does not exist, a field name is unknown,
-// a value is invalid, or the inventory cannot be saved. On success it prints a
-// detailed, colorized summary of the changes.
+// a value is invalid, or the inventory cannot be saved. If a side story is set
+// to true for a card that has no side stories, Change returns an error.
+// On success it prints a detailed, colorized summary of the changes.
 func Change(cardID int, updates map[string]string) error {
 	inventory, err := tools.LoadInventory()
 	if err != nil {
@@ -52,6 +53,26 @@ func Change(cardID int, updates map[string]string) error {
 	}
 	if card == nil {
 		return fmt.Errorf("no card found with ID %d", cardID)
+	}
+
+	// Load side story data to validate side story updates (non-fatal if missing).
+	var sideStorySet map[int]bool
+	if episodes, err := tools.LoadCardEpisodes(); err == nil {
+		sideStorySet = tools.CreateSideStorySet(episodes)
+	}
+
+	// Check if any side story update tries to set a non-existent story to true.
+	if sideStorySet != nil && !sideStorySet[cardID] {
+		if val, ok := updates[fieldSideStory1]; ok {
+			if b, err := strconv.ParseBool(val); err == nil && b {
+				return fmt.Errorf("card %d has no side story 1", cardID)
+			}
+		}
+		if val, ok := updates[fieldSideStory2]; ok {
+			if b, err := strconv.ParseBool(val); err == nil && b {
+				return fmt.Errorf("card %d has no side story 2", cardID)
+			}
+		}
 	}
 
 	original := *card

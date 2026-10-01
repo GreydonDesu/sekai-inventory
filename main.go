@@ -76,7 +76,8 @@ func getCardMaxLevel(rarity string) int {
 //	change <cardID> --max
 //
 // The --max flag sets all fields (except painting) to their maximum values:
-// level (based on rarity), skillLevel=4, masterRank=5, sideStory1=true, sideStory2=true.
+// level (based on rarity), skillLevel=4, masterRank=5, and side stories to true
+// only if the card has side stories.
 //
 // The function validates the card ID and field/value pairs, delegates the
 // update to function.Change, and prints a success message when the card
@@ -136,8 +137,18 @@ func handleChangeCommand(args []string) error {
 		updates["level"] = strconv.Itoa(maxLevel)
 		updates["skillLevel"] = "4"
 		updates["masterRank"] = "5"
-		updates["sideStory1"] = "true"
-		updates["sideStory2"] = "true"
+
+		// Load side story data to determine if this card has side stories (non-fatal if missing).
+		var sideStorySet map[int]bool
+		if episodes, err := tools.LoadCardEpisodes(); err == nil {
+			sideStorySet = tools.CreateSideStorySet(episodes)
+		}
+
+		// Set side stories to true only if the card has them.
+		if sideStorySet == nil || sideStorySet[cardID] {
+			updates["sideStory1"] = "true"
+			updates["sideStory2"] = "true"
+		}
 	}
 
 	if err := function.Change(cardID, updates); err != nil {

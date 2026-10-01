@@ -39,6 +39,14 @@ func Search(filters map[string]string) {
 
 	characterMap := tools.CreateCharacterMap(characters)
 
+	// Load side story data (non-fatal if missing).
+	var sideStorySet map[int]bool
+	if episodes, err := tools.LoadCardEpisodes(); err == nil {
+		sideStorySet = tools.CreateSideStorySet(episodes)
+	} else {
+		tools.PrintWarningMessage(fmt.Sprintf("Warning: could not load side story data: %v", err))
+	}
+
 	inventoryIDs := make(map[int]bool, len(inventory.Cards))
 	for _, card := range inventory.Cards {
 		inventoryIDs[card.ID] = true
@@ -65,7 +73,7 @@ func Search(filters map[string]string) {
 
 	tools.PrintSuccessMessage(fmt.Sprintf("Found %d matching cards:", len(filteredCards)))
 	for _, card := range filteredCards {
-		fmt.Println(tools.FormatCardDetails(model.CardEntity{Card: card}, characterMap))
+		fmt.Println(tools.FormatCardDetails(model.CardEntity{Card: card}, characterMap, sideStorySet))
 	}
 }
 
